@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacac High School Youth for Environment in Schools-Organization</title>
+    <meta name="description" content="Official website of the Youth for Environment in Schools Organization (YES-O) - Para sa Kabataan at Kalikasan.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#1B5E20',
+                        emerald: '#2E7D32',
+                        leaf: '#43A047',
+                        mint: '#A5D6A7',
+                        blueAccent: '#1565C0',
+                        lightBlue: '#E3F2FD',
+                        cream: '#FAFAFA',
+                        darkText: '#263238'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAFAFA;
+            color: #263238;
+            overflow-x: hidden;
+        }
+        
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 40px 0 rgba(46, 125, 50, 0.15);
+            border-color: rgba(46, 125, 50, 0.3);
+        }
+
+        /* Animated Custom Background Elements */
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.45;
+            animation: float-blob 12s infinite alternate;
+        }
+
+        @keyframes float-blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(40px, -60px) scale(1.15); }
+            100% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* Leaf Floating Animation */
+        .floating-leaf {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.15;
+            z-index: 1;
+            animation: leafFall 18s linear infinite;
+        }
+
+        @keyframes leafFall {
+            0% { transform: translateY(-10%) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.25; }
+            90% { opacity: 0.25; }
+            100% { transform: translateY(110vh) translateX(120px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            height: 4px;
+            background: linear-gradient(to right, #2E7D32, #1565C0);
+            width: 0%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Custom Ripple Button Effect */
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ripple::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
+        }
+
+        .btn-ripple:active::after {
+            transform: scale(0, 0);
+            opacity: .3;
+            transition: 0s;
+        }
+
+        /* CSS Wave Divider */
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(135% + 1.3px);
+            height: 75px;
+        }
+
+        .wave-divider .shape-fill {
+            fill: #FAFAFA;
+        }
+
+        /* Smooth Lightbox Overlay */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="scroll-progress"></div>
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-10" id="leaf-container">
+        </div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 py-4" id="main-nav">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            
+           <a href="#home" class="flex items-center space-x-3 group">
+    <div class="w-12 h-12 rounded-xl overflow-hidden shadow-md group-hover:scale-105 transition-transform bg-white border border-green-200">
+        <img src="logo.png" alt="YES-O Logo" class="w-full h-full object-cover">
+    </div>
+    <div>
+        <h1 class="text-emerald font-extrabold text-lg leading-tight uppercase tracking-wide">YES-O</h1>
+        <p class="text-xs text-slate-500 font-semibold italic">Para sa Kabataan at Kalikasan</p>
+    </div>
+</a>
+
+            <div class="hidden lg:flex items-center space-x-8 font-medium text-slate-700 text-sm">
+                <a href="#home" class="nav-link hover:text-emerald transition-colors relative py-2">Home</a>
+                <a href="#about" class="nav-link hover:text-emerald transition-colors relative py-2">About</a>
+                <a href="#officers" class="nav-link hover:text-emerald transition-colors relative py-2">Officers</a>
+                <a href="#members" class="nav-link hover:text-emerald transition-colors relative py-2">Members</a>
+                <a href="#gallery" class="nav-link hover:text-emerald transition-colors relative py-2">Gallery</a>
+                <a href="#suggestions" class="nav-link hover:text-emerald transition-colors relative py-2">Suggestions</a>
+                <a href="#contact" class="px-5 py-2.5 bg-emerald text-white font-semibold rounded-xl hover:bg-forest transition-colors shadow-md shadow-emerald/10 btn-ripple">Contact Us</a>
+            </div>
+
+            <button class="lg:hidden text-slate-700 hover:text-emerald focus:outline-none z-50" id="menu-btn" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars-staggered text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <div class="hidden lg:hidden fixed inset-0 bg-white/98 z-40 flex flex-col justify-center items-center space-y-6 text-xl font-bold transition-all duration-300" id="mobile-menu">
+            <a href="#home" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Home</a>
+            <a href="#about" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">About</a>
+            <a href="#officers" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Officers</a>
+            <a href="#members" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Members</a>
+            <a href="#gallery" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Gallery</a>
+            <a href="#suggestions" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Suggestion Box</a>
+            <a href="#contact" class="px-8 py-3 bg-emerald text-white rounded-xl shadow-lg hover:bg-forest transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <header id="home" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald/5 via-mint/5 to-lightBlue/10 pt-20 overflow-hidden">
+        <div class="bg-blob bg-emerald/10 w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
+        <div class="bg-blob bg-blueAccent/5 w-[400px] h-[400px] bottom-[-50px] right-[-50px]" style="animation-delay: -3s;"></div>
+
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-20" data-aos="fade-up" data-aos-duration="1200">
+            <span class="inline-flex items-center space-x-2 bg-emerald/10 text-emerald text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-earth-asia animate-spin-slow text-sm mr-1"></i> Pacac High School
+            </span>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-800 mb-6 leading-none">
+                Youth for Environment in <br class="hidden md:inline">
+                <span class="bg-gradient-to-r from-emerald to-forest bg-clip-text text-transparent">Schools Organization</span>
+            </h1>
+
+            <p class="serif-title text-xl md:text-2xl text-slate-600 italic font-medium max-w-2xl mx-auto mb-10">
+                "Para sa Kabataan at Kalikasan"
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#officers" class="w-full sm:w-auto px-8 py-4 bg-emerald text-white text-base font-semibold rounded-xl shadow-lg hover:bg-forest hover:shadow-emerald/20 transition-all transform hover:-translate-y-0.5 text-center btn-ripple">
+                    Meet Our Officers
+                </a>
+                <a href="#members" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 hover:text-emerald text-base font-semibold rounded-xl border border-slate-200 hover:border-emerald/40 shadow-sm transition-all text-center">
+                    Explore Members
+                </a>
+            </div>
+        </div>
+
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1130.5,120.69,1051,111.19,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <section id="about" class="py-24 relative overflow-hidden bg-cream">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="relative" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-mint/20 rounded-full blur-3xl"></div>
+                    <div class="bg-gradient-to-tr from-emerald/10 to-blueAccent/5 rounded-3xl p-8 border border-emerald/10 shadow-xl relative">
+                        <div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center relative group">
+                            <div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-overlay" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1200');"></div>
+                            <div class="z-10 text-center p-6 text-white">
+                                <span class="w-16 h-16 rounded-full bg-emerald flex items-center justify-center mx-auto mb-4 animate-bounce">
+                                    <i class="fa-solid fa-hands-holding-circle text-2xl"></i>
+                                </span>
+                                <h4 class="font-bold text-lg">Advocates of Green Change</h4>
+                                <p class="text-xs text-white/80 max-w-sm mt-1">Leading school-based environmental action in schools across the nation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" data-aos-duration="1000">
+                    <span class="text-emerald font-bold text-sm uppercase tracking-widest block mb-2">Para sa Kabataan at Kalikasan.</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-6">Empowering youth for sustainable conservation</h2>
+                    
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        The Youth for Environment in Schools Organization (YES-O) is the premier school-based co-curricular organization aimed at fostering consciousness and deliberate action to protect, preserve, and restore our natural ecosystems.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald/20 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-emerald/10 flex items-center justify-center text-emerald mb-4">
+                                <i class="fa-solid fa-bullseye text-lg"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 mb-2">Mission</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">To implement concrete, active eco-programs across school levels.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald/20 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-blueAccent/10 flex items-center justify-center text-blueAccent mb-4">
+                                <i class="fa-solid fa-eye text-lg"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 mb-2">Vision</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">A community of youth champions with ingrained ecological integrity.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald/20 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-forest/10 flex items-center justify-center text-forest mb-4">
+                                <i class="fa-solid fa-seedling text-lg"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 mb-2">Objectives</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Instill proper environmental stewardship and sustainable lifestyle habits.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="officers" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-emerald font-bold text-sm uppercase tracking-widest block mb-2">S.Y 2026-2027</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">YES-O Officers</h2>
+                <div class="w-20 h-1 bg-emerald mx-auto mt-4 rounded-full"></div>
+            </div>
+<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16" data-aos="fade-up">
+
+    <!-- School Principal -->
+    <div class="glass-card p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6">
+        <div class="w-32 h-32 flex-shrink-0 rounded-2xl overflow-hidden border border-slate-200">
+            <img src="images/principal.jpg" alt="Sir Eric M. Villanueva" class="w-full h-full object-cover object-center">
+        </div>
+        <div class="text-center sm:text-left">
+            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-2xs font-bold rounded-full uppercase tracking-wider">School Principal</span>
+            <h3 class="font-bold text-slate-800 text-xl mt-2">Sir Eric M. Villanueva, MAEd</h3>
+            <p class="text-emerald font-semibold text-sm">School Principal III</p>
+        </div>
+    </div>
+
+    <!-- YES-O Adviser -->
+    <div class="glass-card p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6">
+        <div class="w-32 h-32 flex-shrink-0 rounded-2xl overflow-hidden border border-slate-200">
+            <img src="images/adviser.jpg" alt="Ma'am Lina G. Nolasco" class="w-full h-full object-cover object-center">
+        </div>
+        <div class="text-center sm:text-left">
+            <span class="px-3 py-1 bg-emerald/10 text-emerald text-2xs font-bold rounded-full uppercase tracking-wider">YES-O Adviser</span>
+            <h3 class="font-bold text-slate-800 text-xl mt-2">Ma'am Lina G. Nolasco, MAEd</h3>
+            <p class="text-emerald font-semibold text-sm">Teacher VI</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="200">
+
+    <!-- President -->
+    <div class="glass-card p-6 rounded-3xl text-center group">
+        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
+            <img src="images/officers/jomar.jpg" alt="Jomar C. Mata" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <h3 class="font-bold text-slate-800 text-lg">JOMAR C. MATA</h3>
+        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">President</p>
+    </div>
+
+    <!-- Vice President -->
+    <div class="glass-card p-6 rounded-3xl text-center group">
+        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
+            <img src="images/officers/meldred.jpg" alt="Meldred J. Biag" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <h3 class="font-bold text-slate-800 text-lg">MELDRED J. BIAG</h3>
+        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Vice President</p>
+    </div>
+
+    <!-- Secretary -->
+    <div class="glass-card p-6 rounded-3xl text-center group">
+        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
+            <img src="images/officers/myan.jpg" alt="Myan Pearl N. Prollo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <h3 class="font-bold text-slate-800 text-lg">MYAN PEARL N. PROLLO</h3>
+        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Secretary</p>
+    </div>
+
+    <!-- Treasurer -->
+    <div class="glass-card p-6 rounded-3xl text-center group">
+        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
+            <img src="images/officers/john.jpg" alt="John Alexis C. Ramiterre" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <h3 class="font-bold text-slate-800 text-lg">JOHN ALEXIS C. RAMITERRE</h3>
+        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Treasurer</p>
+    </div>
+
+    <!-- Auditor -->
+    <div class="glass-card p-6 rounded-3xl text-center group">
+        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
+            <img src="images/officers/alexa.jpg" alt="Alexa A. Agdipa" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <h3 class="font-bold text-slate-800 text-lg">ALEXA A. AGDIPA</h3>
+        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Auditor</p>
+    </div>
+
+    <!-- Public Information Officer -->
+    <div class="glass-card p-6 rounded-3xl text-center group">
+        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
+            <img src="images/officers/yuan.jpg" alt="Yuan Gabriel M. Paringit" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <h3 class="font-bold text-slate-800 text-lg">YUAN GABRIEL M. PARINGIT</h3>
+        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Public Information Officer</p>
+    </div>
+
+    <!-- Peace Officer -->
+    <div class="glass-card p-6 rounded-3xl text-center group">
+        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
+            <img src="images/officers/sofhia.jpg" alt="Sofhia Denise G. Tigolo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <h3 class="font-bold text-slate-800 text-lg">SOFHIA DENISE G. TIGOLO</h3>
+        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Peace Officer</p>
+    </div>
+
+
+        </div>
+    </section>
+
+    <section id="members" class="py-24 bg-cream relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
+                <span class="text-emerald font-bold text-sm uppercase tracking-widest block mb-2">Engaged Youth Communities</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">Organization Members</h2>
+                <div class="w-20 h-1 bg-emerald mx-auto mt-4 mb-8 rounded-full"></div>
+                
+                <div class="relative max-w-xl mx-auto">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <input type="text" id="member-search" placeholder="Search a member's name..." class="w-full pl-12 pr-12 py-4 bg-white border border-slate-200 focus:border-emerald/40 rounded-2xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all shadow-sm font-medium">
+                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center hidden" id="search-clear-btn">
+                        <button class="text-slate-400 hover:text-emerald transition-colors"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </div>
+                </div>
+
+                <div id="search-result-toast" class="mt-4 hidden p-3 bg-emerald/10 text-emerald text-sm font-semibold rounded-xl inline-block max-w-full">
+                    </div>
+            </div>
+
+            <div class="grid gap-6 max-w-4xl mx-auto" id="circles-grid" data-aos="fade-up">
+                </div>
+
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
+                <span class="text-emerald font-bold text-sm uppercase tracking-widest block mb-2">YES to YES-O in Action</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">Gallery Wall</h2>
+                <div class="w-20 h-1 bg-emerald mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" id="gallery-filters">
+                <button data-filter="all" class="filter-btn px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-emerald text-white shadow-md shadow-emerald/10">All</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="masonry-gallery" data-aos="fade-up">
+                </div>
+        </div>
+    </section>
+
+    <section id="suggestions" class="py-24 bg-cream relative overflow-hidden">
+        <div class="bg-blob bg-emerald/5 w-[500px] h-[500px] bottom-[-200px] left-[-200px]"></div>
+        
+        <div class="max-w-3xl mx-auto px-6 relative z-10" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="glass-card p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-emerald/10 rounded-bl-full flex items-center justify-center pl-6 pb-6 text-emerald text-3xl">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                
+                <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Suggestions and Concerns</h2>
+                <p class="text-sm text-slate-500 mb-8 leading-relaxed">
+                    We value your ideas and concerns. Help us improve our organization by sending your feedback. All messages are sent directly to the Executive Board.
+                </p>
+
+                <form id="sumbungform" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-slate-600 uppercase tracking-wider block">Full Name <span class="text-slate-400 font-normal">(Optional)</span></label>
+                            <input type="text" name="name" placeholder="Juan Dela Cruz" class="w-full px-4 py-3 bg-white/50 border border-slate-200 focus:border-emerald/40 rounded-xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-slate-600 uppercase tracking-wider block">Email Address <span class="text-slate-400 font-normal">(Optional)</span></label>
+                            <input type="email" name="email" placeholder="yourname@gmail.com" class="w-full px-4 py-3 bg-white/50 border border-slate-200 focus:border-emerald/40 rounded-xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-600 uppercase tracking-wider block">Subject</label>
+                        <input type="text" name="subject" required placeholder="General feedback / Concern" class="w-full px-4 py-3 bg-white/50 border border-slate-200 focus:border-emerald/40 rounded-xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-600 uppercase tracking-wider block">Your Message</label>
+                        <textarea name="message" required rows="5" placeholder="Share your suggestions, reports, or environmental action suggestions..." class="w-full px-4 py-3 bg-white/50 border border-slate-200 focus:border-emerald/40 rounded-xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-emerald hover:bg-forest text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-emerald/20 flex items-center justify-center space-x-2 btn-ripple">
+                        <span>Send Feedback</span>
+                        <i class="fa-solid fa-paper-plane text-sm"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Connect Directly with YES-O</h2>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Reach our administrative board via social networks or direct digital mail for collaborations, partnerships, and sponsorships.</p>
+                </div>
+                
+                <div class="flex items-center justify-start md:justify-end gap-6" data-aos="fade-left">
+                    <a href="mailto:pacachsyes.o@gmail.com" class="group flex items-center space-x-4 bg-lightBlue/50 hover:bg-emerald/10 p-5 rounded-3xl border border-slate-100 hover:border-emerald/30 transition-all">
+                        <div class="w-16 h-16 bg-emerald/10 text-emerald rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 font-bold block uppercase tracking-wider">Email Us</span>
+                            <span class="text-slate-800 font-bold text-sm">pacachsyes.o@gmail.com</span>
+                        </div>
+                    </a>
+
+                    <a href="https://facebook.com/PacacHsYesO" target="_blank" class="group flex items-center space-x-4 bg-lightBlue/50 hover:bg-blueAccent/10 p-5 rounded-3xl border border-slate-100 hover:border-blueAccent/30 transition-all">
+                        <div class="w-16 h-16 bg-blueAccent/10 text-blueAccent rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 font-bold block uppercase tracking-wider">Facebook</span>
+                            <span class="text-slate-800 font-bold text-sm">Official Facebook</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gradient-to-tr from-forest via-emerald to-emerald/90 text-white pt-20 pb-10 relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0 transform rotate-180 opacity-5">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72..." class="fill-current"></path></svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div class="md:col-span-2 space-y-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-white rounded-xl overflow-hidden flex items-center justify-center">
+                    <img src="logo.png" alt="YES-O Logo" class="w-full h-full object-cover">
+                </div>
+                <h2 class="font-extrabold text-2xl tracking-wide">YES-O</h2>
+            </div>
+
+            <p class="text-white/80 text-sm max-w-sm leading-relaxed serif-title italic">
+                Para sa Kabataan at Kalikasan
+            </p>
+
+            <p class="text-xs text-white/70">
+                Connecting youth through actions designed to heal and transform local school environments.
+            </p>
+        </div>
+    
+
+                <div>
+                    <h3 class="font-bold text-white/90 text-sm uppercase tracking-widest mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-sm text-white/70 font-semibold">
+                        <li><a href="#home" class="hover:text-mint transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-mint transition-colors">About</a></li>
+                        <li><a href="#officers" class="hover:text-mint transition-colors">Officers</a></li>
+                        <li><a href="#members" class="hover:text-mint transition-colors">Members</a></li>
+                        <li><a href="#gallery" class="hover:text-mint transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white/90 text-sm uppercase tracking-widest mb-6">Interact</h3>
+                    <ul class="space-y-3 text-sm text-white/70 font-semibold">
+                        <li><a href="#suggestions" class="hover:text-mint transition-colors">Suggestion Box</a></li>
+                        <li><a href="mailto:pacachsyes.o@gmail.com" class="hover:text-mint transition-colors">Contact Support</a></li>
+                    </ul>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="mailto:pacachsyes.o@gmail.com" class="w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center transition-all"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/60 font-medium">
+                <p>&copy; 2026 Youth for Environment in Schools Organization. All Rights Reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <span>Para sa Kabataan at Kalikasan</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-emerald text-white shadow-xl flex items-center justify-center hover:bg-forest transition-all duration-300 opacity-0 invisible hover:-translate-y-1">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <div id="lightbox" class="lightbox">
+        <button class="absolute top-6 right-6 text-white hover:text-emerald text-3xl focus:outline-none" id="close-lightbox" aria-label="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
+        <div class="max-w-4xl max-h-[80vh] px-4">
+            <img src="" id="lightbox-img" class="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl mx-auto border-2 border-white/10">
+            <p id="lightbox-caption" class="text-white font-medium text-center mt-4 text-base tracking-wide"></p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+
+        /* Dynamic Circle Members Dataset */
+        const YES_O_DATA = [
+            {
+                id: "circle-1",
+                name: "Sagada Circle",
+                advocate: "Jomar Mata",
+                badge: "President",
+                members: ["Aldrin Reyes", "Beatrice Gomez", "Christian Ramos", "Diana Perez", "Ethan Dela Cruz", "Fiona Alcantara"]
+            },
+            {
+                id: "circle-2",
+                name: "Rafflesia Circle",
+                advocate: "Meldred Biag",
+                badge: "Vice President",
+                members: ["George Ignacio", "Hannah Rivera", "Ian Mendoza", "Jessica Sy", "Kevin Pineda", "Lauren Castro"]
+            },
+            {
+                id: "circle-3",
+                name: "Banaue Circle",
+                advocate: "Myan Pearl Prollo",
+                badge: "Secretary",
+                members: ["Miguel Ocampo", "Nadia Tolentino", "Oliver Santos", "Patricia De Leon", "Quentin Lopez", "Rina Valdez"]
+            },
+            {
+                id: "circle-4",
+                name: "Tayabak Circle",
+                advocate: "John Alexis Ramiterre",
+                badge: "Treasurer",
+                members: ["Samuel David", "Teresa Tan", "Ulysses Macaraeg", "Vanessa Aquino", "William Cruz", "Xavier Ferrer"]
+            },
+            {
+                id: "circle-5",
+                name: "Banaba Circle",
+                advocate: "Alexa Agdipa",
+                badge: "Trasurer",
+                members: ["Yolanda Goco", "Zachary Lim", "Angelica Basa", "Bruno Espiritu", "Chloe Roxas", "Dominic Yap"]
+            },
+            {
+                id: "circle-6",
+                name: "Almasiga Circle",
+                advocate: "Gabirel yuan Paringit",
+                badge: "Public Information Officer",
+                members: ["Evelyn Sotto", "Federico Villarta", "Giselle Mercado", "Harvey Go", "Irene Ortiz", "Justin Cua"]
+            },
+            {
+                id: "circle-7",
+                name: "Pantabangan Circle",
+                advocate: "Sofhia Denise Tigolo",
+                badge: "Peace Officer",
+                members: ["Kathleen Sy", "Leonard Chiu", "Monica Beltran", "Nelson Pascual", "Olivia Roque", "Patrick Dizon"]
+            }
+        ];
+
+       /* Dynamic Gallery Dataset */
+const GALLERY_ITEMS = [
+    {
+        category: "1st Meeting",
+        img: "1stMeeting  .jpg",
+        caption: "YES-O Meeting for S.Y 2026-2027"
+    }
+];
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Generate Floating Leaves in background
+            const leafContainer = document.getElementById('leaf-container');
+            const icons = ['fa-leaf', 'fa-seedling'];
+            for (let i = 0; i < 15; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'floating-leaf text-emerald';
+                const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+                leaf.innerHTML = `<i class="fa-solid ${randomIcon} text-2xl"></i>`;
+                leaf.style.left = `${Math.random() * 100}vw`;
+                leaf.style.animationDelay = `${Math.random() * 18}s`;
+                leaf.style.fontSize = `${12 + Math.random() * 24}px`;
+                leafContainer.appendChild(leaf);
+            }
+
+            // Build Expandable Member Circles
+            const circlesGrid = document.getElementById('circles-grid');
+            YES_O_DATA.forEach(circle => {
+                const card = document.createElement('div');
+                card.id = circle.id;
+                card.className = "glass-card p-6 rounded-3xl transition-all duration-300 overflow-hidden cursor-pointer shadow-sm";
+                card.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 bg-emerald/10 text-emerald rounded-2xl flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-tree"></i></div>
+                            <div>
+                                <h3 class="font-extrabold text-slate-800 text-lg leading-tight circle-title">${circle.name}</h3>
+                                <div class="flex items-center space-x-2 mt-1">
+                                    <span class="text-xs font-bold text-slate-400">Advocate:</span>
+                                    <span class="text-emerald font-semibold text-xs advocate-name">${circle.advocate}</span>
+                                    <span class="px-2 py-0.5 bg-blueAccent/10 text-blueAccent text-[10px] font-bold rounded-full uppercase tracking-wider">${circle.badge}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-auto flex justify-between sm:justify-end items-center gap-4">
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">${circle.members.length} Members</span>
+                            <span class="text-emerald shrink-0 toggle-arrow transform transition-transform duration-300"><i class="fa-solid fa-chevron-down text-sm"></i></span>
+                        </div>
+                    </div>
+                    <div class="expandable-drawer max-h-0 opacity-0 transition-all duration-500 overflow-hidden">
+                        <div class="border-t border-slate-100 mt-6 pt-6">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Community Members</h4>
+                            <div class="flex flex-wrap gap-2.5">
+                                ${circle.members.map(member => `
+                                    <span class="member-chip px-3 py-1.5 bg-white text-slate-600 border border-slate-200 rounded-xl text-xs font-semibold transition-all hover:border-emerald/40 hover:text-emerald cursor-pointer">${member}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Toggle expand on click
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.member-chip')) return; // Avoid collapsing if dynamic chips are clicked
+                    toggleCircle(card);
+                });
+                
+                circlesGrid.appendChild(card);
+            });
+
+            // Build Gallery Wall Elements
+            const masonryGallery = document.getElementById('masonry-gallery');
+            GALLERY_ITEMS.forEach(item => {
+                const element = document.createElement('div');
+                element.className = `gallery-item group relative overflow-hidden rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300` ;
+                element.setAttribute('data-category', item.category);
+                element.innerHTML = `
+                    <div class="aspect-[4/3] bg-slate-200 overflow-hidden">
+                        <img src="${item.img}" alt="${item.caption}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold text-emerald uppercase tracking-wider mb-1">${item.category.replace('-', ' ')}</span>
+                        <h4 class="text-white font-bold text-sm leading-snug">${item.caption}</h4>
+                    </div>
+                `;
+                element.addEventListener('click', () => openLightbox(item.img, item.caption));
+                masonryGallery.appendChild(element);
+            });
+        });
+
+        // Toggle Circle Function
+        function toggleCircle(card, forceOpen = false) {
+            const drawer = card.querySelector('.expandable-drawer');
+            const arrow = card.querySelector('.toggle-arrow');
+            const isOpen = drawer.classList.contains('active-drawer');
+
+            // Close other cards first if opened natively
+            if (!forceOpen) {
+                document.querySelectorAll('.expandable-drawer.active-drawer').forEach(activeDrawer => {
+                    if (activeDrawer !== drawer) {
+                        activeDrawer.classList.remove('active-drawer');
+                        activeDrawer.style.maxHeight = '0px';
+                        activeDrawer.style.opacity = '0';
+                        activeDrawer.closest('.glass-card').querySelector('.toggle-arrow').style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
+
+            if (isOpen && !forceOpen) {
+                drawer.classList.remove('active-drawer');
+                drawer.style.maxHeight = '0px';
+                drawer.style.opacity = '0';
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                drawer.classList.add('active-drawer');
+                drawer.style.maxHeight = drawer.scrollHeight + 'px';
+                drawer.style.opacity = '1';
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Search Filter System
+        const searchInput = document.getElementById('member-search');
+        const clearBtn = document.getElementById('search-clear-btn');
+        const searchToast = document.getElementById('search-result-toast');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (query !== "") {
+                clearBtn.classList.remove('hidden');
+                let found = false;
+                let foundCircle = null; 
+
+                // Scan through data
+                YES_O_DATA.forEach(circle => {
+                    const circleElement = document.getElementById(circle.id);
+                    const chips = circleElement.querySelectorAll('.member-chip');
+                    let circleHasMatch = false;
+
+                    // Match against members
+                    chips.forEach(chip => {
+                        const name = chip.textContent.toLowerCase();
+                        if (name.includes(query)) {
+                            chip.classList.add('bg-emerald/20', 'border-emerald', 'text-emerald');
+                            circleHasMatch = true;
+                            found = true;
+                            foundCircle = circle;
+                        } else {
+                            chip.classList.remove('bg-emerald/20', 'border-emerald', 'text-emerald');
+                        }
+                    });
+
+                    // Match against circle name or advocate name
+                    if (circle.name.toLowerCase().includes(query) || circle.advocate.toLowerCase().includes(query)) {
+                        circleHasMatch = true;
+                        found = true;
+                        foundCircle = circle;
+                    }
+
+                    if (circleHasMatch) {
+                        circleElement.classList.remove('opacity-40');
+                        circleElement.classList.add('border-emerald/40');
+                    } else {
+                        circleElement.classList.add('opacity-40');
+                        circleElement.classList.remove('border-emerald/40');
+                    }
+                });
+
+                if (found && foundCircle) {
+                    const targetCard = document.getElementById(foundCircle.id);
+                    toggleCircle(targetCard, true);
+                    searchToast.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Member found in <strong>${foundCircle.name}</strong>`;
+                    searchToast.classList.remove('hidden');
+                } else {
+                    searchToast.innerHTML = `<i class="fa-solid fa-circle-info mr-1"></i> No matching member or circle found.`;
+                    searchToast.classList.remove('hidden');
+                }
+            } else {
+                resetSearch();
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            resetSearch();
+        });
+
+        function resetSearch() {
+            clearBtn.classList.add('hidden');
+            searchToast.classList.add('hidden');
+            YES_O_DATA.forEach(circle => {
+                const circleElement = document.getElementById(circle.id);
+                circleElement.classList.remove('opacity-40', 'border-emerald/40');
+                
+                // Reset highlights
+                circleElement.querySelectorAll('.member-chip').forEach(chip => {
+                    chip.classList.remove('bg-emerald/20', 'border-emerald', 'text-emerald');
+                });
+
+                // Collapse all
+                const drawer = circleElement.querySelector('.expandable-drawer');
+                drawer.classList.remove('active-drawer');
+                drawer.style.maxHeight = '0px';
+                drawer.style.opacity = '0';
+                circleElement.querySelector('.toggle-arrow').style.transform = 'rotate(0deg)';
+            });
+        }
+
+        // Gallery Filter System
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.className = "filter-btn px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-slate-100 text-slate-600 hover:bg-slate-200");
+                btn.className = "filter-btn px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-emerald text-white shadow-md shadow-emerald/10";
+                
+                const filter = btn.getAttribute('data-filter');
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Lightbox Actions
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        
+        function openLightbox(src, caption) {
+            lightboxImg.src = src;
+            lightboxCaption.textContent = caption;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Lock scrolling
+        }
+
+        document.getElementById('close-lightbox').addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Sticky Nav & Scroll Progress
+        const nav = document.getElementById('main-nav');
+        const backToTop = document.getElementById('back-to-top');
+        const scrollProgress = document.getElementById('scroll-progress');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            
+            // Progress Bar
+            const progress = (currentScroll / totalHeight) * 100;
+            scrollProgress.style.width = `${progress}%`;
+
+            // Sticky Navigation Style
+            if (currentScroll > 50) {
+                nav.classList.add('shadow-lg', 'py-3');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('shadow-lg', 'py-3');
+                nav.classList.add('py-4');
+            }
+
+            // Back to Top visibility
+            if (currentScroll > 500) {
+                backToTop.classList.add('opacity-100', 'visible');
+                backToTop.classList.remove('opacity-0', 'invisible');
+            } else {
+                backToTop.classList.remove('opacity-100', 'visible');
+                backToTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Nav Hamburger Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            const isClosed = mobileMenu.classList.contains('hidden');
+            if (isClosed) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.className = "fa-solid fa-xmark text-2xl";
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars-staggered text-2xl";
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close Mobile Menu on Click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars-staggered text-2xl";
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Suggestion Box Email Submungan Submission
+        const form = document.getElementById('sumbungform');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const name = formData.get('name') || "Anonymous Sender";
+            const email = formData.get('email') || "Not provided";
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+
+            // Format direct mailto link
+            const emailTarget = "pacachsyes.o@gmail.com";
+            const emailSubject = encodeURIComponent(`YES-O Suggestion: ${subject}`);
+            const emailBody = encodeURIComponent(
+                `YES-O SUGGESTION BOX SUBMISSION\n` +
+                `=============================\n\n` +
+                `Sender Name: ${name}\n` +
+                `Sender Email: ${email}\n\n` +
+                `Message:\n${message}\n\n` +
+                `=============================\n` +
+                `Sent via the official YES-O interactive web portal.`
+            );
+
+            // Open Client Native Email program
+            window.location.href = `mailto:${emailTarget}?subject=${emailSubject}&body=${emailBody}`;
+
+            // Show Premium confirmation alert using SweetAlert2
+            Swal.fire({
+                title: 'Successfully Handled!',
+                text: 'Thank you for helping improve YES-O. Your response has been packaged for submission.',
+                icon: 'success',
+                confirmButtonColor: '#2E7D32',
+                confirmButtonText: 'Proceed',
+                background: '#FFFFFF',
+                customClass: {
+                    popup: 'rounded-3xl shadow-xl'
+                }
+            });
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>
