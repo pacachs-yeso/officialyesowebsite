@@ -1,1043 +1,2238 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pacac High School Youth for Environment in Schools-Organization</title>
-    <meta name="description" content="Official website of the Youth for Environment in Schools Organization (YES-O) - Para sa Kabataan at Kalikasan.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        forest: '#1B5E20',
-                        emerald: '#2E7D32',
-                        leaf: '#43A047',
-                        mint: '#A5D6A7',
-                        blueAccent: '#1565C0',
-                        lightBlue: '#E3F2FD',
-                        cream: '#FAFAFA',
-                        darkText: '#263238'
-                    }
-                }
-            }
-        }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #FAFAFA;
-            color: #263238;
-            overflow-x: hidden;
-        }
-        
-        .serif-title {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Glassmorphism Classes */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .glass-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 40px 0 rgba(46, 125, 50, 0.15);
-            border-color: rgba(46, 125, 50, 0.3);
-        }
-
-        /* Animated Custom Background Elements */
-        .bg-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-            opacity: 0.45;
-            animation: float-blob 12s infinite alternate;
-        }
-
-        @keyframes float-blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            50% { transform: translate(40px, -60px) scale(1.15); }
-            100% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        /* Leaf Floating Animation */
-        .floating-leaf {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0.15;
-            z-index: 1;
-            animation: leafFall 18s linear infinite;
-        }
-
-        @keyframes leafFall {
-            0% { transform: translateY(-10%) translateX(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.25; }
-            90% { opacity: 0.25; }
-            100% { transform: translateY(110vh) translateX(120px) rotate(360deg); opacity: 0; }
-        }
-
-        /* Scroll Progress Bar */
-        #scroll-progress {
-            height: 4px;
-            background: linear-gradient(to right, #2E7D32, #1565C0);
-            width: 0%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            transition: width 0.1s ease-out;
-        }
-
-        /* Custom Ripple Button Effect */
-        .btn-ripple {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .btn-ripple::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
-            background-repeat: no-repeat;
-            background-position: 50%;
-            transform: scale(10, 10);
-            opacity: 0;
-            transition: transform .5s, opacity 1s;
-        }
-
-        .btn-ripple:active::after {
-            transform: scale(0, 0);
-            opacity: .3;
-            transition: 0s;
-        }
-
-        /* CSS Wave Divider */
-        .wave-divider {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
-        }
-
-        .wave-divider svg {
-            position: relative;
-            display: block;
-            width: calc(135% + 1.3px);
-            height: 75px;
-        }
-
-        .wave-divider .shape-fill {
-            fill: #FAFAFA;
-        }
-
-        /* Smooth Lightbox Overlay */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(8px);
-        }
-    </style>
-</head>
-<body class="antialiased">
-
-    <div id="scroll-progress"></div>
-
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-10" id="leaf-container">
-        </div>
-
-    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 py-4" id="main-nav">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            
-           <a href="#home" class="flex items-center space-x-3 group">
-    <div class="w-12 h-12 rounded-xl overflow-hidden shadow-md group-hover:scale-105 transition-transform bg-white border border-green-200">
-        <img src="logo.png" alt="YES-O Logo" class="w-full h-full object-cover">
-    </div>
-    <div>
-        <h1 class="text-emerald font-extrabold text-lg leading-tight uppercase tracking-wide">YES-O</h1>
-        <p class="text-xs text-slate-500 font-semibold italic">Para sa Kabataan at Kalikasan</p>
-    </div>
-</a>
-
-            <div class="hidden lg:flex items-center space-x-8 font-medium text-slate-700 text-sm">
-                <a href="#home" class="nav-link hover:text-emerald transition-colors relative py-2">Home</a>
-                <a href="#about" class="nav-link hover:text-emerald transition-colors relative py-2">About</a>
-                <a href="#officers" class="nav-link hover:text-emerald transition-colors relative py-2">Officers</a>
-                <a href="#members" class="nav-link hover:text-emerald transition-colors relative py-2">Members</a>
-                <a href="#gallery" class="nav-link hover:text-emerald transition-colors relative py-2">Gallery</a>
-                <a href="#suggestions" class="nav-link hover:text-emerald transition-colors relative py-2">Suggestions</a>
-                <a href="#contact" class="px-5 py-2.5 bg-emerald text-white font-semibold rounded-xl hover:bg-forest transition-colors shadow-md shadow-emerald/10 btn-ripple">Contact Us</a>
-            </div>
-
-            <button class="lg:hidden text-slate-700 hover:text-emerald focus:outline-none z-50" id="menu-btn" aria-label="Toggle Navigation">
-                <i class="fa-solid fa-bars-staggered text-2xl" id="menu-icon"></i>
-            </button>
-        </div>
-
-        <div class="hidden lg:hidden fixed inset-0 bg-white/98 z-40 flex flex-col justify-center items-center space-y-6 text-xl font-bold transition-all duration-300" id="mobile-menu">
-            <a href="#home" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Home</a>
-            <a href="#about" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">About</a>
-            <a href="#officers" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Officers</a>
-            <a href="#members" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Members</a>
-            <a href="#gallery" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Gallery</a>
-            <a href="#suggestions" class="mobile-nav-link text-slate-800 hover:text-emerald transition-colors">Suggestion Box</a>
-            <a href="#contact" class="px-8 py-3 bg-emerald text-white rounded-xl shadow-lg hover:bg-forest transition-colors">Contact</a>
-        </div>
-    </nav>
-
-    <header id="home" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald/5 via-mint/5 to-lightBlue/10 pt-20 overflow-hidden">
-        <div class="bg-blob bg-emerald/10 w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
-        <div class="bg-blob bg-blueAccent/5 w-[400px] h-[400px] bottom-[-50px] right-[-50px]" style="animation-delay: -3s;"></div>
-
-        <div class="max-w-6xl mx-auto px-6 text-center relative z-20" data-aos="fade-up" data-aos-duration="1200">
-            <span class="inline-flex items-center space-x-2 bg-emerald/10 text-emerald text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest mb-6">
-                <i class="fa-solid fa-earth-asia animate-spin-slow text-sm mr-1"></i> Pacac High School
-            </span>
-            
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-800 mb-6 leading-none">
-                Youth for Environment in <br class="hidden md:inline">
-                <span class="bg-gradient-to-r from-emerald to-forest bg-clip-text text-transparent">Schools Organization</span>
-            </h1>
-
-            <p class="serif-title text-xl md:text-2xl text-slate-600 italic font-medium max-w-2xl mx-auto mb-10">
-                "Para sa Kabataan at Kalikasan"
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#officers" class="w-full sm:w-auto px-8 py-4 bg-emerald text-white text-base font-semibold rounded-xl shadow-lg hover:bg-forest hover:shadow-emerald/20 transition-all transform hover:-translate-y-0.5 text-center btn-ripple">
-                    Meet Our Officers
-                </a>
-                <a href="#members" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 hover:text-emerald text-base font-semibold rounded-xl border border-slate-200 hover:border-emerald/40 shadow-sm transition-all text-center">
-                    Explore Members
-                </a>
-            </div>
-        </div>
-
-        <div class="wave-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1130.5,120.69,1051,111.19,985.66,92.83Z" class="shape-fill"></path>
-            </svg>
-        </div>
-    </header>
-
-    <section id="about" class="py-24 relative overflow-hidden bg-cream">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                
-                <div class="relative" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-mint/20 rounded-full blur-3xl"></div>
-                    <div class="bg-gradient-to-tr from-emerald/10 to-blueAccent/5 rounded-3xl p-8 border border-emerald/10 shadow-xl relative">
-                        <div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center relative group">
-                            <div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-overlay" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1200');"></div>
-                            <div class="z-10 text-center p-6 text-white">
-                                <span class="w-16 h-16 rounded-full bg-emerald flex items-center justify-center mx-auto mb-4 animate-bounce">
-                                    <i class="fa-solid fa-hands-holding-circle text-2xl"></i>
-                                </span>
-                                <h4 class="font-bold text-lg">Advocates of Green Change</h4>
-                                <p class="text-xs text-white/80 max-w-sm mt-1">Leading school-based environmental action in schools across the nation.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div data-aos="fade-left" data-aos-duration="1000">
-                    <span class="text-emerald font-bold text-sm uppercase tracking-widest block mb-2">Para sa Kabataan at Kalikasan.</span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-6">Empowering youth for sustainable conservation</h2>
-                    
-                    <p class="text-slate-600 mb-8 leading-relaxed">
-                        The Youth for Environment in Schools Organization (YES-O) is the premier school-based co-curricular organization aimed at fostering consciousness and deliberate action to protect, preserve, and restore our natural ecosystems.
-                    </p>
-
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald/20 hover:shadow-md transition-all">
-                            <div class="w-10 h-10 rounded-xl bg-emerald/10 flex items-center justify-center text-emerald mb-4">
-                                <i class="fa-solid fa-bullseye text-lg"></i>
-                            </div>
-                            <h3 class="font-bold text-slate-800 mb-2">Mission</h3>
-                            <p class="text-xs text-slate-500 leading-relaxed">To implement concrete, active eco-programs across school levels.</p>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald/20 hover:shadow-md transition-all">
-                            <div class="w-10 h-10 rounded-xl bg-blueAccent/10 flex items-center justify-center text-blueAccent mb-4">
-                                <i class="fa-solid fa-eye text-lg"></i>
-                            </div>
-                            <h3 class="font-bold text-slate-800 mb-2">Vision</h3>
-                            <p class="text-xs text-slate-500 leading-relaxed">A community of youth champions with ingrained ecological integrity.</p>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald/20 hover:shadow-md transition-all">
-                            <div class="w-10 h-10 rounded-xl bg-forest/10 flex items-center justify-center text-forest mb-4">
-                                <i class="fa-solid fa-seedling text-lg"></i>
-                            </div>
-                            <h3 class="font-bold text-slate-800 mb-2">Objectives</h3>
-                            <p class="text-xs text-slate-500 leading-relaxed">Instill proper environmental stewardship and sustainable lifestyle habits.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="officers" class="py-24 bg-white relative">
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <div class="text-center max-w-2xl mx-auto mb-20" data-aos="fade-up">
-                <span class="text-emerald font-bold text-sm uppercase tracking-widest block mb-2">S.Y 2026-2027</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">YES-O Officers</h2>
-                <div class="w-20 h-1 bg-emerald mx-auto mt-4 rounded-full"></div>
-            </div>
-<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16" data-aos="fade-up">
-
-    <!-- School Principal -->
-    <div class="glass-card p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6">
-        <div class="w-32 h-32 flex-shrink-0 rounded-2xl overflow-hidden border border-slate-200">
-            <img src="images/principal.jpg" alt="Sir Eric M. Villanueva" class="w-full h-full object-cover object-center">
-        </div>
-        <div class="text-center sm:text-left">
-            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-2xs font-bold rounded-full uppercase tracking-wider">School Principal</span>
-            <h3 class="font-bold text-slate-800 text-xl mt-2">Sir Eric M. Villanueva, MAEd</h3>
-            <p class="text-emerald font-semibold text-sm">School Principal III</p>
-        </div>
-    </div>
-
-    <!-- YES-O Adviser -->
-    <div class="glass-card p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6">
-        <div class="w-32 h-32 flex-shrink-0 rounded-2xl overflow-hidden border border-slate-200">
-            <img src="images/adviser.jpg" alt="Ma'am Lina G. Nolasco" class="w-full h-full object-cover object-center">
-        </div>
-        <div class="text-center sm:text-left">
-            <span class="px-3 py-1 bg-emerald/10 text-emerald text-2xs font-bold rounded-full uppercase tracking-wider">YES-O Adviser</span>
-            <h3 class="font-bold text-slate-800 text-xl mt-2">Ma'am Lina G. Nolasco, MAEd</h3>
-            <p class="text-emerald font-semibold text-sm">Teacher VI</p>
-        </div>
-    </div>
-
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="200">
-
-    <!-- President -->
-    <div class="glass-card p-6 rounded-3xl text-center group">
-        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
-            <img src="images/officers/jomar.jpg" alt="Jomar C. Mata" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <h3 class="font-bold text-slate-800 text-lg">JOMAR C. MATA</h3>
-        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">President</p>
-    </div>
-
-    <!-- Vice President -->
-    <div class="glass-card p-6 rounded-3xl text-center group">
-        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
-            <img src="images/officers/meldred.jpg" alt="Meldred J. Biag" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <h3 class="font-bold text-slate-800 text-lg">MELDRED J. BIAG</h3>
-        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Vice President</p>
-    </div>
-
-    <!-- Secretary -->
-    <div class="glass-card p-6 rounded-3xl text-center group">
-        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
-            <img src="images/officers/myan.jpg" alt="Myan Pearl N. Prollo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <h3 class="font-bold text-slate-800 text-lg">MYAN PEARL N. PROLLO</h3>
-        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Secretary</p>
-    </div>
-
-    <!-- Treasurer -->
-    <div class="glass-card p-6 rounded-3xl text-center group">
-        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
-            <img src="images/officers/john.jpg" alt="John Alexis C. Ramiterre" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <h3 class="font-bold text-slate-800 text-lg">JOHN ALEXIS C. RAMITERRE</h3>
-        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Treasurer</p>
-    </div>
-
-    <!-- Auditor -->
-    <div class="glass-card p-6 rounded-3xl text-center group">
-        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
-            <img src="images/officers/alexa.jpg" alt="Alexa A. Agdipa" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <h3 class="font-bold text-slate-800 text-lg">ALEXA A. AGDIPA</h3>
-        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Auditor</p>
-    </div>
-
-    <!-- Public Information Officer -->
-    <div class="glass-card p-6 rounded-3xl text-center group">
-        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
-            <img src="images/officers/yuan.jpg" alt="Yuan Gabriel M. Paringit" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <h3 class="font-bold text-slate-800 text-lg">YUAN GABRIEL M. PARINGIT</h3>
-        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Public Information Officer</p>
-    </div>
-
-    <!-- Peace Officer -->
-    <div class="glass-card p-6 rounded-3xl text-center group">
-        <div class="w-full aspect-square rounded-2xl overflow-hidden border border-slate-100 mb-4">
-            <img src="images/officers/sofhia.jpg" alt="Sofhia Denise G. Tigolo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <h3 class="font-bold text-slate-800 text-lg">SOFHIA DENISE G. TIGOLO</h3>
-        <p class="text-emerald font-semibold text-xs tracking-wider uppercase mt-1">Peace Officer</p>
-    </div>
-
-
-        </div>
-    </section>
-
-    <section id="members" class="py-24 bg-cream relative">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            
-            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
-                <span class="text-emerald font-bold text-sm uppercase tracking-widest block mb-2">Engaged Youth Communities</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">Organization Members</h2>
-                <div class="w-20 h-1 bg-emerald mx-auto mt-4 mb-8 rounded-full"></div>
-                
-                <div class="relative max-w-xl mx-auto">
-                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <input type="text" id="member-search" placeholder="Search a member's name..." class="w-full pl-12 pr-12 py-4 bg-white border border-slate-200 focus:border-emerald/40 rounded-2xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all shadow-sm font-medium">
-                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center hidden" id="search-clear-btn">
-                        <button class="text-slate-400 hover:text-emerald transition-colors"><i class="fa-solid fa-circle-xmark"></i></button>
-                    </div>
-                </div>
-
-                <div id="search-result-toast" class="mt-4 hidden p-3 bg-emerald/10 text-emerald text-sm font-semibold rounded-xl inline-block max-w-full">
-                    </div>
-            </div>
-
-            <div class="grid gap-6 max-w-4xl mx-auto" id="circles-grid" data-aos="fade-up">
-                </div>
-
-        </div>
-    </section>
-
-    <section id="gallery" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
-                <span class="text-emerald font-bold text-sm uppercase tracking-widest block mb-2">YES to YES-O in Action</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">Gallery Wall</h2>
-                <div class="w-20 h-1 bg-emerald mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" id="gallery-filters">
-                <button data-filter="all" class="filter-btn px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-emerald text-white shadow-md shadow-emerald/10">All</button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="masonry-gallery" data-aos="fade-up">
-                </div>
-        </div>
-    </section>
-
-    <section id="suggestions" class="py-24 bg-cream relative overflow-hidden">
-        <div class="bg-blob bg-emerald/5 w-[500px] h-[500px] bottom-[-200px] left-[-200px]"></div>
-        
-        <div class="max-w-3xl mx-auto px-6 relative z-10" data-aos="zoom-in" data-aos-duration="1000">
-            <div class="glass-card p-8 md:p-12 rounded-3xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-emerald/10 rounded-bl-full flex items-center justify-center pl-6 pb-6 text-emerald text-3xl">
-                    <i class="fa-solid fa-leaf"></i>
-                </div>
-                
-                <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Suggestions and Concerns</h2>
-                <p class="text-sm text-slate-500 mb-8 leading-relaxed">
-                    We value your ideas and concerns. Help us improve our organization by sending your feedback. All messages are sent directly to the Executive Board.
-                </p>
-
-                <form id="sumbungform" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold text-slate-600 uppercase tracking-wider block">Full Name <span class="text-slate-400 font-normal">(Optional)</span></label>
-                            <input type="text" name="name" placeholder="Juan Dela Cruz" class="w-full px-4 py-3 bg-white/50 border border-slate-200 focus:border-emerald/40 rounded-xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold text-slate-600 uppercase tracking-wider block">Email Address <span class="text-slate-400 font-normal">(Optional)</span></label>
-                            <input type="email" name="email" placeholder="yourname@gmail.com" class="w-full px-4 py-3 bg-white/50 border border-slate-200 focus:border-emerald/40 rounded-xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all">
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold text-slate-600 uppercase tracking-wider block">Subject</label>
-                        <input type="text" name="subject" required placeholder="General feedback / Concern" class="w-full px-4 py-3 bg-white/50 border border-slate-200 focus:border-emerald/40 rounded-xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all">
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold text-slate-600 uppercase tracking-wider block">Your Message</label>
-                        <textarea name="message" required rows="5" placeholder="Share your suggestions, reports, or environmental action suggestions..." class="w-full px-4 py-3 bg-white/50 border border-slate-200 focus:border-emerald/40 rounded-xl focus:ring-4 focus:ring-emerald/10 outline-none transition-all resize-none"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full py-4 bg-emerald hover:bg-forest text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-emerald/20 flex items-center justify-center space-x-2 btn-ripple">
-                        <span>Send Feedback</span>
-                        <i class="fa-solid fa-paper-plane text-sm"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 bg-white border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <h2 class="text-3xl font-extrabold text-slate-800 mb-4">Connect Directly with YES-O</h2>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Reach our administrative board via social networks or direct digital mail for collaborations, partnerships, and sponsorships.</p>
-                </div>
-                
-                <div class="flex items-center justify-start md:justify-end gap-6" data-aos="fade-left">
-                    <a href="mailto:pacachsyes.o@gmail.com" class="group flex items-center space-x-4 bg-lightBlue/50 hover:bg-emerald/10 p-5 rounded-3xl border border-slate-100 hover:border-emerald/30 transition-all">
-                        <div class="w-16 h-16 bg-emerald/10 text-emerald rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs text-slate-400 font-bold block uppercase tracking-wider">Email Us</span>
-                            <span class="text-slate-800 font-bold text-sm">pacachsyes.o@gmail.com</span>
-                        </div>
-                    </a>
-
-                    <a href="https://facebook.com/PacacHsYesO" target="_blank" class="group flex items-center space-x-4 bg-lightBlue/50 hover:bg-blueAccent/10 p-5 rounded-3xl border border-slate-100 hover:border-blueAccent/30 transition-all">
-                        <div class="w-16 h-16 bg-blueAccent/10 text-blueAccent rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs text-slate-400 font-bold block uppercase tracking-wider">Facebook</span>
-                            <span class="text-slate-800 font-bold text-sm">Official Facebook</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gradient-to-tr from-forest via-emerald to-emerald/90 text-white pt-20 pb-10 relative overflow-hidden">
-        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0 transform rotate-180 opacity-5">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72..." class="fill-current"></path></svg>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-        <div class="md:col-span-2 space-y-6">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-white rounded-xl overflow-hidden flex items-center justify-center">
-                    <img src="logo.png" alt="YES-O Logo" class="w-full h-full object-cover">
-                </div>
-                <h2 class="font-extrabold text-2xl tracking-wide">YES-O</h2>
-            </div>
-
-            <p class="text-white/80 text-sm max-w-sm leading-relaxed serif-title italic">
-                Para sa Kabataan at Kalikasan
-            </p>
-
-            <p class="text-xs text-white/70">
-                Connecting youth through actions designed to heal and transform local school environments.
-            </p>
-        </div>
-    
-
-                <div>
-                    <h3 class="font-bold text-white/90 text-sm uppercase tracking-widest mb-6">Quick Links</h3>
-                    <ul class="space-y-3 text-sm text-white/70 font-semibold">
-                        <li><a href="#home" class="hover:text-mint transition-colors">Home</a></li>
-                        <li><a href="#about" class="hover:text-mint transition-colors">About</a></li>
-                        <li><a href="#officers" class="hover:text-mint transition-colors">Officers</a></li>
-                        <li><a href="#members" class="hover:text-mint transition-colors">Members</a></li>
-                        <li><a href="#gallery" class="hover:text-mint transition-colors">Gallery</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="font-bold text-white/90 text-sm uppercase tracking-widest mb-6">Interact</h3>
-                    <ul class="space-y-3 text-sm text-white/70 font-semibold">
-                        <li><a href="#suggestions" class="hover:text-mint transition-colors">Suggestion Box</a></li>
-                        <li><a href="mailto:pacachsyes.o@gmail.com" class="hover:text-mint transition-colors">Contact Support</a></li>
-                    </ul>
-                    <div class="flex space-x-4 mt-6">
-                        <a href="mailto:pacachsyes.o@gmail.com" class="w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center transition-all"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/60 font-medium">
-                <p>&copy; 2026 Youth for Environment in Schools Organization. All Rights Reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <span>Para sa Kabataan at Kalikasan</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-emerald text-white shadow-xl flex items-center justify-center hover:bg-forest transition-all duration-300 opacity-0 invisible hover:-translate-y-1">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <div id="lightbox" class="lightbox">
-        <button class="absolute top-6 right-6 text-white hover:text-emerald text-3xl focus:outline-none" id="close-lightbox" aria-label="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
-        <div class="max-w-4xl max-h-[80vh] px-4">
-            <img src="" id="lightbox-img" class="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl mx-auto border-2 border-white/10">
-            <p id="lightbox-caption" class="text-white font-medium text-center mt-4 text-base tracking-wide"></p>
-        </div>
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS animations
-        AOS.init({
-            once: true,
-            duration: 800,
-            easing: 'ease-out-cubic'
-        });
-
-        /* Dynamic Circle Members Dataset */
-        const YES_O_DATA = [
-            {
-                id: "circle-1",
-                name: "Sagada Circle",
-                advocate: "Jomar Mata",
-                badge: "President",
-                members: ["Aldrin Reyes", "Beatrice Gomez", "Christian Ramos", "Diana Perez", "Ethan Dela Cruz", "Fiona Alcantara"]
-            },
-            {
-                id: "circle-2",
-                name: "Rafflesia Circle",
-                advocate: "Meldred Biag",
-                badge: "Vice President",
-                members: ["George Ignacio", "Hannah Rivera", "Ian Mendoza", "Jessica Sy", "Kevin Pineda", "Lauren Castro"]
-            },
-            {
-                id: "circle-3",
-                name: "Banaue Circle",
-                advocate: "Myan Pearl Prollo",
-                badge: "Secretary",
-                members: ["Miguel Ocampo", "Nadia Tolentino", "Oliver Santos", "Patricia De Leon", "Quentin Lopez", "Rina Valdez"]
-            },
-            {
-                id: "circle-4",
-                name: "Tayabak Circle",
-                advocate: "John Alexis Ramiterre",
-                badge: "Treasurer",
-                members: ["Samuel David", "Teresa Tan", "Ulysses Macaraeg", "Vanessa Aquino", "William Cruz", "Xavier Ferrer"]
-            },
-            {
-                id: "circle-5",
-                name: "Banaba Circle",
-                advocate: "Alexa Agdipa",
-                badge: "Trasurer",
-                members: ["Yolanda Goco", "Zachary Lim", "Angelica Basa", "Bruno Espiritu", "Chloe Roxas", "Dominic Yap"]
-            },
-            {
-                id: "circle-6",
-                name: "Almasiga Circle",
-                advocate: "Gabirel yuan Paringit",
-                badge: "Public Information Officer",
-                members: ["Evelyn Sotto", "Federico Villarta", "Giselle Mercado", "Harvey Go", "Irene Ortiz", "Justin Cua"]
-            },
-            {
-                id: "circle-7",
-                name: "Pantabangan Circle",
-                advocate: "Sofhia Denise Tigolo",
-                badge: "Peace Officer",
-                members: ["Kathleen Sy", "Leonard Chiu", "Monica Beltran", "Nelson Pascual", "Olivia Roque", "Patrick Dizon"]
-            }
-        ];
-
-       /* Dynamic Gallery Dataset */
-const GALLERY_ITEMS = [
-    {
-        category: "1st Meeting",
-        img: "1stMeeting.jpg",
-        caption: "YES-O Meeting for S.Y 2026-2027"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#064e3b">
+  <meta name="description" content="Pacac High School YES-O, Youth for Environment in Schools Organization, School Year 2026-2027.">
+  <title>Pacac High School YES-O | S.Y. 2026-2027</title>
+
+  <style>
+    /* =========================================================
+       PACAC HIGH SCHOOL YES-O
+       SCHOOL YEAR 2026-2027
+       Single-file institutional website
+       ========================================================= */
+
+    :root {
+      --forest: #064e3b;
+      --forest-dark: #022c22;
+      --emerald: #059669;
+      --emerald-2: #10b981;
+      --mint: #d1fae5;
+      --mint-soft: #ecfdf5;
+      --white: #ffffff;
+      --charcoal: #17211d;
+      --muted: #64756d;
+      --border: rgba(255, 255, 255, 0.18);
+      --light-border: rgba(6, 78, 59, 0.10);
+      --shadow: 0 18px 50px rgba(2, 44, 34, 0.13);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 13px;
+      --container: 1160px;
     }
-];
-        document.addEventListener('DOMContentLoaded', () => {
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      font-family: Poppins, Gotham, Inter, Arial, sans-serif;
+      color: var(--charcoal);
+      background: #f4faf7;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 28px), var(--container));
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 72px 0;
+      overflow: hidden;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 10px;
+      padding: 6px 11px;
+      border: 1px solid rgba(5, 150, 105, 0.18);
+      border-radius: 999px;
+      background: rgba(236, 253, 245, 0.72);
+      color: var(--emerald);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      max-width: 720px;
+      font-size: clamp(1.65rem, 5vw, 2.65rem);
+      line-height: 1.15;
+      font-weight: 650;
+      letter-spacing: -0.035em;
+    }
+
+    .section-description {
+      max-width: 700px;
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .section-heading {
+      margin-bottom: 30px;
+    }
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .site-header {
+      position: fixed;
+      z-index: 1000;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    .nav-shell {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 66px;
+      padding: 8px 9px 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 21px;
+      background: rgba(4, 54, 40, 0.78);
+      backdrop-filter: blur(22px) saturate(150%);
+      -webkit-backdrop-filter: blur(22px) saturate(150%);
+      box-shadow: 0 12px 38px rgba(2, 44, 34, 0.22);
+      pointer-events: auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      gap: 9px;
+      color: white;
+    }
+
+    .brand-logo {
+      flex: 0 0 43px;
+      width: 43px;
+      height: 43px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .brand-text {
+      min-width: 0;
+      line-height: 1.15;
+    }
+
+    .brand-title {
+      display: block;
+      max-width: 225px;
+      overflow: hidden;
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 650;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 3px;
+      color: rgba(255,255,255,0.66);
+      font-size: 0.62rem;
+      white-space: nowrap;
+    }
+
+    .nav-toggle {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      flex: 0 0 43px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 13px;
+      background: rgba(255,255,255,0.10);
+      color: white;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform .22s ease;
+    }
+
+    .nav-toggle span {
+      position: relative;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      position: absolute;
+      content: "";
+    }
+
+    .nav-toggle span::before {
+      top: -6px;
+    }
+
+    .nav-toggle span::after {
+      top: 6px;
+    }
+
+    .nav-toggle.active span {
+      background: transparent;
+    }
+
+    .nav-toggle.active span::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.active span::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 84px;
+      left: 14px;
+      right: 14px;
+      padding: 9px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      background: rgba(3, 49, 37, 0.94);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px) scale(.98);
+      transition: .22s ease;
+    }
+
+    .nav-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .nav-link {
+      display: block;
+      padding: 12px 13px;
+      border-radius: 12px;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.82rem;
+      transition: .2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: rgba(16,185,129,0.17);
+      color: white;
+    }
+
+    /* =========================================================
+       HOME
+       ========================================================= */
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding-top: 108px;
+      padding-bottom: 54px;
+      color: white;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(16,185,129,0.26), transparent 32%),
+        radial-gradient(circle at 0% 90%, rgba(52,211,153,0.13), transparent 30%),
+        linear-gradient(145deg, #022c22 0%, #064e3b 50%, #047857 100%);
+    }
+
+    .hero-content {
+      display: grid;
+      gap: 28px;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      margin-bottom: 15px;
+      padding: 6px 11px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.82);
+      font-size: 0.72rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      max-width: 620px;
+      font-size: clamp(2.15rem, 10vw, 4.4rem);
+      line-height: 1.02;
+      font-weight: 650;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-description {
+      max-width: 590px;
+      margin-top: 15px;
+      color: rgba(255,255,255,0.76);
+      font-size: 0.95rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 19px;
+    }
+
+    .hero-meta span {
+      padding: 7px 10px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.72rem;
+    }
+
+    .hero-image-wrap {
+      width: 100%;
+      max-width: 760px;
+      padding: 6px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 23px;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.18);
+    }
+
+    .hero-image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* =========================================================
+       ABOUT
+       ========================================================= */
+
+    .about {
+      background:
+        radial-gradient(circle at 15% 15%, rgba(16,185,129,0.14), transparent 28%),
+        linear-gradient(135deg, #ecfdf5 0%, #ffffff 50%, #dff8eb 100%);
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .about-photo {
+      padding: 6px;
+      border: 1px solid rgba(5,150,105,0.14);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.56);
+      box-shadow: var(--shadow);
+    }
+
+    .about-photo-inner {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .about-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-copy {
+      padding: 4px 0;
+    }
+
+    .about-copy h3 {
+      margin-bottom: 11px;
+      font-size: 1.45rem;
+      font-weight: 650;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 9px;
+      margin-top: 19px;
+    }
+
+    .about-point {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px;
+      border: 1px solid var(--light-border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.62);
+    }
+
+    .point-icon {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      flex: 0 0 30px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--forest), var(--emerald));
+      color: white;
+      font-size: .78rem;
+    }
+
+    .about-point strong {
+      display: block;
+      font-size: .81rem;
+      font-weight: 650;
+    }
+
+    .about-point span {
+      display: block;
+      margin-top: 1px;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    /* =========================================================
+       LEADERSHIP
+       ========================================================= */
+
+    .leadership {
+      color: white;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(52,211,153,0.15), transparent 30%),
+        linear-gradient(145deg, #032c22, #064e3b 54%, #065f46);
+    }
+
+    .leadership .section-label {
+      border-color: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: #a7f3d0;
+    }
+
+    .leadership .section-description {
+      color: rgba(255,255,255,0.67);
+    }
+
+    .leadership-block {
+      margin-top: 28px;
+    }
+
+    .leadership-block-title {
+      margin-bottom: 13px;
+      color: rgba(255,255,255,0.86);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .featured-leaders {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .leader-card {
+      min-width: 0;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.075);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .leader-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #d1fae5, #6ee7b7);
+    }
+
+    .leader-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .leader-name {
+      margin-top: 10px;
+      font-size: .79rem;
+      font-weight: 650;
+      color: white;
+    }
+
+    .leader-position {
+      margin-top: 2px;
+      color: rgba(255,255,255,0.58);
+      font-size: .7rem;
+    }
+
+    .officer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .officer-card {
+      min-width: 0;
+      padding: 8px;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.055);
+      transition: transform .22s ease, background .22s ease;
+    }
+
+    .officer-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.09);
+    }
+
+    .officer-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #a7f3d0, #10b981);
+    }
+
+    .officer-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .officer-name {
+      margin-top: 8px;
+      color: white;
+      font-size: .73rem;
+      font-weight: 650;
+      line-height: 1.3;
+    }
+
+    .officer-position {
+      margin-top: 2px;
+      color: rgba(255,255,255,0.53);
+      font-size: .65rem;
+      line-height: 1.35;
+    }
+
+    /* =========================================================
+       GALLERY
+       ========================================================= */
+
+    .gallery {
+      background:
+        radial-gradient(circle at 90% 10%, rgba(5,150,105,0.13), transparent 30%),
+        linear-gradient(135deg, #ffffff, #ecfdf5 50%, #dff8eb);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .gallery-card {
+      padding: 7px;
+      border: 1px solid rgba(6,78,59,0.09);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.68);
+      box-shadow: 0 10px 30px rgba(6,78,59,0.07);
+      cursor: pointer;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 38px rgba(6,78,59,0.12);
+    }
+
+    .gallery-image {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    }
+
+    .gallery-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .gallery-title {
+      padding: 9px 3px 3px;
+      color: var(--forest);
+      font-size: .75rem;
+      font-weight: 650;
+    }
+
+    /* =========================================================
+       ECOPEDIA
+       ========================================================= */
+
+    .ecopedia {
+      color: white;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(52,211,153,0.15), transparent 28%),
+        radial-gradient(circle at 95% 90%, rgba(16,185,129,0.12), transparent 28%),
+        linear-gradient(145deg, #022c22 0%, #064e3b 52%, #065f46 100%);
+    }
+
+    .ecopedia .section-label {
+      color: #a7f3d0;
+      border-color: rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .ecopedia .section-description {
+      color: rgba(255,255,255,0.67);
+    }
+
+    .month-selector {
+      display: flex;
+      gap: 7px;
+      padding-bottom: 5px;
+      margin: 26px 0 20px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .month-btn {
+      flex: 0 0 auto;
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.065);
+      color: rgba(255,255,255,0.68);
+      font-size: .73rem;
+      font-weight: 600;
+      transition: .2s ease;
+    }
+
+    .month-btn.active,
+    .month-btn:hover {
+      background: linear-gradient(135deg, var(--emerald-2), #34d399);
+      color: #022c22;
+      border-color: transparent;
+    }
+
+    .month-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 15px;
+    }
+
+    .month-name {
+      font-size: 1.15rem;
+      font-weight: 650;
+    }
+
+    .month-theme {
+      color: #a7f3d0;
+      font-size: .72rem;
+      text-align: right;
+    }
+
+    .ecopedia-grid {
+      display: grid;
+      gap: 11px;
+    }
+
+    .eco-card {
+      padding: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 17px;
+      background: rgba(255,255,255,0.065);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation: cardIn .28s ease both;
+    }
+
+    .eco-image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #a7f3d0, #10b981);
+    }
+
+    .eco-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .eco-content {
+      padding: 10px 3px 4px;
+    }
+
+    .eco-content h3 {
+      color: white;
+      font-size: .86rem;
+      font-weight: 650;
+    }
+
+    .eco-content p {
+      margin-top: 4px;
+      color: rgba(255,255,255,0.62);
+      font-size: .73rem;
+      line-height: 1.55;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(7px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================================================
+       SPONSORS
+       ========================================================= */
+
+    .sponsors {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(16,185,129,0.10), transparent 30%),
+        linear-gradient(135deg, #f0fdf4, #ffffff 55%, #dcfce7);
+    }
+
+    .sponsor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .sponsor-card {
+      min-height: 68px;
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      border: 1px solid rgba(6,78,59,0.09);
+      border-radius: 15px;
+      background: linear-gradient(145deg, rgba(255,255,255,.86), rgba(209,250,229,.50));
+      color: var(--forest);
+      text-align: center;
+      font-size: .77rem;
+      font-weight: 650;
+      transition: .2s ease;
+    }
+
+    .sponsor-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(5,150,105,.24);
+      box-shadow: 0 12px 30px rgba(6,78,59,.09);
+    }
+
+    /* =========================================================
+       BUDGET
+       ========================================================= */
+
+    .budget {
+      color: white;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(52,211,153,0.15), transparent 28%),
+        linear-gradient(145deg, #022c22, #064e3b 56%, #065f46);
+    }
+
+    .budget .section-label {
+      color: #a7f3d0;
+      border-color: rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .budget .section-description {
+      color: rgba(255,255,255,0.65);
+    }
+
+    .financial-summary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+      margin: 26px 0;
+    }
+
+    .finance-card {
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 17px;
+      background: rgba(255,255,255,0.065);
+      backdrop-filter: blur(13px);
+      -webkit-backdrop-filter: blur(13px);
+    }
+
+    .finance-label {
+      color: rgba(255,255,255,0.58);
+      font-size: .7rem;
+    }
+
+    .finance-value {
+      margin-top: 4px;
+      color: white;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      font-weight: 650;
+    }
+
+    .budget-table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 17px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .budget-table {
+      width: 100%;
+      min-width: 650px;
+      border-collapse: collapse;
+    }
+
+    .budget-table th,
+    .budget-table td {
+      padding: 12px 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+      font-size: .72rem;
+    }
+
+    .budget-table th {
+      color: #a7f3d0;
+      font-weight: 600;
+      background: rgba(0,0,0,0.10);
+    }
+
+    .budget-table td {
+      color: rgba(255,255,255,0.76);
+    }
+
+    .budget-table td:nth-child(n+2) {
+      text-align: right;
+    }
+
+    .budget-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 42px 0 30px;
+      color: rgba(255,255,255,0.72);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(16,185,129,0.12), transparent 30%),
+        #021f18;
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 13px;
+    }
+
+    .footer-title {
+      color: white;
+      font-size: .84rem;
+      font-weight: 650;
+    }
+
+    .footer-subtitle {
+      margin-top: 2px;
+      color: rgba(255,255,255,0.52);
+      font-size: .68rem;
+    }
+
+    .footer-statement {
+      max-width: 550px;
+      color: rgba(255,255,255,0.57);
+      font-size: .76rem;
+    }
+
+    .footer-bottom {
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.4);
+      font-size: .65rem;
+    }
+
+    /* =========================================================
+       LIGHTBOX
+       ========================================================= */
+
+    .lightbox {
+      position: fixed;
+      z-index: 2000;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(1, 20, 15, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 0;
+      visibility: hidden;
+      transition: .22s ease;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-content {
+      width: min(100%, 850px);
+      position: relative;
+      padding: 7px;
+      border: 1px solid rgba(255,255,255,0.17);
+      border-radius: 19px;
+      background: rgba(255,255,255,0.08);
+      transform: scale(.96);
+      transition: .22s ease;
+    }
+
+    .lightbox.open .lightbox-content {
+      transform: scale(1);
+    }
+
+    .lightbox-image {
+      max-height: 72svh;
+      overflow: hidden;
+      border-radius: 13px;
+    }
+
+    .lightbox-image img {
+      width: 100%;
+      max-height: 72svh;
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      padding: 10px 5px 3px;
+      color: white;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -11px;
+      right: -7px;
+      z-index: 2;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      background: #064e3b;
+      color: white;
+      font-size: 1rem;
+    }
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (min-width: 560px) {
+      .hero-title {
+        font-size: clamp(2.4rem, 7vw, 4rem);
+      }
+
+      .officer-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .ecopedia-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .financial-summary {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 800px) {
+      .section {
+        padding: 96px 0;
+      }
+
+      .nav-toggle {
+        display: none;
+      }
+
+      .nav-menu {
+        position: static;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        backdrop-filter: none;
+      }
+
+      .nav-link {
+        padding: 9px 8px;
+        font-size: .68rem;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr 1.05fr;
+        align-items: center;
+        gap: 48px;
+      }
+
+      .hero {
+        min-height: 760px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1.05fr .95fr;
+        align-items: center;
+        gap: 55px;
+      }
+
+      .featured-leaders {
+        grid-template-columns: repeat(2, 220px);
+      }
+
+      .officer-grid {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .ecopedia-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .sponsor-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+      }
+    }
+
+    @media (min-width: 1080px) {
+      .nav-link {
+        padding-inline: 10px;
+        font-size: .7rem;
+      }
+
+      .hero-content {
+        gap: 70px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+       ========================================================= -->
+
+  <header class="site-header">
+    <nav class="container nav-shell" aria-label="Main navigation">
+
+      <a class="brand" href="#home" aria-label="Pacac High School YES-O Home">
+
+        <!-- REPLACE IMAGE SOURCE: images/logo.png -->
+        <img
+          class="brand-logo"
+          src="ylogo.png"
+          alt="Pacac High School YES-O official logo"
+        >
+
+        <span class="brand-text">
+          <span class="brand-title">Youth for Environment in Schools Organization</span>
+          <span class="brand-subtitle">Pacac High School</span>
+        </span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navMenu"
+      >
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#leadership">Organization Leadership</a>
+        <a class="nav-link" href="#gallery">Gallery</a>
+        <a class="nav-link" href="#ecopedia">Ecopedia</a>
+        <a class="nav-link" href="#sponsors">Sponsors</a>
+        <a class="nav-link" href="#budget">Budget</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- =======================================================
+         HOME
+         ======================================================= -->
+
+    <section class="section hero" id="home">
+      <div class="container hero-content">
+
+        <div class="hero-copy reveal">
+          <span class="hero-kicker">S.Y. 2026-2027</span>
+
+          <h1 class="hero-title">Makakalikasang Araw!</h1>
+
+          <p class="hero-description">
+            Welcome to the official website of Pacac High School YES-O,
+            a student-led organization focused on environmental awareness,
+            responsible action, conservation, and meaningful participation.
+          </p>
+
+          <div class="hero-meta">
+            <span>Para sa Kabataan at Kalikasan</span>
+            <span>Puso, Galing, at Talino</span>
+          </div>
+        </div>
+
+        <div class="hero-image-wrap reveal">
+
+          <!-- REPLACE IMAGE SOURCE: images/school-gate.jpg -->
+          <div class="hero-image">
+            <img
+              src="PHS.jpg"
+              alt="Pacac High School campus"
+            >
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         ABOUT
+         ======================================================= -->
+
+    <section class="section about" id="about">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">About YES-O</span>
+          <h2 class="section-title">What is YES-O?</h2>
+          <p class="section-description">
+            Learn about the organization, its environmental role, and
+            the programs supported by Pacac High School YES-O.
+          </p>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-photo reveal">
+
+            <!-- REPLACE IMAGE SOURCE: images/yeso-group.jpg -->
+            <div class="about-photo-inner">
+              <img
+                src="Group.jpg"
+                alt="Pacac High School YES-O members"
+              >
+            </div>
+
+          </div>
+
+          <div class="about-copy reveal">
+
+            <h3>Youth for Environment in Schools Organization</h3>
+
+            <p>
+              According to its official Constitution and By-Laws mandated by the Philippine Department of Education, the Youth for Environment in Schools Organization (YES-O) is the only recognized co-curricular student organization authorized to lead environmental advocacy within public elementary and secondary schools. Formally established to consolidate all scattered campus ecology clubs into a unified force, its core objective is to foster active environmental awareness and hands-on conservation efforts among the youth through student-led initiatives. The By-Laws structure the organization around a democratically elected Executive Committee of student officers under the supervision of a school-designated Teacher-Adviser, requiring all members to actively implement practical, school-based programs such as waste segregation, tree planting, clean-up drives, and ecological campaigns to instill deep-rooted environmental values within the school and local community.
+            </p>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         ORGANIZATION LEADERSHIP
+         ======================================================= -->
+
+    <section class="section leadership" id="leadership">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">Organization Leadership</span>
+          <h2 class="section-title">People Behind YES-O</h2>
+          <p class="section-description">
+            The leadership structure of Pacac High School YES-O
+            for School Year 2026-2027.
+          </p>
+        </div>
+
+
+        <div class="leadership-block reveal">
+          <div class="leadership-block-title">School Leadership</div>
+
+          <div class="featured-leaders">
+
+            <article class="leader-card">
+
+              <!-- REPLACE IMAGE SOURCE: images/principal.jpg -->
+              <div class="leader-photo">
+                <img
+                  src="SirEric.jpg"
+                  alt="Pacac High School Principal"
+                >
+              </div>
+
+              <h3 class="leader-name">Eric M. Villanueva</h3>
+              <p class="leader-position">School Principal III</p>
+
+            </article>
+
+
+            <article class="leader-card">
+
+              <!-- REPLACE IMAGE SOURCE: images/adviser.jpg -->
+              <div class="leader-photo">
+                <img
+                  src="MaamLina.jpg"
+                  alt="Pacac High School YES-O Adviser"
+                >
+              </div>
+
+              <h3 class="leader-name">Lina G. Nolasco</h3>
+              <p class="leader-position">YES-O Adviser</p>
+
+            </article>
+
+          </div>
+        </div>
+
+
+        <div class="leadership-block reveal">
+          <div class="leadership-block-title">YES-O Officers</div>
+
+          <div class="officer-grid">
+
+            <article class="officer-card">
+
+              <!-- REPLACE IMAGE SOURCE: images/officer-01.jpg -->
+              <div class="officer-photo">
+                <img
+                  src="MataJomar.png"
+                  alt="YES-O President"
+                >
+              </div>
+
+              <h3 class="officer-name">Jomar C. Mata</h3>
+              <p class="officer-position">President</p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <!-- REPLACE IMAGE SOURCE: images/officer-02.jpg -->
+              <div class="officer-photo">
+                <img
+                  src="BiagMeldred.png"
+                  alt="YES-O Vice President"
+                >
+              </div>
+
+              <h3 class="officer-name">Meldred J. Biag</h3>
+              <p class="officer-position">Vice President</p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <!-- REPLACE IMAGE SOURCE: images/officer-03.jpg -->
+              <div class="officer-photo">
+                <img
+                  src="ProlloMyan.png"
+                  alt="YES-O Secretary"
+                >
+              </div>
+
+              <h3 class="officer-name">Myan Pearl N. Prollo</h3>
+              <p class="officer-position">Secretary</p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <!-- REPLACE IMAGE SOURCE: images/officer-04.jpg -->
+              <div class="officer-photo">
+                <img
+                  src="Ramiterre.png"
+                  alt="YES-O Treasurer"
+                >
+              </div>
+
+              <h3 class="officer-name">John Alexis C. Ramiterre</h3>
+              <p class="officer-position">Treasurer</p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <!-- REPLACE IMAGE SOURCE: images/officer-05.jpg -->
+              <div class="officer-photo">
+                <img
+                  src="Agdipa.png"
+                  alt="YES-O Auditor"
+                >
+              </div>
+
+              <h3 class="officer-name">Alexa A. Agdipa</h3>
+              <p class="officer-position">Auditor</p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <!-- REPLACE IMAGE SOURCE: images/officer-06.jpg -->
+              <div class="officer-photo">
+                <img
+                  src="Paringit.png"
+                  alt="YES-O Public Information Officer"
+                >
+              </div>
+
+              <h3 class="officer-name">Gabriel Yuan M. Paringit</h3>
+              <p class="officer-position">Public Information Officer</p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <!-- REPLACE IMAGE SOURCE: images/officer-07.jpg -->
+              <div class="officer-photo">
+                <img
+                  src="Tigolo.png"
+                  alt="YES-O Officer"
+                >
+              </div>
+
+              <h3 class="officer-name">Sofhia Denise G. Tigolo</h3>
+              <p class="officer-position">Peace Officer</p>
+
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         GALLERY
+         ======================================================= -->
+
+    <section class="section gallery" id="gallery">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">Gallery</span>
+          <h2 class="section-title">YES-O in Action</h2>
+          <p class="section-description">
+            Official activities, programs, meetings, campaigns,
+            and environmental initiatives of Pacac High School YES-O.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+
+          <article
+            class="gallery-card reveal"
+            data-image="Meeting.jpg"
+            data-title= "July 10, 2026 | A meaningful start for a greener school year. The Pacac High School YES-O officers gathered for their first meeting to align plans, discuss upcoming programs, and strengthen our commitment to serving the youth and protecting our environment."
+            tabindex="0"
+            role="button"
+            aria-label="Open YES-O Meeting photo"
+          >
+            <!-- REPLACE IMAGE SOURCE: images/gallery-meeting.jpg -->
+            <div class="gallery-image">
+              <img src="Meeting.jpg" alt="YES-O Meeting">
+            </div>
+            <h3 class="gallery-title">First YES-O Meeting</h3>
+          </article>
+
+
+          <article
+            class="gallery-card reveal"
+            data-image="Proposal.jpg"
+            data-title="July 22, 2026 | The Pacac High School YES-O presented the ECOPEDIA Information Campaign proposal to Sir Eric, emphasizing meaningful learner engagement through accessible environmental knowledge, interactive quizzes, and activities designed to turn awareness into action."
+            tabindex="0"
+            role="button"
             
-            // Generate Floating Leaves in background
-            const leafContainer = document.getElementById('leaf-container');
-            const icons = ['fa-leaf', 'fa-seedling'];
-            for (let i = 0; i < 15; i++) {
-                const leaf = document.createElement('div');
-                leaf.className = 'floating-leaf text-emerald';
-                const randomIcon = icons[Math.floor(Math.random() * icons.length)];
-                leaf.innerHTML = `<i class="fa-solid ${randomIcon} text-2xl"></i>`;
-                leaf.style.left = `${Math.random() * 100}vw`;
-                leaf.style.animationDelay = `${Math.random() * 18}s`;
-                leaf.style.fontSize = `${12 + Math.random() * 24}px`;
-                leafContainer.appendChild(leaf);
-            }
-
-            // Build Expandable Member Circles
-            const circlesGrid = document.getElementById('circles-grid');
-            YES_O_DATA.forEach(circle => {
-                const card = document.createElement('div');
-                card.id = circle.id;
-                card.className = "glass-card p-6 rounded-3xl transition-all duration-300 overflow-hidden cursor-pointer shadow-sm";
-                card.innerHTML = `
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-14 h-14 bg-emerald/10 text-emerald rounded-2xl flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-tree"></i></div>
-                            <div>
-                                <h3 class="font-extrabold text-slate-800 text-lg leading-tight circle-title">${circle.name}</h3>
-                                <div class="flex items-center space-x-2 mt-1">
-                                    <span class="text-xs font-bold text-slate-400">Advocate:</span>
-                                    <span class="text-emerald font-semibold text-xs advocate-name">${circle.advocate}</span>
-                                    <span class="px-2 py-0.5 bg-blueAccent/10 text-blueAccent text-[10px] font-bold rounded-full uppercase tracking-wider">${circle.badge}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-full sm:w-auto flex justify-between sm:justify-end items-center gap-4">
-                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">${circle.members.length} Members</span>
-                            <span class="text-emerald shrink-0 toggle-arrow transform transition-transform duration-300"><i class="fa-solid fa-chevron-down text-sm"></i></span>
-                        </div>
-                    </div>
-                    <div class="expandable-drawer max-h-0 opacity-0 transition-all duration-500 overflow-hidden">
-                        <div class="border-t border-slate-100 mt-6 pt-6">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Community Members</h4>
-                            <div class="flex flex-wrap gap-2.5">
-                                ${circle.members.map(member => `
-                                    <span class="member-chip px-3 py-1.5 bg-white text-slate-600 border border-slate-200 rounded-xl text-xs font-semibold transition-all hover:border-emerald/40 hover:text-emerald cursor-pointer">${member}</span>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                // Toggle expand on click
-                card.addEventListener('click', (e) => {
-                    if (e.target.closest('.member-chip')) return; // Avoid collapsing if dynamic chips are clicked
-                    toggleCircle(card);
-                });
-                
-                circlesGrid.appendChild(card);
-            });
-
-            // Build Gallery Wall Elements
-            const masonryGallery = document.getElementById('masonry-gallery');
-            GALLERY_ITEMS.forEach(item => {
-                const element = document.createElement('div');
-                element.className = `gallery-item group relative overflow-hidden rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300` ;
-                element.setAttribute('data-category', item.category);
-                element.innerHTML = `
-                    <div class="aspect-[4/3] bg-slate-200 overflow-hidden">
-                        <img src="${item.img}" alt="${item.caption}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-xs font-bold text-emerald uppercase tracking-wider mb-1">${item.category.replace('-', ' ')}</span>
-                        <h4 class="text-white font-bold text-sm leading-snug">${item.caption}</h4>
-                    </div>
-                `;
-                element.addEventListener('click', () => openLightbox(item.img, item.caption));
-                masonryGallery.appendChild(element);
-            });
-        });
-
-        // Toggle Circle Function
-        function toggleCircle(card, forceOpen = false) {
-            const drawer = card.querySelector('.expandable-drawer');
-            const arrow = card.querySelector('.toggle-arrow');
-            const isOpen = drawer.classList.contains('active-drawer');
-
-            // Close other cards first if opened natively
-            if (!forceOpen) {
-                document.querySelectorAll('.expandable-drawer.active-drawer').forEach(activeDrawer => {
-                    if (activeDrawer !== drawer) {
-                        activeDrawer.classList.remove('active-drawer');
-                        activeDrawer.style.maxHeight = '0px';
-                        activeDrawer.style.opacity = '0';
-                        activeDrawer.closest('.glass-card').querySelector('.toggle-arrow').style.transform = 'rotate(0deg)';
-                    }
-                });
-            }
-
-            if (isOpen && !forceOpen) {
-                drawer.classList.remove('active-drawer');
-                drawer.style.maxHeight = '0px';
-                drawer.style.opacity = '0';
-                arrow.style.transform = 'rotate(0deg)';
-            } else {
-                drawer.classList.add('active-drawer');
-                drawer.style.maxHeight = drawer.scrollHeight + 'px';
-                drawer.style.opacity = '1';
-                arrow.style.transform = 'rotate(180deg)';
-            }
-        }
-
-        // Search Filter System
-        const searchInput = document.getElementById('member-search');
-        const clearBtn = document.getElementById('search-clear-btn');
-        const searchToast = document.getElementById('search-result-toast');
-
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
-            if (query !== "") {
-                clearBtn.classList.remove('hidden');
-                let found = false;
-                let foundCircle = null; 
-
-                // Scan through data
-                YES_O_DATA.forEach(circle => {
-                    const circleElement = document.getElementById(circle.id);
-                    const chips = circleElement.querySelectorAll('.member-chip');
-                    let circleHasMatch = false;
-
-                    // Match against members
-                    chips.forEach(chip => {
-                        const name = chip.textContent.toLowerCase();
-                        if (name.includes(query)) {
-                            chip.classList.add('bg-emerald/20', 'border-emerald', 'text-emerald');
-                            circleHasMatch = true;
-                            found = true;
-                            foundCircle = circle;
-                        } else {
-                            chip.classList.remove('bg-emerald/20', 'border-emerald', 'text-emerald');
-                        }
-                    });
-
-                    // Match against circle name or advocate name
-                    if (circle.name.toLowerCase().includes(query) || circle.advocate.toLowerCase().includes(query)) {
-                        circleHasMatch = true;
-                        found = true;
-                        foundCircle = circle;
-                    }
-
-                    if (circleHasMatch) {
-                        circleElement.classList.remove('opacity-40');
-                        circleElement.classList.add('border-emerald/40');
-                    } else {
-                        circleElement.classList.add('opacity-40');
-                        circleElement.classList.remove('border-emerald/40');
-                    }
-                });
-
-                if (found && foundCircle) {
-                    const targetCard = document.getElementById(foundCircle.id);
-                    toggleCircle(targetCard, true);
-                    searchToast.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Member found in <strong>${foundCircle.name}</strong>`;
-                    searchToast.classList.remove('hidden');
-                } else {
-                    searchToast.innerHTML = `<i class="fa-solid fa-circle-info mr-1"></i> No matching member or circle found.`;
-                    searchToast.classList.remove('hidden');
-                }
-            } else {
-                resetSearch();
-            }
-        });
-
-        clearBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            resetSearch();
-        });
-
-        function resetSearch() {
-            clearBtn.classList.add('hidden');
-            searchToast.classList.add('hidden');
-            YES_O_DATA.forEach(circle => {
-                const circleElement = document.getElementById(circle.id);
-                circleElement.classList.remove('opacity-40', 'border-emerald/40');
-                
-                // Reset highlights
-                circleElement.querySelectorAll('.member-chip').forEach(chip => {
-                    chip.classList.remove('bg-emerald/20', 'border-emerald', 'text-emerald');
-                });
-
-                // Collapse all
-                const drawer = circleElement.querySelector('.expandable-drawer');
-                drawer.classList.remove('active-drawer');
-                drawer.style.maxHeight = '0px';
-                drawer.style.opacity = '0';
-                circleElement.querySelector('.toggle-arrow').style.transform = 'rotate(0deg)';
-            });
-        }
-
-        // Gallery Filter System
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.className = "filter-btn px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-slate-100 text-slate-600 hover:bg-slate-200");
-                btn.className = "filter-btn px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-emerald text-white shadow-md shadow-emerald/10";
-                
-                const filter = btn.getAttribute('data-filter');
-                document.querySelectorAll('.gallery-item').forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
-                    }
-                });
-            });
-        });
-
-        // Lightbox Actions
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        
-        function openLightbox(src, caption) {
-            lightboxImg.src = src;
-            lightboxCaption.textContent = caption;
-            lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Lock scrolling
-        }
-
-        document.getElementById('close-lightbox').addEventListener('click', () => {
-            lightbox.style.display = 'none';
-            document.body.style.overflow = '';
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Sticky Nav & Scroll Progress
-        const nav = document.getElementById('main-nav');
-        const backToTop = document.getElementById('back-to-top');
-        const scrollProgress = document.getElementById('scroll-progress');
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+          >
+            <!-- REPLACE IMAGE SOURCE: images/gallery-tree-planting.jpg -->
+            <div class="gallery-image">
+              <img src="Proposal.jpg" alt="Tree planting activity">
+            </div>
+            <h3 class="gallery-title">Ecopedia Proposal</h3>
+          </article>
+		  
+		  <article
+            class="gallery-card reveal"
+            data-image="1stOrientation.jpg"
+            data-title="A strong start for our Senior High School members! The Pacac High School YES-O successfully conducted its SHS Member Orientation, introducing our mission, programs, expectations, and opportunities for active participation."
+            tabindex="0"
+            role="button"
             
-            // Progress Bar
-            const progress = (currentScroll / totalHeight) * 100;
-            scrollProgress.style.width = `${progress}%`;
+          >
+            <!-- REPLACE IMAGE SOURCE: images/gallery-tree-planting.jpg -->
+            <div class="gallery-image">
+              <img src="1stOrientation.jpg" alt="Tree planting activity">
+            </div>
+            <h3 class="gallery-title">SHS Member Orientation</h3>
+          </article>
+		  
+		    <article
+            class="gallery-card reveal"
+            data-image="2ndOrinetation1.jpg"
+            data-title="The Pacac High School YES-O successfully conducted its Junior High School Member Orientation, welcoming new members and introducing our mission, programs, responsibilities, and opportunities for meaningful participation."
+            tabindex="0"
+            role="button"
+          >
+            <!-- REPLACE IMAGE SOURCE: images/gallery-tree-planting.jpg -->
+            <div class="gallery-image">
+              <img src="2ndOrinetation2.jpg" alt="Tree planting activity">
+            </div>
+            <h3 class="gallery-title">JHS Member Orientation</h3>
+          </article>
+		  
+		      <article
+            class="gallery-card reveal"
+            data-image="1stEcopediaRaffle.jpg"
+            data-title="A milestone for the Pacac High School YES-O ECOPEDIA Information Campaign! Our first raffle draw celebrated learners who took part in the ECOPEDIA quiz and showed their interest in learning more about Philippine wildlife."
+            tabindex="0"
+            role="button"
+          >
+            <!-- REPLACE IMAGE SOURCE: images/gallery-tree-planting.jpg -->
+            <div class="gallery-image">
+              <img src="1stEcopediaRaffle.jpg" alt="Tree planting activity">
+            </div>
+            <h3 class="gallery-title">First Ecopedia Raffle</h3>
+          </article>
+		  
+        </div>
+      </div>
+    </section>
+	
+	<section class="section winners" id="winners">
+      <div class="container">
 
-            // Sticky Navigation Style
-            if (currentScroll > 50) {
-                nav.classList.add('shadow-lg', 'py-3');
-                nav.classList.remove('py-4');
-            } else {
-                nav.classList.remove('shadow-lg', 'py-3');
-                nav.classList.add('py-4');
-            }
+        <div class="section-heading reveal">
+          <span class="section-label">Ecopedia</span>
+          <h2 class="section-title">Monthly Winners</h2>
+          </p>
+        </div>
 
-            // Back to Top visibility
-            if (currentScroll > 500) {
-                backToTop.classList.add('opacity-100', 'visible');
-                backToTop.classList.remove('opacity-0', 'invisible');
-            } else {
-                backToTop.classList.remove('opacity-100', 'visible');
-                backToTop.classList.add('opacity-0', 'invisible');
-            }
-        });
+        <div class="sponsor-grid">
 
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+          <div class="sponsor-card reveal">Cristopher Joaquin</div>
+          <div class="sponsor-card reveal">Geraldine Javier</div>
+          <div class="sponsor-card reveal">Mark James Esteban</div>
+          <div class="sponsor-card reveal">Jillian Gabuyo</div>
 
-        // Mobile Nav Hamburger Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
+        </div>
+      </div>
+    </section>
+	
 
-        menuBtn.addEventListener('click', () => {
-            const isClosed = mobileMenu.classList.contains('hidden');
-            if (isClosed) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.className = "fa-solid fa-xmark text-2xl";
-                document.body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.className = "fa-solid fa-bars-staggered text-2xl";
-                document.body.style.overflow = '';
-            }
-        });
 
-        // Close Mobile Menu on Click
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.className = "fa-solid fa-bars-staggered text-2xl";
-                document.body.style.overflow = '';
-            });
-        });
 
-        // Suggestion Box Email Submungan Submission
-        const form = document.getElementById('sumbungform');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+    <!-- =======================================================
+         ECOPEDIA
+         ======================================================= -->
 
-            const formData = new FormData(form);
-            const name = formData.get('name') || "Anonymous Sender";
-            const email = formData.get('email') || "Not provided";
-            const subject = formData.get('subject');
-            const message = formData.get('message');
+    <section class="section ecopedia" id="ecopedia">
+      <div class="container">
 
-            // Format direct mailto link
-            const emailTarget = "pacachsyes.o@gmail.com";
-            const emailSubject = encodeURIComponent(`YES-O Suggestion: ${subject}`);
-            const emailBody = encodeURIComponent(
-                `YES-O SUGGESTION BOX SUBMISSION\n` +
-                `=============================\n\n` +
-                `Sender Name: ${name}\n` +
-                `Sender Email: ${email}\n\n` +
-                `Message:\n${message}\n\n` +
-                `=============================\n` +
-                `Sent via the official YES-O interactive web portal.`
+        <div class="section-heading reveal">
+          <span class="section-label">Campaign</span>
+          <h2 class="section-title">Ecopedia Information Campaign</h2>
+          <p class="section-description">
+            ECOPEDIA Information Campaign is the Pacac High School YES-O’s environmental education initiative for S.Y. 2026–2027, designed to increase learner engagement through weekly environmental information materials, posted every Monday on the YES-O Facebook Page and bulletin board, covering topics such as Philippine biodiversity, native wildlife, endangered species, climate change, waste management, water conservation, renewable energy, environmental laws, and the SDGs. The campaign also includes monthly quizzes released through Google Forms, where correct answers earn raffle entries, connecting environmental learning with active participation and recognition.
+
+          </p>
+        </div>
+
+        <div
+          class="month-selector"
+          id="monthSelector"
+          role="tablist"
+          aria-label="Ecopedia months"
+        ></div>
+
+        <div id="ecopediaContent" aria-live="polite"></div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         SPONSORS
+         ======================================================= -->
+
+    <section class="section sponsors" id="sponsors">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">Supporters</span>
+          <h2 class="section-title">Sponsors</h2>
+          <p class="section-description">
+            We recognize the individuals, groups, and organizations
+            supporting the environmental programs and activities of
+            Pacac High School YES-O.
+          </p>
+        </div>
+
+        <div class="sponsor-grid">
+
+          <div class="sponsor-card reveal">Sangguniang Kabataan ng Narvacan 1</div>
+          <div class="sponsor-card reveal">Anonymous</div>
+          <div class="sponsor-card reveal">Anonymous</div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         BUDGET
+         ======================================================= -->
+
+    <section class="section budget" id="budget">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">Transparency</span>
+          <h2 class="section-title">Ecopedia Budget</h2>
+          <p class="section-description">
+            Monthly financial records for Ecopedia activities,
+            including sponsor funds, prize expenses, and remaining
+            balances.
+          </p>
+        </div>
+
+
+        <div class="financial-summary">
+
+          <div class="finance-card reveal">
+            <div class="finance-label">Current Ecopedia Fund</div>
+            <div class="finance-value" id="totalFund">₱1300.00</div>
+          </div>
+
+          <div class="finance-card reveal">
+            <div class="finance-label">Total Prize Expenses</div>
+            <div class="finance-value" id="totalExpenses">₱493.00</div>
+          </div>
+
+          <div class="finance-card reveal">
+            <div class="finance-label">Remaining Funds</div>
+            <div class="finance-value" id="remainingFunds">₱807.00</div>
+          </div>
+
+        </div>
+
+
+        <div class="budget-table-wrap reveal">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Sponsor Funds</th>
+                <th>Prize Expenses</th>
+                <th>Remaining Balance</th>
+              </tr>
+            </thead>
+            <tbody id="budgetBody"></tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+    <div class="container footer-inner">
+
+      <div>
+        <div class="footer-brand">
+
+          <!-- REPLACE IMAGE SOURCE: images/logo.png -->
+          <img
+            class="footer-logo"
+            src="ylogo.png"
+            alt="Pacac High School YES-O official logo"
+          >
+
+          <div>
+            <div class="footer-title">
+              Youth for Environment in Schools Organization
+            </div>
+            <div class="footer-subtitle">
+              Pacac High School • School Year 2026-2027
+            </div>
+          </div>
+
+        </div>
+
+        <p class="footer-statement">
+          Para sa Kabataan. Para sa Kalikasan. Para sa Bayan. Lagi't Lagi
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Pacac High School YES-O. School Year 2026-2027.
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =========================================================
+       GALLERY LIGHTBOX
+       ========================================================= -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Gallery image viewer"
+  >
+    <div class="lightbox-content">
+
+      <button
+        class="lightbox-close"
+        id="lightboxClose"
+        type="button"
+        aria-label="Close image viewer"
+      >
+        ×
+      </button>
+
+      <div class="lightbox-image">
+        <img id="lightboxImg" src="" alt="">
+      </div>
+
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+
+    </div>
+  </div>
+
+
+  <script>
+    /* =========================================================
+       PACAC HIGH SCHOOL YES-O
+       JAVASCRIPT
+       ========================================================= */
+
+
+    /* =========================================================
+       MOBILE NAVIGATION
+       ========================================================= */
+
+    const navToggle = document.getElementById("navToggle");
+    const navMenu = document.getElementById("navMenu");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function closeMenu() {
+      navMenu.classList.remove("open");
+      navToggle.classList.remove("active");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Open navigation menu");
+      document.body.classList.remove("menu-open");
+    }
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("open");
+
+      navToggle.classList.toggle("active", isOpen);
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+
+    /* =========================================================
+       ACTIVE NAVIGATION
+       ========================================================= */
+
+    const sections = document.querySelectorAll("main section[id]");
+
+    const sectionObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          navLinks.forEach(link => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + entry.target.id
             );
-
-            // Open Client Native Email program
-            window.location.href = `mailto:${emailTarget}?subject=${emailSubject}&body=${emailBody}`;
-
-            // Show Premium confirmation alert using SweetAlert2
-            Swal.fire({
-                title: 'Successfully Handled!',
-                text: 'Thank you for helping improve YES-O. Your response has been packaged for submission.',
-                icon: 'success',
-                confirmButtonColor: '#2E7D32',
-                confirmButtonText: 'Proceed',
-                background: '#FFFFFF',
-                customClass: {
-                    popup: 'rounded-3xl shadow-xl'
-                }
-            });
-
-            form.reset();
+          });
         });
-    </script>
+      },
+      {
+        rootMargin: "-30% 0px -60% 0px",
+        threshold: 0
+      }
+    );
+
+    sections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.08
+      }
+    );
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      revealObserver.observe(element);
+    });
+
+
+    /* =========================================================
+       ECOPEDIA DATA
+       EDIT TOPICS HERE
+       ========================================================= */
+
+    const ecopediaData = {
+
+      "August 2026": {
+        theme: "Philippine Wildlife",
+        topics: [
+
+          {
+            title: "Tamaraw",
+            image: "EW1.png",
+            description:
+              "The tamaraw is a small wild buffalo found only in the Philippines. Protecting its habitat helps preserve one of the country's native mammals."
+          },
+
+          {
+            title: "Giant Golden-Crowned Flying Fox",
+            image: "EW2.png",
+            description:
+              "The giant golden-crowned flying fox is an important seed disperser. Forest protection supports both the species and the plants connected to its habitat."
+          },
+
+          {
+            title: "Philippine Tarsier",
+            image: "EW3.png",
+            description:
+              "The Philippine tarsier is a small primate native to the Philippines. Forest conservation helps protect the natural habitat it needs."
+          },
+
+          {
+            title: "Philippine Pangolin",
+            image: "EW4.png",
+            description:
+              "The Philippine pangolin is a threatened native mammal. Protecting forests and stopping wildlife exploitation are important conservation actions."
+          }
+
+        ]
+      },
+
+
+      "September 2026": {
+        theme: "Native Flora of the Philippines",
+        topics: [
+
+          {
+            title: "Kamagong",
+            image: "EW5.png",
+            description:
+              "Biodiversity refers to the variety of living organisms, their genes, and ecosystems. Healthy biodiversity supports balanced ecosystems."
+          }
+
+        ]
+      }
+
+    };
+
+
+    /* =========================================================
+       ECOPEDIA RENDERING
+       ========================================================= */
+
+    const monthSelector = document.getElementById("monthSelector");
+    const ecopediaContent = document.getElementById("ecopediaContent");
+
+    let activeMonth = Object.keys(ecopediaData)[0];
+
+    function renderMonthButtons() {
+
+      monthSelector.innerHTML = "";
+
+      Object.keys(ecopediaData).forEach(month => {
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "month-btn";
+        button.textContent = month.replace(" 2026", "").replace(" 2027", "");
+
+        button.setAttribute("role", "tab");
+        button.setAttribute("aria-selected", String(month === activeMonth));
+
+        if (month === activeMonth) {
+          button.classList.add("active");
+        }
+
+        button.addEventListener("click", () => {
+          activeMonth = month;
+          renderMonthButtons();
+          renderEcopedia();
+        });
+
+        monthSelector.appendChild(button);
+
+      });
+    }
+
+
+    function renderEcopedia() {
+
+      const month = ecopediaData[activeMonth];
+
+      if (!month) return;
+
+      ecopediaContent.innerHTML = `
+        <div class="month-header">
+          <div>
+            <div class="month-name">${activeMonth}</div>
+          </div>
+          <div class="month-theme">${month.theme}</div>
+        </div>
+
+        <div class="ecopedia-grid">
+          ${month.topics.map((topic, index) => `
+            <article class="eco-card" style="animation-delay:${index * 45}ms">
+
+              <div class="eco-image">
+                <img
+                  src="${topic.image}"
+                  alt="${topic.title}"
+                  loading="lazy"
+                >
+              </div>
+
+              <div class="eco-content">
+                <h3>${topic.title}</h3>
+                <p>${topic.description}</p>
+              </div>
+
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    renderMonthButtons();
+    renderEcopedia();
+
+
+    /* =========================================================
+       BUDGET DATA
+       EDIT AMOUNTS HERE
+       ========================================================= */
+
+    const budgetData = [
+
+      {
+        month: "August 2026",
+        funds: 1300,
+        expenses: 493
+      },
+
+      {
+        month: "September 2026",
+        funds: 0,
+        expenses: 0
+      },
+
+      {
+        month: "October 2026",
+        funds: 0,
+        expenses: 0
+      },
+
+      {
+        month: "November 2026",
+        funds: 0,
+        expenses: 0
+      },
+
+      {
+        month: "December 2026",
+        funds: 0,
+        expenses: 0
+      },
+
+      {
+        month: "January 2027",
+        funds: 0,
+        expenses: 0
+      },
+
+      {
+        month: "February 2027",
+        funds: 0,
+        expenses: 0
+      },
+
+      {
+        month: "March 2027",
+        funds: 0,
+        expenses: 0
+      }
+
+    ];
+
+
+    /* =========================================================
+       BUDGET CALCULATIONS
+       ========================================================= */
+
+    const pesoFormatter = new Intl.NumberFormat("en-PH", {
+      style: "currency",
+      currency: "PHP",
+      minimumFractionDigits: 2
+    });
+
+    function calculateBudget() {
+
+      let totalFunds = 0;
+      let totalExpenses = 0;
+      let runningBalance = 0;
+
+      const budgetBody = document.getElementById("budgetBody");
+
+      budgetBody.innerHTML = "";
+
+      budgetData.forEach(row => {
+
+        totalFunds += Number(row.funds) || 0;
+        totalExpenses += Number(row.expenses) || 0;
+
+        runningBalance += (Number(row.funds) || 0);
+        runningBalance -= (Number(row.expenses) || 0);
+
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+          <td>${row.month}</td>
+          <td>${pesoFormatter.format(row.funds)}</td>
+          <td>${pesoFormatter.format(row.expenses)}</td>
+          <td>${pesoFormatter.format(runningBalance)}</td>
+        `;
+
+        budgetBody.appendChild(tr);
+
+      });
+
+      const remaining = totalFunds - totalExpenses;
+
+      document.getElementById("totalFund").textContent =
+        pesoFormatter.format(totalFunds);
+
+      document.getElementById("totalExpenses").textContent =
+        pesoFormatter.format(totalExpenses);
+
+      document.getElementById("remainingFunds").textContent =
+        pesoFormatter.format(remaining);
+    }
+
+    calculateBudget();
+
+
+    /* =========================================================
+       GALLERY LIGHTBOX
+       ========================================================= */
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    let lastFocusedGalleryItem = null;
+
+    function openLightbox(card) {
+
+      const image = card.dataset.image;
+      const title = card.dataset.title;
+
+      if (!image) return;
+
+      lastFocusedGalleryItem = card;
+
+      lightboxImg.src = image;
+      lightboxImg.alt = title;
+      lightboxCaption.textContent = title;
+
+      lightbox.classList.add("open");
+      document.body.classList.add("menu-open");
+
+      lightboxClose.focus();
+    }
+
+
+    function closeLightbox() {
+
+      lightbox.classList.remove("open");
+      document.body.classList.remove("menu-open");
+
+      lightboxImg.src = "";
+      lightboxImg.alt = "";
+
+      if (lastFocusedGalleryItem) {
+        lastFocusedGalleryItem.focus();
+      }
+    }
+
+
+    document.querySelectorAll(".gallery-card").forEach(card => {
+
+      card.addEventListener("click", () => {
+        openLightbox(card);
+      });
+
+      card.addEventListener("keydown", event => {
+
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(card);
+        }
+
+      });
+
+    });
+
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+
+    lightbox.addEventListener("click", event => {
+
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+
+    });
+
+
+    document.addEventListener("keydown", event => {
+
+      if (event.key === "Escape") {
+
+        if (lightbox.classList.contains("open")) {
+          closeLightbox();
+        } else if (navMenu.classList.contains("open")) {
+          closeMenu();
+        }
+
+      }
+
+    });
+
+
+    /* =========================================================
+       CLOSE MOBILE MENU WHEN RESIZING TO DESKTOP
+       ========================================================= */
+
+    window.addEventListener("resize", () => {
+
+      if (window.innerWidth >= 800) {
+        closeMenu();
+      }
+
+    });
+
+  </script>
+
 </body>
 </html>
