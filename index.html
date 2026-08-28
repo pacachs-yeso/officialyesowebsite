@@ -2896,7 +2896,7 @@
 
 
           <h2 class="section-title">
-            Seven Environmental Circles
+            Environmental Circles
           </h2>
 
 
@@ -3999,135 +3999,133 @@
     </section>
 
 
-    <!-- =======================================================
-         FUNDS
-         ======================================================= -->
+  <!-- =======================================================
+     FUNDS
+     ======================================================= -->
 
-    <section
-      class="section funds"
-      id="funds"
-    >
+<section
+  class="section funds"
+  id="funds"
+>
 
-      <div class="container">
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <span class="section-label">
+        Transparency
+      </span>
+
+      <h2 class="section-title">
+        Funds
+      </h2>
+
+      <p class="section-description">
+        Financial records for ECOPEDIA activities, including
+        sponsor funds, prize expenses, and remaining balances.
+        Totals are calculated automatically from the monthly records.
+      </p>
+
+    </div>
 
 
-        <div class="section-heading reveal">
+    <!-- =====================================================
+         FINANCIAL SUMMARY
+         ===================================================== -->
 
-          <span class="section-label">
-            Transparency
-          </span>
+    <div class="financial-summary">
 
+      <div class="finance-card reveal">
 
-          <h2 class="section-title">
-            Funds
-          </h2>
-
-
-          <p class="section-description">
-            Financial records for ECOPEDIA activities, including
-            sponsor funds, prize expenses, and remaining balances.
-            Totals are calculated automatically from the monthly records.
-          </p>
-
+        <div class="finance-label">
+          Total Funds
         </div>
 
-
-        <div class="financial-summary">
-
-
-          <div class="finance-card reveal">
-
-            <div class="finance-label">
-              Total Funds
-            </div>
-
-
-            <div
-              class="finance-value"
-              id="totalFund"
-            >
-              ₱0.00
-            </div>
-
-          </div>
-
-
-          <div class="finance-card reveal">
-
-            <div class="finance-label">
-              Total Expenses
-            </div>
-
-
-            <div
-              class="finance-value"
-              id="totalExpenses"
-            >
-              ₱0.00
-            </div>
-
-          </div>
-
-
-          <div class="finance-card reveal">
-
-            <div class="finance-label">
-              Remaining Balance
-            </div>
-
-
-            <div
-              class="finance-value"
-              id="remainingFunds"
-            >
-              ₱0.00
-            </div>
-
-          </div>
-
-
+        <div
+          class="finance-value"
+          id="totalFund"
+        >
+          ₱1300.00
         </div>
-
-
-        <div class="budget-table-wrap reveal">
-
-          <table class="budget-table">
-
-            <thead>
-
-              <tr>
-
-                <th>
-                  Month
-                </th>
-
-                <th>
-                  Funds
-                </th>
-
-                <th>
-                  Expenses
-                </th>
-
-                <th>
-                  Remaining Balance
-                </th>
-
-              </tr>
-
-            </thead>
-
-
-            <tbody id="budgetBody"></tbody>
-
-          </table>
-
-        </div>
-
 
       </div>
 
-    </section>
+
+      <div class="finance-card reveal">
+
+        <div class="finance-label">
+          Total Expenses
+        </div>
+
+        <div
+          class="finance-value"
+          id="totalExpenses"
+        >
+          ₱0.00
+        </div>
+
+      </div>
+
+
+      <div class="finance-card reveal">
+
+        <div class="finance-label">
+          Remaining Balance
+        </div>
+
+        <div
+          class="finance-value"
+          id="remainingFunds"
+        >
+          ₱0.00
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FUNDS TABLE
+         ===================================================== -->
+
+    <div class="budget-table-wrap reveal">
+
+      <table class="budget-table">
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Month
+            </th>
+
+            <th>
+              Funds
+            </th>
+
+            <th>
+              Expenses
+            </th>
+
+            <th>
+              Remaining Balance
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="budgetBody"></tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
 
 
   </main>
@@ -4957,193 +4955,256 @@
     renderEcopedia();
 
 
-    /* =========================================================
-       FUNDS DATA
-       EDIT AMOUNTS HERE
-       ========================================================= */
+ /* =========================================================
+   FUNDS DATA
+   =========================================================
+   
+   funds:
+   Bagong sponsor money na natanggap sa buwan.
+
+   expenses:
+   Gastos sa buwan.
+
+   SYSTEM:
+   Overall Funds = lahat ng sponsor funds
+
+   Remaining Balance =
+   Overall Funds - lahat ng expenses hanggang sa kasalukuyan
+   ========================================================= */
+
+const fundsData = [
 
-    const fundsData = [
+  {
+    month: "August 2026",
+    funds: 1300,
+    expenses: 493
+  },
 
-      {
-        month: "August 2026",
-        funds: 1300,
-        expenses: 493
-      },
+  {
+    month: "September 2026",
+    funds: 0,
+    expenses: 0
+  },
 
+  {
+    month: "October 2026",
+    funds: 0,
+    expenses: 0
+  },
 
-      {
-        month: "September 2026",
-        funds: 0,
-        expenses: 0
-      },
+  {
+    month: "November 2026",
+    funds: 0,
+    expenses: 0
+  },
 
+  {
+    month: "December 2026",
+    funds: 0,
+    expenses: 0
+  },
 
-      {
-        month: "October 2026",
-        funds: 0,
-        expenses: 0
-      },
+  {
+    month: "January 2027",
+    funds: 0,
+    expenses: 0
+  },
 
+  {
+    month: "February 2027",
+    funds: 0,
+    expenses: 0
+  },
 
-      {
-        month: "November 2026",
-        funds: 0,
-        expenses: 0
-      },
+  {
+    month: "March 2027",
+    funds: 0,
+    expenses: 0
+  }
 
+];
 
-      {
-        month: "December 2026",
-        funds: 0,
-        expenses: 0
-      },
 
+/* =========================================================
+   PESO FORMATTER
+   ========================================================= */
 
-      {
-        month: "January 2027",
-        funds: 0,
-        expenses: 0
-      },
+const pesoFormatter = new Intl.NumberFormat(
+  "en-PH",
+  {
+    style: "currency",
+    currency: "PHP",
+    minimumFractionDigits: 2
+  }
+);
 
 
-      {
-        month: "February 2027",
-        funds: 0,
-        expenses: 0
-      },
+/* =========================================================
+   CALCULATE FUNDS
+   ========================================================= */
 
+function calculateFunds() {
 
-      {
-        month: "March 2027",
-        funds: 0,
-        expenses: 0
-      }
+  const budgetBody =
+    document.getElementById("budgetBody");
 
-    ];
+  const totalFundElement =
+    document.getElementById("totalFund");
 
+  const totalExpensesElement =
+    document.getElementById("totalExpenses");
 
-    /* =========================================================
-       FUNDS CALCULATIONS
-       ========================================================= */
+  const remainingFundsElement =
+    document.getElementById("remainingFunds");
 
-    const pesoFormatter =
-      new Intl.NumberFormat(
-        "en-PH",
-        {
-          style: "currency",
-          currency: "PHP",
-          minimumFractionDigits: 2
-        }
-      );
 
+  if (
+    !budgetBody ||
+    !totalFundElement ||
+    !totalExpensesElement ||
+    !remainingFundsElement
+  ) {
+    return;
+  }
 
-    function calculateFunds() {
 
-      let totalFunds = 0;
+  /* Clear old table */
 
-      let totalExpenses = 0;
+  budgetBody.innerHTML = "";
 
-      let runningBalance = 0;
 
+  /* =======================================================
+     VARIABLES
+     ======================================================= */
 
-      const budgetBody =
-        document.getElementById(
-          "budgetBody"
-        );
+  let overallFunds = 0;
 
+  let totalExpenses = 0;
 
-      budgetBody.innerHTML = "";
+  let remainingBalance = 0;
 
 
-      fundsData.forEach(
-        row => {
+  /* =======================================================
+     PROCESS EACH MONTH
+     ======================================================= */
 
-          const funds =
-            Number(row.funds) || 0;
+  fundsData.forEach(row => {
 
+    const newFunds =
+      Number(row.funds) || 0;
 
-          const expenses =
-            Number(row.expenses) || 0;
+    const monthlyExpenses =
+      Number(row.expenses) || 0;
 
 
-          totalFunds += funds;
+    /* -------------------------------------------------------
+       ADD NEW SPONSOR FUNDS
+       ------------------------------------------------------- */
 
-          totalExpenses += expenses;
+    overallFunds += newFunds;
 
 
-          runningBalance += funds;
+    /* -------------------------------------------------------
+       ADD MONTHLY EXPENSES
+       ------------------------------------------------------- */
 
-          runningBalance -= expenses;
+    totalExpenses += monthlyExpenses;
 
 
-          const tr =
-            document.createElement(
-              "tr"
-            );
+    /* -------------------------------------------------------
+       CALCULATE REMAINING BALANCE
+       
+       Overall Funds
+       minus
+       ALL expenses so far
+       ------------------------------------------------------- */
 
+    remainingBalance =
+      overallFunds -
+      totalExpenses;
 
-          tr.innerHTML = `
 
-            <td>
-              ${row.month}
-            </td>
+    /* -------------------------------------------------------
+       FUNDS AVAILABLE FOR THIS MONTH
+       
+       This shows the current amount available after
+       previous expenses.
+       ------------------------------------------------------- */
 
-            <td>
-              ${pesoFormatter.format(funds)}
-            </td>
+    const fundsAvailable =
+      remainingBalance +
+      monthlyExpenses;
 
-            <td>
-              ${pesoFormatter.format(expenses)}
-            </td>
 
-            <td>
-              ${pesoFormatter.format(runningBalance)}
-            </td>
+    /* -------------------------------------------------------
+       CREATE TABLE ROW
+       ------------------------------------------------------- */
 
-          `;
+    const tableRow =
+      document.createElement("tr");
 
 
-          budgetBody.appendChild(
-            tr
-          );
+    tableRow.innerHTML = `
 
-        }
-      );
+      <td>
+        ${row.month}
+      </td>
 
+      <td>
+        ${pesoFormatter.format(
+          fundsAvailable
+        )}
+      </td>
 
-      const remaining =
-        totalFunds -
-        totalExpenses;
+      <td>
+        ${pesoFormatter.format(
+          monthlyExpenses
+        )}
+      </td>
 
+      <td>
+        ${pesoFormatter.format(
+          remainingBalance
+        )}
+      </td>
 
-      document.getElementById(
-        "totalFund"
-      ).textContent =
-        pesoFormatter.format(
-          totalFunds
-        );
+    `;
 
 
-      document.getElementById(
-        "totalExpenses"
-      ).textContent =
-        pesoFormatter.format(
-          totalExpenses
-        );
+    budgetBody.appendChild(tableRow);
 
+  });
 
-      document.getElementById(
-        "remainingFunds"
-      ).textContent =
-        pesoFormatter.format(
-          remaining
-        );
 
-    }
+  /* =======================================================
+     UPDATE SUMMARY CARDS
+     ======================================================= */
 
+  totalFundElement.textContent =
+    pesoFormatter.format(
+      overallFunds
+    );
 
-    calculateFunds();
 
+  totalExpensesElement.textContent =
+    pesoFormatter.format(
+      totalExpenses
+    );
+
+
+  remainingFundsElement.textContent =
+    pesoFormatter.format(
+      remainingBalance
+    );
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+calculateFunds();
 
     /* =========================================================
        GALLERY LIGHTBOX
