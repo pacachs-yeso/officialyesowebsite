@@ -2414,7 +2414,14 @@
         >
           Winners
         </a>
-        
+
+        <a
+          class="nav-link"
+          href="#ecopedia"
+        >
+          Ecopedia
+        </a>
+
         <a
           class="nav-link"
           href="#sponsors"
@@ -4383,7 +4390,7 @@ On behalf of Pacac High School, the YES-O sincerely thanks 𝐇𝐨𝐧. 𝐕�
     </section>
 
 
-<!-- =======================================================
+  <!-- =======================================================
      FUNDS
      ======================================================= -->
 
@@ -4510,6 +4517,10 @@ On behalf of Pacac High School, the YES-O sincerely thanks 𝐇𝐨𝐧. 𝐕�
   </div>
 
 </section>
+
+
+  </main>
+
 
   <!-- =========================================================
        FOOTER
@@ -5504,67 +5515,85 @@ function calculateFunds() {
       totalExpenses;
 
 
-   /* -------------------------------------------------------
-   FUNDS AVAILABLE FOR THIS MONTH
+    /* -------------------------------------------------------
+       FUNDS AVAILABLE FOR THIS MONTH
+       
+       This shows the current amount available after
+       previous expenses.
+       ------------------------------------------------------- */
 
-   Funds available before the month's expenses are deducted.
-   ------------------------------------------------------- */
-
-const fundsAvailable =
-  remainingBalance + monthlyExpenses;
-
-
-/* -------------------------------------------------------
-   CREATE TABLE ROW
-   ------------------------------------------------------- */
-
-const tableRow =
-  document.createElement("tr");
+    const fundsAvailable =
+      remainingBalance +
+      monthlyExpenses;
 
 
-tableRow.innerHTML = `
-  <td>
-    ${row.month}
-  </td>
+    /* -------------------------------------------------------
+       CREATE TABLE ROW
+       ------------------------------------------------------- */
 
-  <td>
-    ${pesoFormatter.format(fundsAvailable)}
-  </td>
-
-  <td>
-    ${pesoFormatter.format(monthlyExpenses)}
-  </td>
-
-  <td>
-    ${pesoFormatter.format(remainingBalance)}
-  </td>
-`;
+    const tableRow =
+      document.createElement("tr");
 
 
-budgetBody.appendChild(tableRow);
+    tableRow.innerHTML = `
 
-});
+      <td>
+        ${row.month}
+      </td>
+
+      <td>
+        ${pesoFormatter.format(
+          fundsAvailable
+        )}
+      </td>
+
+      <td>
+        ${pesoFormatter.format(
+          monthlyExpenses
+        )}
+      </td>
+
+      <td>
+        ${pesoFormatter.format(
+          remainingBalance
+        )}
+      </td>
+
+    `;
 
 
-/* =======================================================
-   UPDATE SUMMARY CARDS
-   ======================================================= */
+    budgetBody.appendChild(tableRow);
 
-totalFundElement.textContent =
-  pesoFormatter.format(overallFunds);
+  });
 
 
-totalExpensesElement.textContent =
-  pesoFormatter.format(totalExpenses);
+  /* =======================================================
+     UPDATE SUMMARY CARDS
+     ======================================================= */
+
+  totalFundElement.textContent =
+    pesoFormatter.format(
+      overallFunds
+    );
 
 
-remainingFundsElement.textContent =
-  pesoFormatter.format(remainingBalance);
+  totalExpensesElement.textContent =
+    pesoFormatter.format(
+      totalExpenses
+    );
 
 
-/* =======================================================
+  remainingFundsElement.textContent =
+    pesoFormatter.format(
+      remainingBalance
+    );
+
+}
+
+
+/* =========================================================
    INITIALIZE
-   ======================================================= */
+   ========================================================= */
 
 calculateFunds();
 
