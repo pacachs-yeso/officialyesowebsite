@@ -4387,7 +4387,10 @@ On behalf of Pacac High School, the YES-O sincerely thanks 𝐇𝐨𝐧. 𝐕�
      FUNDS
      ======================================================= -->
 
-<section class="section funds" id="funds">
+<section
+  class="section funds"
+  id="funds"
+>
 
   <div class="container">
 
@@ -4422,8 +4425,11 @@ On behalf of Pacac High School, the YES-O sincerely thanks 𝐇𝐨𝐧. 𝐕�
           Total Funds
         </div>
 
-        <div class="finance-value" id="totalFund">
-          ₱1,300.00
+        <div
+          class="finance-value"
+          id="totalFund"
+        >
+          â‚±1300.00
         </div>
 
       </div>
@@ -4435,8 +4441,11 @@ On behalf of Pacac High School, the YES-O sincerely thanks 𝐇𝐨𝐧. 𝐕�
           Total Expenses
         </div>
 
-        <div class="finance-value" id="totalExpenses">
-          ₱0.00
+        <div
+          class="finance-value"
+          id="totalExpenses"
+        >
+          â‚±0.00
         </div>
 
       </div>
@@ -4448,8 +4457,11 @@ On behalf of Pacac High School, the YES-O sincerely thanks 𝐇𝐨𝐧. 𝐕�
           Remaining Balance
         </div>
 
-        <div class="finance-value" id="remainingFunds">
-          ₱1,300.00
+        <div
+          class="finance-value"
+          id="remainingFunds"
+        >
+          â‚±0.00
         </div>
 
       </div>
@@ -4468,24 +4480,28 @@ On behalf of Pacac High School, the YES-O sincerely thanks 𝐇𝐨𝐧. 𝐕�
         <thead>
 
           <tr>
-            <th>Month</th>
-            <th>Funds</th>
-            <th>Expenses</th>
-            <th>Remaining Balance</th>
+
+            <th>
+              Month
+            </th>
+
+            <th>
+              Funds
+            </th>
+
+            <th>
+              Expenses
+            </th>
+
+            <th>
+              Remaining Balance
+            </th>
+
           </tr>
 
         </thead>
 
-        <tbody id="budgetBody">
-
-          <tr>
-            <td>September 2026</td>
-            <td>₱1,300.00</td>
-            <td>₱0.00</td>
-            <td>₱1,300.00</td>
-          </tr>
-
-        </tbody>
+        <tbody id="budgetBody"></tbody>
 
       </table>
 
@@ -4494,10 +4510,6 @@ On behalf of Pacac High School, the YES-O sincerely thanks 𝐇𝐨𝐧. 𝐕�
   </div>
 
 </section>
-
-
-  </main>
-
 
   <!-- =========================================================
        FOOTER
@@ -5492,85 +5504,67 @@ function calculateFunds() {
       totalExpenses;
 
 
-    /* -------------------------------------------------------
-       FUNDS AVAILABLE FOR THIS MONTH
-       
-       This shows the current amount available after
-       previous expenses.
-       ------------------------------------------------------- */
+   /* -------------------------------------------------------
+   FUNDS AVAILABLE FOR THIS MONTH
 
-    const fundsAvailable =
-      remainingBalance +
-      monthlyExpenses;
+   Funds available before the month's expenses are deducted.
+   ------------------------------------------------------- */
+
+const fundsAvailable =
+  remainingBalance + monthlyExpenses;
 
 
-    /* -------------------------------------------------------
-       CREATE TABLE ROW
-       ------------------------------------------------------- */
+/* -------------------------------------------------------
+   CREATE TABLE ROW
+   ------------------------------------------------------- */
 
-    const tableRow =
-      document.createElement("tr");
-
-
-    tableRow.innerHTML = `
-
-      <td>
-        ${row.month}
-      </td>
-
-      <td>
-        ${pesoFormatter.format(
-          fundsAvailable
-        )}
-      </td>
-
-      <td>
-        ${pesoFormatter.format(
-          monthlyExpenses
-        )}
-      </td>
-
-      <td>
-        ${pesoFormatter.format(
-          remainingBalance
-        )}
-      </td>
-
-    `;
+const tableRow =
+  document.createElement("tr");
 
 
-    budgetBody.appendChild(tableRow);
+tableRow.innerHTML = `
+  <td>
+    ${row.month}
+  </td>
 
-  });
+  <td>
+    ${pesoFormatter.format(fundsAvailable)}
+  </td>
 
+  <td>
+    ${pesoFormatter.format(monthlyExpenses)}
+  </td>
 
-  /* =======================================================
-     UPDATE SUMMARY CARDS
-     ======================================================= */
-
-  totalFundElement.textContent =
-    pesoFormatter.format(
-      overallFunds
-    );
-
-
-  totalExpensesElement.textContent =
-    pesoFormatter.format(
-      totalExpenses
-    );
+  <td>
+    ${pesoFormatter.format(remainingBalance)}
+  </td>
+`;
 
 
-  remainingFundsElement.textContent =
-    pesoFormatter.format(
-      remainingBalance
-    );
+budgetBody.appendChild(tableRow);
 
-}
+});
 
 
-/* =========================================================
+/* =======================================================
+   UPDATE SUMMARY CARDS
+   ======================================================= */
+
+totalFundElement.textContent =
+  pesoFormatter.format(overallFunds);
+
+
+totalExpensesElement.textContent =
+  pesoFormatter.format(totalExpenses);
+
+
+remainingFundsElement.textContent =
+  pesoFormatter.format(remainingBalance);
+
+
+/* =======================================================
    INITIALIZE
-   ========================================================= */
+   ======================================================= */
 
 calculateFunds();
 
