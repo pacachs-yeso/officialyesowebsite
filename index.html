@@ -4,937 +4,5621 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#5c94fc">
-  <meta name="description" content="Pacac High School YES-O, Youth for Environment in Schools Organization - Super Mario Pixel Edition!">
+  <meta name="theme-color" content="#064e3b">
+  <meta
+    name="description"
+    content="Pacac High School YES-O, Youth for Environment in Schools Organization, School Year 2026-2027."
+  >
 
-  <title>SUPER YES-O WORLD | Pacac High School</title>
-
-  <!-- Pixelated Font NES Style -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Pacac High School YES-O</title>
 
   <style>
+
     /* =========================================================
-       SUPER MARIO PIXEL THEME STYLES
+       PACAC HIGH SCHOOL YES-O
+       SCHOOL YEAR 2026-2027
+       SINGLE-FILE INSTITUTIONAL WEBSITE
        ========================================================= */
 
     :root {
-      --mario-sky: #5c94fc;
-      --mario-ground: #e75910;
-      --mario-grass: #00a800;
-      --mario-brick: #b84418;
-      --mario-block: #fc9838;
-      --mario-pipe: #00a800;
-      --mario-pipe-dark: #006800;
-      --mario-coin: #f8d820;
-      --mario-text-yellow: #f8d820;
-      --pixel-border: 4px;
+      --forest: #064e3b;
+      --forest-dark: #022c22;
+      --forest-light: #065f46;
+
+      --emerald: #059669;
+      --emerald-2: #10b981;
+      --green-light: #34d399;
+
+      --mint: #d1fae5;
+      --mint-soft: #ecfdf5;
+
+      --white: #ffffff;
+      --charcoal: #17211d;
+      --muted: #64756d;
+
+      --border: rgba(255, 255, 255, 0.16);
+      --light-border: rgba(6, 78, 59, 0.10);
+
+      --shadow: 0 18px 50px rgba(2, 44, 34, 0.13);
+
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 13px;
+
+      --container: 1160px;
     }
+
+
+    /* =========================================================
+       RESET
+       ========================================================= */
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      image-rendering: pixelated;
-      image-rendering: crisp-edges;
     }
+
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 110px;
-      font-family: 'Press Start 2P', monospace;
+      scroll-padding-top: 92px;
     }
+
 
     body {
-      background-color: var(--mario-sky);
-      color: #ffffff;
+      font-family: Poppins, Gotham, Inter, Arial, sans-serif;
+      color: var(--charcoal);
+      background: #f4faf7;
       line-height: 1.6;
       overflow-x: hidden;
-      font-size: 12px;
     }
 
-    /* Pixelated Card Box Shadow & Borders */
-    .pixel-box {
-      background-color: #000000;
-      border: 4px solid #ffffff;
-      box-shadow: 
-        -4px 0 0 0 #000,
-        4px 0 0 0 #000,
-        0 -4px 0 0 #000,
-        0 4px 0 0 #000,
-        inset -4px -4px 0 0 #555555;
-      position: relative;
+
+    body.menu-open {
+      overflow: hidden;
     }
 
-    .pixel-box-green {
-      background-color: #003800;
-      border: 4px solid #55ff55;
-      box-shadow: 6px 6px 0px #000000;
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
     }
 
-    .pixel-box-yellow {
-      background-color: #443000;
-      border: 4px solid var(--mario-coin);
-      box-shadow: 6px 6px 0px #000000;
+
+    button,
+    a {
+      font: inherit;
     }
 
-    .pixel-btn {
-      display: inline-block;
-      padding: 10px 14px;
-      background-color: var(--mario-block);
-      color: #000;
-      border: 4px solid #000;
-      font-weight: bold;
-      text-transform: uppercase;
-      box-shadow: inset -4px -4px 0px 0px #a85800, 4px 4px 0px 0px #000;
-      transition: all 0.1s ease;
+
+    button {
+      border: 0;
       cursor: pointer;
-      user-select: none;
     }
 
-    .pixel-btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: inset -4px -4px 0px 0px #a85800, 6px 6px 0px 0px #000;
-      background-color: #fce0a8;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .pixel-btn:active {
-      transform: translate(2px, 2px);
-      box-shadow: inset -2px -2px 0px 0px #a85800, 2px 2px 0px 0px #000;
+
+    .container {
+      width: min(calc(100% - 28px), var(--container));
+      margin-inline: auto;
     }
 
-    /* Mario Question Block Animation */
-    .question-block {
-      width: 40px;
-      height: 40px;
-      background: #fc9838;
-      border: 4px solid #000;
-      box-shadow: inset -4px -4px 0 0 #a85800, inset 4px 4px 0 0 #fce0a8;
+
+    .section {
+      position: relative;
+      padding: 72px 0;
+      overflow: hidden;
+    }
+
+
+    .section-label {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 18px;
-      color: #000;
-      cursor: pointer;
-      animation: blockPulse 1s infinite alternate;
-      user-select: none;
+      gap: 7px;
+
+      margin-bottom: 10px;
+      padding: 6px 11px;
+
+      border: 1px solid rgba(5, 150, 105, 0.18);
+      border-radius: 999px;
+
+      background: rgba(236, 253, 245, 0.72);
+
+      color: var(--emerald);
+
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    @keyframes blockPulse {
-      0% { background: #fc9838; }
-      100% { background: #fce0a8; }
+
+    .section-title {
+      max-width: 720px;
+
+      font-size: clamp(1.65rem, 5vw, 2.65rem);
+      line-height: 1.15;
+
+      font-weight: 650;
+      letter-spacing: -0.035em;
     }
 
-    /* Pipe Design */
-    .mario-pipe {
-      background: linear-gradient(90deg, #00a800 0%, #55ff55 30%, #00a800 70%, #005500 100%);
-      border: 4px solid #000;
+
+    .section-description {
+      max-width: 700px;
+      margin-top: 13px;
+
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+
+    .section-heading {
+      margin-bottom: 30px;
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .site-header {
+      position: fixed;
+      z-index: 1000;
+
+      top: 10px;
+      left: 0;
+
+      width: 100%;
+
+      pointer-events: none;
+    }
+
+
+    .nav-shell {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 66px;
+
+      padding: 8px 9px 8px 12px;
+
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 21px;
+
+      background: rgba(4, 54, 40, 0.78);
+
+      backdrop-filter: blur(22px) saturate(150%);
+      -webkit-backdrop-filter: blur(22px) saturate(150%);
+
+      box-shadow: 0 12px 38px rgba(2, 44, 34, 0.22);
+
+      pointer-events: auto;
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      min-width: 0;
+      gap: 9px;
+
+      color: white;
+    }
+
+
+    .brand-logo {
+      flex: 0 0 43px;
+
+      width: 43px;
+      height: 43px;
+
+      object-fit: contain;
+
+      border-radius: 12px;
+    }
+
+
+    .brand-text {
+      min-width: 0;
+      line-height: 1.15;
+    }
+
+
+    .brand-title {
+      display: block;
+
+      max-width: 225px;
+
+      overflow: hidden;
+
+      color: white;
+
+      font-size: 0.72rem;
+      font-weight: 650;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+
+    .brand-subtitle {
+      display: block;
+
+      margin-top: 3px;
+
+      color: rgba(255, 255, 255, 0.66);
+
+      font-size: 0.62rem;
+
+      white-space: nowrap;
+    }
+
+
+    .nav-toggle {
+      display: grid;
+      place-items: center;
+
+      width: 43px;
+      height: 43px;
+
+      flex: 0 0 43px;
+
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 13px;
+
+      background: rgba(255, 255, 255, 0.10);
+
+      color: white;
+    }
+
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      display: block;
+
+      width: 18px;
+      height: 2px;
+
+      border-radius: 999px;
+
+      background: currentColor;
+
+      transition: transform 0.22s ease;
+    }
+
+
+    .nav-toggle span {
       position: relative;
     }
 
-    .mario-pipe-top {
-      height: 30px;
-      margin-left: -8px;
-      margin-right: -8px;
-      background: linear-gradient(90deg, #00a800 0%, #55ff55 30%, #00a800 70%, #005500 100%);
-      border: 4px solid #000;
-      box-shadow: inset 0 -4px 0 #003800;
-    }
 
-    /* Brick Wall Pattern Background */
-    .brick-pattern {
-      background-color: var(--mario-brick);
-      background-image: 
-        linear-gradient(335deg, #000000 23px, transparent 23px),
-        linear-gradient(155deg, #000000 23px, transparent 23px),
-        linear-gradient(335deg, #000000 23px, transparent 23px),
-        linear-gradient(155deg, #000000 23px, transparent 23px);
-      background-size: 58px 58px;
-      background-position: 0 2px, 4px 35px, 29px 31px, 34px 6px;
-    }
-
-    /* Pixel Cloud Animation */
-    .cloud {
+    .nav-toggle span::before,
+    .nav-toggle span::after {
       position: absolute;
-      background: #ffffff;
-      border: 4px solid #000000;
+
+      content: "";
+    }
+
+
+    .nav-toggle span::before {
+      top: -6px;
+    }
+
+
+    .nav-toggle span::after {
+      top: 6px;
+    }
+
+
+    .nav-toggle.active span {
+      background: transparent;
+    }
+
+
+    .nav-toggle.active span::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+
+    .nav-toggle.active span::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+
+    .nav-menu {
+      position: fixed;
+
+      top: 84px;
+      left: 14px;
+      right: 14px;
+
+      padding: 9px;
+
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 20px;
-      opacity: 0.9;
-      animation: floatCloud 25s linear infinite;
+
+      background: rgba(3, 49, 37, 0.94);
+
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+
+      box-shadow: var(--shadow);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform: translateY(-8px) scale(0.98);
+
+      transition: 0.22s ease;
     }
 
-    @keyframes floatCloud {
-      0% { transform: translateX(100vw); }
-      100% { transform: translateX(-200px); }
+
+    .nav-menu.open {
+      opacity: 1;
+      visibility: visible;
+
+      transform: translateY(0) scale(1);
     }
 
-    /* Animated Character Sprite Bouncing */
-    .mario-sprite {
-      display: inline-block;
-      animation: spriteHop 0.6s infinite alternate cubic-bezier(0.5, 0.05, 0.5, 0.95);
+
+    .nav-link {
+      display: block;
+
+      padding: 12px 13px;
+
+      border-radius: 12px;
+
+      color: rgba(255, 255, 255, 0.75);
+
+      font-size: 0.82rem;
+
+      transition: 0.2s ease;
     }
 
-    @keyframes spriteHop {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-12px); }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: rgba(16, 185, 129, 0.17);
+      color: white;
     }
 
-    /* Pixel Floor Border */
-    .ground-floor {
-      height: 32px;
-      background: var(--mario-ground);
-      border-top: 8px solid var(--mario-grass);
-      background-image: radial-gradient(#000 15%, transparent 16%);
-      background-size: 16px 16px;
+
+    /* =========================================================
+       HOME
+       ========================================================= */
+
+    .hero {
+      min-height: 100svh;
+
+      display: flex;
+      align-items: center;
+
+      padding-top: 108px;
+      padding-bottom: 54px;
+
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(16, 185, 129, 0.26),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 0% 90%,
+          rgba(52, 211, 153, 0.13),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #022c22 0%,
+          #064e3b 50%,
+          #047857 100%
+        );
     }
 
-    /* Coin Rotation */
-    .pixel-coin {
-      width: 16px;
-      height: 22px;
-      background: var(--mario-coin);
-      border: 2px solid #000;
-      border-radius: 50%;
-      display: inline-block;
-      animation: spinCoin 0.8s steps(4) infinite;
+
+    .hero-content {
+      display: grid;
+      gap: 28px;
     }
 
-    @keyframes spinCoin {
-      0% { transform: scaleX(1); }
-      50% { transform: scaleX(0.2); }
-      100% { transform: scaleX(1); }
+
+    .hero-copy {
+      max-width: 680px;
     }
 
-    /* Retro Font Overrides */
-    h1, h2, h3, h4, .retro-title {
-      color: var(--mario-text-yellow);
-      text-shadow: 3px 3px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
-      letter-spacing: 1px;
+
+    .hero-kicker {
+      display: inline-flex;
+
+      margin-bottom: 15px;
+      padding: 6px 11px;
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.08);
+
+      color: rgba(255, 255, 255, 0.82);
+
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
-    .retro-text {
-      font-family: 'VT323', monospace;
-      font-size: 18px;
+
+    .hero-title {
+      max-width: 620px;
+
+      font-size: clamp(2.15rem, 10vw, 4.4rem);
+
+      line-height: 1.02;
+
+      font-weight: 650;
+
+      letter-spacing: -0.055em;
+    }
+
+
+    .hero-description {
+      max-width: 590px;
+
+      margin-top: 15px;
+
+      color: rgba(255, 255, 255, 0.76);
+
+      font-size: 0.95rem;
+    }
+
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 19px;
+    }
+
+
+    .hero-meta span {
+      padding: 7px 10px;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.07);
+
+      color: rgba(255, 255, 255, 0.85);
+
+      font-size: 0.72rem;
+    }
+
+
+    .hero-image-wrap {
+      width: 100%;
+      max-width: 760px;
+
+      padding: 6px;
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 23px;
+
+      background: rgba(255, 255, 255, 0.08);
+
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+    }
+
+
+    .hero-image {
+      aspect-ratio: 16 / 9;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+    }
+
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    /* =========================================================
+       ABOUT
+       ========================================================= */
+
+    .about {
+      background:
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(16, 185, 129, 0.14),
+          transparent 28%
+        ),
+        linear-gradient(
+          135deg,
+          #ecfdf5 0%,
+          #ffffff 50%,
+          #dff8eb 100%
+        );
+    }
+
+
+    .about-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+
+    .about-photo {
+      padding: 6px;
+
+      border: 1px solid rgba(5, 150, 105, 0.14);
+      border-radius: var(--radius-lg);
+
+      background: rgba(255, 255, 255, 0.56);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .about-photo-inner {
+      aspect-ratio: 4 / 3;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+    }
+
+
+    .about-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    .about-copy {
+      padding: 4px 0;
+    }
+
+
+    .about-copy h3 {
+      margin-bottom: 11px;
+
+      font-size: 1.45rem;
+      font-weight: 650;
+    }
+
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+
+    /* =========================================================
+       LEADERSHIP
+       ========================================================= */
+
+    .leadership {
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(52, 211, 153, 0.15),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #032c22,
+          #064e3b 54%,
+          #065f46
+        );
+    }
+
+
+    .leadership .section-label {
+      border-color: rgba(255, 255, 255, 0.15);
+
+      background: rgba(255, 255, 255, 0.08);
+
+      color: #a7f3d0;
+    }
+
+
+    .leadership .section-description {
+      color: rgba(255, 255, 255, 0.67);
+    }
+
+
+    .leadership-block {
+      margin-top: 28px;
+    }
+
+
+    .leadership-block-title {
+      margin-bottom: 13px;
+
+      color: rgba(255, 255, 255, 0.86);
+
+      font-size: 0.78rem;
+      font-weight: 600;
+
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+
+    .featured-leaders {
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 10px;
+    }
+
+
+    .leader-card {
+      min-width: 0;
+
+      padding: 10px;
+
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: var(--radius-md);
+
+      background: rgba(255, 255, 255, 0.075);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+
+    .leader-photo {
+      width: 100%;
+
+      aspect-ratio: 1 / 1;
+
+      overflow: hidden;
+
+      border-radius: 14px;
+
+      background: linear-gradient(
+        135deg,
+        #d1fae5,
+        #6ee7b7
+      );
+    }
+
+
+    .leader-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    .leader-name {
+      margin-top: 10px;
+
+      font-size: 0.79rem;
+      font-weight: 650;
+
+      color: white;
+    }
+
+
+    .leader-position {
+      margin-top: 2px;
+
+      color: rgba(255, 255, 255, 0.58);
+
+      font-size: 0.7rem;
+    }
+
+
+    .officer-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 10px;
+    }
+
+
+    .officer-card {
+      min-width: 0;
+
+      padding: 8px;
+
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 16px;
+
+      background: rgba(255, 255, 255, 0.055);
+
+      transition:
+        transform 0.22s ease,
+        background 0.22s ease;
+    }
+
+
+    .officer-card:hover {
+      transform: translateY(-3px);
+
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+
+    .officer-photo {
+      width: 100%;
+
+      aspect-ratio: 1 / 1;
+
+      overflow: hidden;
+
+      border-radius: 12px;
+
+      background: linear-gradient(
+        135deg,
+        #a7f3d0,
+        #10b981
+      );
+    }
+
+
+    .officer-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    .officer-name {
+      margin-top: 8px;
+
+      color: white;
+
+      font-size: 0.73rem;
+      font-weight: 650;
+
       line-height: 1.3;
     }
 
-    /* Custom Scrollbar NES */
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #000;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--mario-block);
-      border: 2px solid #000;
+
+    .officer-position {
+      margin-top: 2px;
+
+      color: rgba(255, 255, 255, 0.53);
+
+      font-size: 0.65rem;
+
+      line-height: 1.35;
     }
 
-    /* Floating Score Popup */
-    .score-popup {
+
+    /* =========================================================
+       YES-O MEMBERS
+       ========================================================= */
+
+    .members {
+      background:
+        radial-gradient(
+          circle at 5% 10%,
+          rgba(16, 185, 129, 0.13),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 95% 90%,
+          rgba(5, 150, 105, 0.10),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #ecfdf5 52%,
+          #dff8eb
+        );
+    }
+
+
+    .circle-grid {
+      display: grid;
+
+      grid-template-columns: 1fr;
+
+      gap: 18px;
+    }
+
+
+    .circle-card {
+      position: relative;
+
+      padding: 16px;
+
+      border: 1px solid rgba(6, 78, 59, 0.10);
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.94),
+          rgba(236, 253, 245, 0.76)
+        );
+
+      box-shadow:
+        0 12px 35px rgba(6, 78, 59, 0.08);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+
+    .circle-card:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 18px 42px rgba(6, 78, 59, 0.12);
+    }
+
+
+    .circle-card::before {
       position: absolute;
-      color: #fff;
-      font-size: 14px;
-      font-weight: bold;
-      pointer-events: none;
-      animation: scoreUp 0.8s ease-out forwards;
-      text-shadow: 2px 2px #000;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 4px;
+
+      content: "";
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--forest),
+          var(--emerald-2),
+          #6ee7b7
+        );
     }
 
-    @keyframes scoreUp {
-      0% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(-40px); }
+
+    .circle-header {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 12px;
+
+      margin-bottom: 15px;
     }
 
-    /* Sound Toggle Pill */
-    .sound-badge {
-      border: 3px solid #fff;
-      box-shadow: 3px 3px 0 #000;
+
+    .circle-number {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 42px;
+      height: 42px;
+
+      flex: 0 0 42px;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--emerald)
+        );
+
+      color: white;
+
+      font-size: 0.78rem;
+      font-weight: 700;
     }
+
+
+    .circle-title {
+      flex: 1;
+
+      color: var(--forest);
+
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+
+    .circle-subtitle {
+      margin-top: 1px;
+
+      color: var(--muted);
+
+      font-size: 0.68rem;
+    }
+
+
+    .circle-leadership {
+      display: grid;
+
+      grid-template-columns: 1fr;
+
+      gap: 9px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .circle-person {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 10px;
+
+      border: 1px solid rgba(6, 78, 59, 0.09);
+      border-radius: 14px;
+
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+
+    .circle-person-icon {
+      display: grid;
+
+      place-items: center;
+
+      width: 36px;
+      height: 36px;
+
+      flex: 0 0 36px;
+
+      border-radius: 11px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #064e3b,
+          #10b981
+        );
+
+      color: white;
+
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+
+    .circle-person-label {
+      color: var(--muted);
+
+      font-size: 0.62rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.06em;
+    }
+
+
+    .circle-person-name {
+      margin-top: 1px;
+
+      color: var(--forest);
+
+      font-size: 0.76rem;
+
+      font-weight: 700;
+    }
+
+
+    .circle-members-title {
+      margin-bottom: 8px;
+
+      color: var(--forest);
+
+      font-size: 0.72rem;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.05em;
+    }
+
+
+    .member-list {
+      display: grid;
+
+      gap: 6px;
+
+      list-style: none;
+    }
+
+
+    .member-list li {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 7px 9px;
+
+      border-radius: 10px;
+
+      background: rgba(6, 78, 59, 0.045);
+
+      color: #40534b;
+
+      font-size: 0.72rem;
+    }
+
+
+    .member-list li::before {
+      display: grid;
+
+      place-items: center;
+
+      width: 18px;
+      height: 18px;
+
+      flex: 0 0 18px;
+
+      border-radius: 50%;
+
+      content: "✓";
+
+      background: #d1fae5;
+
+      color: var(--emerald);
+
+      font-size: 0.58rem;
+
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       GALLERY
+       ========================================================= */
+
+    .gallery {
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(5, 150, 105, 0.13),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #ecfdf5 50%,
+          #dff8eb
+        );
+    }
+
+
+    .gallery-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 10px;
+    }
+
+
+    .gallery-card {
+      padding: 7px;
+
+      border: 1px solid rgba(6, 78, 59, 0.09);
+      border-radius: 16px;
+
+      background: rgba(255, 255, 255, 0.68);
+
+      box-shadow:
+        0 10px 30px rgba(6, 78, 59, 0.07);
+
+      cursor: pointer;
+
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+
+    .gallery-card:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 16px 38px rgba(6, 78, 59, 0.12);
+    }
+
+
+    .gallery-image {
+      aspect-ratio: 4 / 3;
+
+      overflow: hidden;
+
+      border-radius: 11px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #d1fae5,
+          #a7f3d0
+        );
+    }
+
+
+    .gallery-image img {
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform 0.3s ease;
+    }
+
+
+    .gallery-card:hover img {
+      transform: scale(1.035);
+    }
+
+
+    .gallery-title {
+      padding: 9px 3px 3px;
+
+      color: var(--forest);
+
+      font-size: 0.75rem;
+
+      font-weight: 650;
+    }
+
+
+    /* =========================================================
+       MONTHLY WINNERS
+       ========================================================= */
+
+    .winners {
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 85% 15%,
+          rgba(52, 211, 153, 0.16),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(16, 185, 129, 0.12),
+          transparent 28%
+        ),
+        linear-gradient(
+          145deg,
+          #022c22,
+          #064e3b 55%,
+          #065f46
+        );
+    }
+
+
+    .winners .section-label {
+      border-color: rgba(255, 255, 255, 0.14);
+
+      background: rgba(255, 255, 255, 0.07);
+
+      color: #a7f3d0;
+    }
+
+
+    .winners .section-description {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+
+    .winner-month-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 10px;
+    }
+
+
+    .winner-month {
+      min-height: 90px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: flex-start;
+
+      padding: 14px;
+
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 17px;
+
+      background: rgba(255, 255, 255, 0.065);
+
+      color: white;
+
+      text-align: left;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+
+    .winner-month:hover {
+      transform: translateY(-3px);
+
+      background: rgba(255, 255, 255, 0.10);
+
+      border-color: rgba(167, 243, 208, 0.28);
+    }
+
+
+    .winner-month.active {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(16, 185, 129, 0.42),
+          rgba(6, 78, 59, 0.72)
+        );
+
+      border-color: rgba(167, 243, 208, 0.35);
+    }
+
+
+    .winner-month-number {
+      color: #a7f3d0;
+
+      font-size: 0.62rem;
+
+      font-weight: 600;
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+    }
+
+
+    .winner-month-name {
+      margin-top: 3px;
+
+      color: white;
+
+      font-size: 0.82rem;
+
+      font-weight: 700;
+    }
+
+
+    .winner-month-count {
+      margin-top: 4px;
+
+      color: rgba(255, 255, 255, 0.55);
+
+      font-size: 0.64rem;
+    }
+
+
+    .winner-display {
+      margin-top: 18px;
+
+      padding: 18px;
+
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+
+      background: rgba(255, 255, 255, 0.055);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+
+    .winner-display-header {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 12px;
+
+      margin-bottom: 14px;
+    }
+
+
+    .winner-display-title {
+      color: white;
+
+      font-size: 0.98rem;
+
+      font-weight: 700;
+    }
+
+
+    .winner-display-subtitle {
+      margin-top: 2px;
+
+      color: rgba(255, 255, 255, 0.55);
+
+      font-size: 0.68rem;
+    }
+
+
+    .winner-badge {
+      padding: 6px 9px;
+
+      border-radius: 999px;
+
+      background: rgba(167, 243, 208, 0.12);
+
+      color: #a7f3d0;
+
+      font-size: 0.62rem;
+
+      font-weight: 600;
+    }
+
+
+    .winner-list {
+      display: grid;
+
+      gap: 8px;
+
+      list-style: none;
+    }
+
+
+    .winner-item {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 10px 11px;
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      border-radius: 13px;
+
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+
+    .winner-rank {
+      display: grid;
+
+      place-items: center;
+
+      width: 30px;
+      height: 30px;
+
+      flex: 0 0 30px;
+
+      border-radius: 9px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #059669,
+          #10b981
+        );
+
+      color: white;
+
+      font-size: 0.68rem;
+
+      font-weight: 700;
+    }
+
+
+    .winner-name {
+      color: white;
+
+      font-size: 0.75rem;
+
+      font-weight: 650;
+    }
+
+
+    .winner-section {
+      margin-top: 1px;
+
+      color: rgba(255, 255, 255, 0.48);
+
+      font-size: 0.63rem;
+    }
+
+
+    /* =========================================================
+       ECOPEDIA
+       ========================================================= */
+
+    .ecopedia {
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(52, 211, 153, 0.15),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 95% 90%,
+          rgba(16, 185, 129, 0.12),
+          transparent 28%
+        ),
+        linear-gradient(
+          145deg,
+          #022c22 0%,
+          #064e3b 52%,
+          #065f46 100%
+        );
+    }
+
+
+    .ecopedia .section-label {
+      color: #a7f3d0;
+
+      border-color: rgba(255, 255, 255, 0.14);
+
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+
+    .ecopedia .section-description {
+      color: rgba(255, 255, 255, 0.67);
+    }
+
+
+    .month-selector {
+      display: flex;
+
+      gap: 7px;
+
+      padding-bottom: 5px;
+
+      margin: 26px 0 20px;
+
+      overflow-x: auto;
+
+      scrollbar-width: thin;
+    }
+
+
+    .month-btn {
+      flex: 0 0 auto;
+
+      padding: 9px 12px;
+
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 12px;
+
+      background: rgba(255, 255, 255, 0.065);
+
+      color: rgba(255, 255, 255, 0.68);
+
+      font-size: 0.73rem;
+
+      font-weight: 600;
+
+      transition: 0.2s ease;
+    }
+
+
+    .month-btn.active,
+    .month-btn:hover {
+      background:
+        linear-gradient(
+          135deg,
+          var(--emerald-2),
+          #34d399
+        );
+
+      color: #022c22;
+
+      border-color: transparent;
+    }
+
+
+    .month-header {
+      display: flex;
+
+      align-items: flex-start;
+      justify-content: space-between;
+
+      gap: 14px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .month-name {
+      font-size: 1.15rem;
+
+      font-weight: 650;
+    }
+
+
+    .month-theme {
+      color: #a7f3d0;
+
+      font-size: 0.72rem;
+
+      text-align: right;
+    }
+
+
+    .ecopedia-grid {
+      display: grid;
+
+      gap: 11px;
+    }
+
+
+    .eco-card {
+      padding: 8px;
+
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 17px;
+
+      background: rgba(255, 255, 255, 0.065);
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      animation: cardIn 0.28s ease both;
+    }
+
+
+    .eco-image {
+      aspect-ratio: 16 / 9;
+
+      overflow: hidden;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #a7f3d0,
+          #10b981
+        );
+    }
+
+
+    .eco-image img {
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+
+    .eco-content {
+      padding: 10px 3px 4px;
+    }
+
+
+    .eco-content h3 {
+      color: white;
+
+      font-size: 0.86rem;
+
+      font-weight: 650;
+    }
+
+
+    .eco-content p {
+      margin-top: 4px;
+
+      color: rgba(255, 255, 255, 0.62);
+
+      font-size: 0.73rem;
+
+      line-height: 1.55;
+    }
+
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(7px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =========================================================
+       SPONSORS
+       ========================================================= */
+
+    .sponsors {
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(16, 185, 129, 0.10),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #f0fdf4,
+          #ffffff 55%,
+          #dcfce7
+        );
+    }
+
+
+    .sponsor-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 9px;
+    }
+
+
+    .sponsor-card {
+      min-height: 68px;
+
+      display: grid;
+
+      place-items: center;
+
+      padding: 12px;
+
+      border: 1px solid rgba(6, 78, 59, 0.09);
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.86),
+          rgba(209, 250, 229, 0.50)
+        );
+
+      color: var(--forest);
+
+      text-align: center;
+
+      font-size: 0.77rem;
+
+      font-weight: 650;
+
+      transition: 0.2s ease;
+    }
+
+
+    .sponsor-card:hover {
+      transform: translateY(-2px);
+
+      border-color: rgba(5, 150, 105, 0.24);
+
+      box-shadow:
+        0 12px 30px rgba(6, 78, 59, 0.09);
+    }
+
+
+    /* =========================================================
+       FUNDS
+       ========================================================= */
+
+    .funds {
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(52, 211, 153, 0.15),
+          transparent 28%
+        ),
+        linear-gradient(
+          145deg,
+          #022c22,
+          #064e3b 56%,
+          #065f46
+        );
+    }
+
+
+    .funds .section-label {
+      color: #a7f3d0;
+
+      border-color: rgba(255, 255, 255, 0.14);
+
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+
+    .funds .section-description {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+
+    .financial-summary {
+      display: grid;
+
+      grid-template-columns: 1fr;
+
+      gap: 9px;
+
+      margin: 26px 0;
+    }
+
+
+    .finance-card {
+      padding: 16px;
+
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 17px;
+
+      background: rgba(255, 255, 255, 0.065);
+
+      backdrop-filter: blur(13px);
+      -webkit-backdrop-filter: blur(13px);
+    }
+
+
+    .finance-label {
+      color: rgba(255, 255, 255, 0.58);
+
+      font-size: 0.7rem;
+    }
+
+
+    .finance-value {
+      margin-top: 4px;
+
+      color: white;
+
+      font-size: 1.35rem;
+
+      line-height: 1.2;
+
+      font-weight: 650;
+    }
+
+
+    .budget-table-wrap {
+      overflow-x: auto;
+
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 17px;
+
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+
+    .budget-table {
+      width: 100%;
+
+      min-width: 650px;
+
+      border-collapse: collapse;
+    }
+
+
+    .budget-table th,
+    .budget-table td {
+      padding: 12px 13px;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+      text-align: left;
+
+      font-size: 0.72rem;
+    }
+
+
+    .budget-table th {
+      color: #a7f3d0;
+
+      font-weight: 600;
+
+      background: rgba(0, 0, 0, 0.10);
+    }
+
+
+    .budget-table td {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+
+    .budget-table td:nth-child(n + 2) {
+      text-align: right;
+    }
+
+
+    .budget-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 42px 0 30px;
+
+      color: rgba(255, 255, 255, 0.72);
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(16, 185, 129, 0.12),
+          transparent 30%
+        ),
+        #021f18;
+    }
+
+
+    .footer-inner {
+      display: grid;
+
+      gap: 20px;
+    }
+
+
+    .footer-brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+    }
+
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+
+      object-fit: contain;
+
+      border-radius: 13px;
+    }
+
+
+    .footer-title {
+      color: white;
+
+      font-size: 0.84rem;
+
+      font-weight: 650;
+    }
+
+
+    .footer-subtitle {
+      margin-top: 2px;
+
+      color: rgba(255, 255, 255, 0.52);
+
+      font-size: 0.68rem;
+    }
+
+
+    .footer-statement {
+      max-width: 550px;
+
+      color: rgba(255, 255, 255, 0.57);
+
+      font-size: 0.76rem;
+    }
+
+
+    .footer-bottom {
+      padding-top: 18px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+      color: rgba(255, 255, 255, 0.4);
+
+      font-size: 0.65rem;
+    }
+
+
+    /* =========================================================
+       LIGHTBOX
+       ========================================================= */
+
+    .lightbox {
+      position: fixed;
+
+      z-index: 2000;
+
+      inset: 0;
+
+      display: grid;
+
+      place-items: center;
+
+      padding: 20px;
+
+      background: rgba(1, 20, 15, 0.88);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: 0.22s ease;
+    }
+
+
+    .lightbox.open {
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+
+    .lightbox-content {
+      position: relative;
+
+      width: min(100%, 850px);
+
+      padding: 7px;
+
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 19px;
+
+      background: rgba(255, 255, 255, 0.08);
+
+      transform: scale(0.96);
+
+      transition: 0.22s ease;
+    }
+
+
+    .lightbox.open .lightbox-content {
+      transform: scale(1);
+    }
+
+
+    .lightbox-image {
+      max-height: 72svh;
+
+      overflow: hidden;
+
+      border-radius: 13px;
+    }
+
+
+    .lightbox-image img {
+      width: 100%;
+
+      max-height: 72svh;
+
+      object-fit: contain;
+    }
+
+
+    .lightbox-caption {
+      padding: 10px 5px 3px;
+
+      color: white;
+
+      font-size: 0.8rem;
+
+      font-weight: 600;
+    }
+
+
+    .lightbox-close {
+      position: absolute;
+
+      top: -11px;
+      right: -7px;
+
+      z-index: 2;
+
+      width: 36px;
+      height: 36px;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+
+      background: #064e3b;
+
+      color: white;
+
+      font-size: 1rem;
+    }
+
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(16px);
+
+      transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+    }
+
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (min-width: 560px) {
+
+      .hero-title {
+        font-size: clamp(2.4rem, 7vw, 4rem);
+      }
+
+
+      .officer-grid {
+        grid-template-columns: repeat(
+          3,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .gallery-grid {
+        grid-template-columns: repeat(
+          3,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .ecopedia-grid {
+        grid-template-columns: repeat(
+          2,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .financial-summary {
+        grid-template-columns: repeat(
+          3,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .circle-leadership {
+        grid-template-columns: repeat(
+          2,
+          minmax(0, 1fr)
+        );
+      }
+    }
+
+
+    @media (min-width: 800px) {
+
+      .section {
+        padding: 96px 0;
+      }
+
+
+      .nav-toggle {
+        display: none;
+      }
+
+
+      .nav-menu {
+        position: static;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 2px;
+
+        padding: 0;
+
+        border: 0;
+        border-radius: 0;
+
+        background: transparent;
+
+        box-shadow: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
+        backdrop-filter: none;
+      }
+
+
+      .nav-link {
+        padding: 9px 8px;
+
+        font-size: 0.64rem;
+      }
+
+
+      .hero-content {
+        grid-template-columns: 1fr 1.05fr;
+
+        align-items: center;
+
+        gap: 48px;
+      }
+
+
+      .hero {
+        min-height: 760px;
+      }
+
+
+      .about-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+
+        align-items: center;
+
+        gap: 55px;
+      }
+
+
+      .featured-leaders {
+        grid-template-columns: repeat(
+          2,
+          220px
+        );
+      }
+
+
+      .officer-grid {
+        grid-template-columns: repeat(
+          7,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .circle-grid {
+        grid-template-columns: repeat(
+          2,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .circle-leadership {
+        grid-template-columns: repeat(
+          2,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .gallery-grid {
+        grid-template-columns: repeat(
+          4,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .ecopedia-grid {
+        grid-template-columns: repeat(
+          3,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .sponsor-grid {
+        grid-template-columns: repeat(
+          4,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .winner-month-grid {
+        grid-template-columns: repeat(
+          4,
+          minmax(0, 1fr)
+        );
+      }
+
+
+      .footer-inner {
+        grid-template-columns: 1fr auto;
+
+        align-items: end;
+      }
+    }
+
+
+    @media (min-width: 1080px) {
+
+      .nav-link {
+        padding-inline: 9px;
+
+        font-size: 0.66rem;
+      }
+
+
+      .hero-content {
+        gap: 70px;
+      }
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+      }
+    }
+
   </style>
 </head>
 
-<body class="selection:bg-yellow-400 selection:text-black">
+
+<body>
+
 
   <!-- =========================================================
-       AUDIO FX PROXY (TONE SYNTH BEEPS)
+       NAVIGATION
        ========================================================= -->
-  <script>
-    // Audio Context Synthesizer for Retro NES SFX
-    let audioCtx = null;
 
-    function playRetroSound(type) {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
+  <header class="site-header">
 
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
+    <nav
+      class="container nav-shell"
+      aria-label="Main navigation"
+    >
 
-      const now = audioCtx.currentTime;
+      <a
+        class="brand"
+        href="#home"
+        aria-label="Pacac High School YES-O Home"
+      >
 
-      if (type === 'coin') {
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(987.77, now); // B5
-        osc.frequency.setValueAtTime(1318.51, now + 0.08); // E6
-        gain.gain.setValueAtTime(0.2, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
-        osc.start(now);
-        osc.stop(now + 0.3);
-      } else if (type === 'jump') {
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(150, now);
-        osc.frequency.exponentialRampToValueAtTime(600, now + 0.15);
-        gain.gain.setValueAtTime(0.2, now);
-        gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
-        osc.start(now);
-        osc.stop(now + 0.15);
-      } else if (type === 'powerup') {
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(300, now);
-        osc.frequency.linearRampToValueAtTime(800, now + 0.25);
-        gain.gain.setValueAtTime(0.2, now);
-        gain.gain.linearRampToValueAtTime(0.01, now + 0.25);
-        osc.start(now);
-        osc.stop(now + 0.25);
-      }
-    }
+        <img
+          class="brand-logo"
+          src="ylogo.png"
+          alt="Pacac High School YES-O official logo"
+        >
 
-    function spawnScore(e, text = "100") {
-      const el = document.createElement('div');
-      el.className = 'score-popup';
-      el.innerText = text;
-      el.style.left = `${e.clientX || e.touches[0].clientX}px`;
-      el.style.top = `${(e.clientY || e.touches[0].clientY) - 20}px`;
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 800);
-    }
-  </script>
+        <span class="brand-text">
 
-  <!-- BACKGROUND DECORATIVE CLOUDS -->
-  <div class="cloud top-12 w-32 h-10" style="animation-duration: 35s; animation-delay: -5s;"></div>
-  <div class="cloud top-28 w-48 h-12" style="animation-duration: 22s; animation-delay: -12s;"></div>
-  <div class="cloud top-48 w-28 h-8" style="animation-duration: 40s; animation-delay: -2s;"></div>
+          <span class="brand-title">
+            Youth for Environment in Schools Organization
+          </span>
 
-  <!-- =========================================================
-       HEADER & NAVIGATION
-       ========================================================= -->
-  <header class="fixed top-0 left-0 w-full z-50 p-2">
-    <div class="max-w-6xl mx-auto pixel-box bg-red-600 text-white p-3 flex flex-wrap items-center justify-between gap-3">
-      
-      <!-- BRAND LOGO & TITLE -->
-      <a href="#home" onclick="playRetroSound('coin')" class="flex items-center gap-3 group">
-        <!-- Pixel Mushroom Logo Icon -->
-        <div class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center p-1 relative group-hover:scale-110 transition-transform">
-          <svg viewBox="0 0 16 16" class="w-full h-full fill-current text-red-600">
-            <path d="M4 1h8v1h2v3h1v4h-1v2h-1v1h-1v3H4v-3H3v-1H2V9H1V5h1V2h2V1z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="text-xs text-yellow-300 font-bold tracking-wider">MARIO WORLD YES-O</div>
-          <div class="text-[9px] text-white">PACAC HIGH SCHOOL</div>
-        </div>
+          <span class="brand-subtitle">
+            Pacac High School
+          </span>
+
+        </span>
+
       </a>
 
-      <!-- SCORE & COIN COUNTER -->
-      <div class="hidden md:flex items-center gap-6 text-xs text-yellow-300">
-        <div class="flex items-center gap-2">
-          <span>MARIO</span>
-          <span id="gameScore" class="text-white">000000</span>
-        </div>
-        <div class="flex items-center gap-1">
-          <span class="pixel-coin"></span>
-          <span>x<span id="coinCount">00</span></span>
-        </div>
-        <div>WORLD <span class="text-white">1-1</span></div>
-      </div>
 
-      <!-- NAV TOGGLE BUTTON (MOBILE) -->
-      <button id="navToggle" onclick="playRetroSound('jump')" class="md:hidden pixel-btn bg-yellow-400 text-black text-xs py-1 px-2">
-        MENU
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navMenu"
+      >
+
+        <span></span>
+
       </button>
 
-      <!-- NAVIGATION LINKS -->
-      <nav id="navMenu" class="hidden md:flex flex-wrap items-center gap-2 w-full md:w-auto text-[10px]">
-        <a href="#home" onclick="playRetroSound('jump')" class="pixel-btn bg-blue-500 text-white">HOME</a>
-        <a href="#about" onclick="playRetroSound('jump')" class="pixel-btn bg-green-500 text-white">ABOUT</a>
-        <a href="#leadership" onclick="playRetroSound('jump')" class="pixel-btn bg-yellow-500 text-black">OFFICERS</a>
-        <a href="#members" onclick="playRetroSound('jump')" class="pixel-btn bg-orange-500 text-white">CIRCLES</a>
-        <a href="#gallery" onclick="playRetroSound('jump')" class="pixel-btn bg-purple-500 text-white">GALLERY</a>
-        <a href="#winners" onclick="playRetroSound('jump')" class="pixel-btn bg-red-500 text-white">WINNERS</a>
-        <a href="#funds" onclick="playRetroSound('jump')" class="pixel-btn bg-emerald-500 text-white">FUNDS</a>
-      </nav>
 
-    </div>
+      <div
+        class="nav-menu"
+        id="navMenu"
+      >
+
+        <a
+          class="nav-link active"
+          href="#home"
+        >
+          Home
+        </a>
+
+        <a
+          class="nav-link"
+          href="#about"
+        >
+          About
+        </a>
+
+        <a
+          class="nav-link"
+          href="#leadership"
+        >
+          Leadership
+        </a>
+
+        <a
+          class="nav-link"
+          href="#members"
+        >
+          Members
+        </a>
+
+        <a
+          class="nav-link"
+          href="#gallery"
+        >
+          Gallery
+        </a>
+
+        <a
+          class="nav-link"
+          href="#winners"
+        >
+          Winners
+        </a>
+
+        <a
+          class="nav-link"
+          href="#ecopedia"
+        >
+          Ecopedia
+        </a>
+
+        <a
+          class="nav-link"
+          href="#sponsors"
+        >
+          Sponsors
+        </a>
+
+        <a
+          class="nav-link"
+          href="#funds"
+        >
+          Funds
+        </a>
+
+      </div>
+
+    </nav>
+
   </header>
 
-  <main class="mt-24">
+
+  <main>
+
 
     <!-- =======================================================
-         HERO SECTION
+         HOME
          ======================================================= -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative px-4 py-12">
-      <div class="max-w-4xl w-full text-center space-y-6 z-10">
-        
-        <!-- Animated World Label -->
-        <div class="inline-block bg-black border-4 border-yellow-400 px-4 py-2 shadow-[4px_4px_0_#000]">
-          <span class="text-yellow-400 text-xs md:text-sm animate-pulse">★ WELCOME TO PACAC HIGH SCHOOL YES-O ★</span>
-        </div>
 
-        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
-          MAKAKALIKASANG ARAW!
-        </h1>
+    <section
+      class="section hero"
+      id="home"
+    >
 
-        <!-- Interactive Question Block Hit Game -->
-        <div class="flex justify-center items-center gap-4 py-4">
-          <div class="mario-sprite">
-            <!-- Simple Pixel Mario SVG -->
-            <svg class="w-12 h-12" viewBox="0 0 16 16">
-              <path fill="#f00" d="M5 1h6v1H5zM4 2h9v1H4zM4 3h3v1H4zM10 3h1v1h-1zM12 3h1v1h-1zM3 4h2v1H3zM6 4h1v1H6zM8 4h5v1H8zM3 5h3v1H3zM7 5h7v1H7zM4 6h8v1H4z"/>
-              <path fill="#840" d="M3 3h1v1H3zM7 3h3v1H7zM2 4h1v1H2zM5 4h1v1H5zM7 4h1v1H7zM2 5h1v1H2zM6 5h1v1H6z"/>
-              <path fill="#00f" d="M4 7h8v5H4z"/>
-              <path fill="#f80" d="M2 8h2v3H2zM12 8h2v3h-2z"/>
-            </svg>
-          </div>
+      <div class="container hero-content">
 
-          <!-- Clickable Question Block -->
-          <button onclick="hitBlock(event)" class="question-block text-2xl active:translate-y-1">
-            ?
-          </button>
+
+        <div class="hero-copy reveal">
+
+          <span class="hero-kicker">
+            S.Y. 2026-2027
+          </span>
+
+
+          <h1 class="hero-title">
+            Makakalikasang Araw!
+          </h1>
+
+
+          <p class="hero-description">
+            Welcome to the official website of Pacac High School YES-O.
+            Here, we share our stories, activities, and efforts for a 
+            cleaner, greener, and more responsible school community.
+         </p>
           
-          <div class="text-left text-[10px] text-yellow-200">
-            ← HIT THE BLOCK<br>FOR COINS!
+
+
+          <div class="hero-meta">
+
+            <span>
+              Para sa 𝐊𝐚𝐥𝐢𝐤𝐚𝐬𝐚𝐧, Para sa 𝐊𝐚𝐛𝐚𝐭𝐚𝐚𝐧 , Para sa 𝐁𝐚𝐲𝐚𝐧—Lagi’t-Lagi! ☝🏻🍃
+            </span>
+
+            <span>
+              Puso, Galing at Talino. Basta Novo Ecijano, Numero Uno!
+            </span>
+
           </div>
+
         </div>
 
-        <div class="pixel-box p-6 bg-black/80 max-w-2xl mx-auto">
-          <p class="retro-text text-white">
-            Welcome to the official Super Mario-themed portal of Pacac High School YES-O.
-            Join our mission to defend nature, conserve energy, and make our campus green, clean, and sustainable for School Year 2026-2027!
+
+        <div class="hero-image-wrap reveal">
+
+          <div class="hero-image">
+
+            <img
+              src="PHS.jpg"
+              alt="Pacac High School campus"
+            >
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         ABOUT
+         ======================================================= -->
+
+    <section
+      class="section about"
+      id="about"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading reveal">
+
+          <span class="section-label">
+            About YES-O
+          </span>
+
+
+          <h2 class="section-title">
+            What is YES-O?
+          </h2>
+
+
+          <p class="section-description">
+            Learn about the organization, its environmental role,
+            and the programs supported by Pacac High School YES-O.
           </p>
+
         </div>
 
-        <!-- Tagline Pills -->
-        <div class="flex flex-wrap justify-center gap-3 text-[10px] pt-4">
-          <span class="bg-green-700 text-white border-2 border-white px-3 py-1 shadow-[3px_3px_0_#000]">
-            🍃 Para sa Kalikasan
-          </span>
-          <span class="bg-red-600 text-white border-2 border-white px-3 py-1 shadow-[3px_3px_0_#000]">
-            🍄 Para sa Kabataan
-          </span>
-          <span class="bg-yellow-500 text-black border-2 border-black px-3 py-1 shadow-[3px_3px_0_#000]">
-            ⭐ Para sa Bayan - Lagi't-Lagi!
-          </span>
-        </div>
 
-      </div>
-    </section>
+        <div class="about-grid">
 
-    <!-- GROUND FLOOR BARRIER -->
-    <div class="ground-floor"></div>
 
-    <!-- =======================================================
-         ABOUT SECTION
-         ======================================================= -->
-    <section id="about" class="bg-green-900 py-16 px-4 border-t-8 border-black">
-      <div class="max-w-5xl mx-auto space-y-8">
-        
-        <div class="text-center">
-          <h2 class="text-2xl md:text-4xl text-yellow-400">STAGE 1: ABOUT YES-O</h2>
-          <p class="text-green-300 text-xs mt-2">YOUTH FOR ENVIRONMENT IN SCHOOLS ORGANIZATION</p>
-        </div>
+          <div class="about-photo reveal">
 
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-          
-          <!-- Green Pipe Image Container -->
-          <div class="p-2 bg-black border-4 border-white shadow-[8px_8px_0_#000]">
-            <div class="relative overflow-hidden border-2 border-green-400 h-64 bg-green-950">
-              <img src="Group.jpg" onerror="this.src='https://placehold.co/600x400/003800/55ff55?text=YES-O+MEMBERS'" alt="YES-O Members" class="w-full h-full object-cover">
+            <div class="about-photo-inner">
+
+              <img
+                src="Group.jpg"
+                alt="Pacac High School YES-O members"
+              >
+
             </div>
+
           </div>
 
-          <!-- Description Box -->
-          <div class="pixel-box-green p-6 space-y-4">
-            <h3 class="text-lg text-yellow-300">MISSION & VISION</h3>
-            <p class="retro-text text-green-100">
-              The Youth for Environment in Schools Organization (YES-O) is a DepEd-recognized student organization advocating environmental awareness, responsibility, and action.
+
+          <div class="about-copy reveal">
+
+            <h3>
+              Youth for Environment in Schools Organization
+            </h3>
+
+
+            <p>
+            Youth for Environment in Schools Organization, is a school-based organization recognized by the Department of Education that promotes environmental awareness, responsibility, and active participation among learners. Guided by its Constitution and By-Laws, YES-O organizes programs and activities focused on environmental protection, proper waste management, conservation of natural resources, cleanliness, and sustainability. It also develops learners’ leadership, teamwork, discipline, and sense of responsibility by involving them in projects within the school and community. Through these efforts, YES-O encourages learners to become responsible environmental stewards who take action for the protection of the environment and the welfare of their community.
             </p>
-            <p class="retro-text text-green-200">
-              Guided by clean energy and green principles, YES-O organizes waste management drives, tree planting activities, and ecological awareness campaigns to mold environmental stewards in Pacac High School!
-            </p>
+
           </div>
+
 
         </div>
 
       </div>
+
     </section>
 
-    <!-- GROUND FLOOR BARRIER -->
-    <div class="ground-floor"></div>
 
     <!-- =======================================================
-         LEADERSHIP / OFFICERS
+         ORGANIZATION LEADERSHIP
          ======================================================= -->
-    <section id="leadership" class="brick-pattern py-16 px-4">
-      <div class="max-w-6xl mx-auto space-y-10">
-        
-        <div class="text-center pixel-box bg-black/90 p-4 max-w-xl mx-auto">
-          <h2 class="text-2xl md:text-3xl text-yellow-400">STAGE 2: LEADERSHIP</h2>
-          <p class="text-white text-[10px] mt-1">THE HEROES PROTECTING OUR ECOSYSTEM</p>
+
+    <section
+      class="section leadership"
+      id="leadership"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading reveal">
+
+          <span class="section-label">
+            Organization Leadership
+          </span>
+
+
+          <h2 class="section-title">
+            People Behind YES-O
+          </h2>
+
+
+          <p class="section-description">
+            The leadership structure of Pacac High School YES-O
+            for S.Y 2026-2027.
+          </p>
+
         </div>
 
-        <!-- School Leadership -->
-        <div class="space-y-4">
-          <h3 class="text-sm text-yellow-300 border-b-4 border-yellow-400 pb-2">★ SCHOOL PRINCIPAL & ADVISER</h3>
-          <div class="grid sm:grid-cols-2 gap-6">
-            
-            <!-- Principal Card -->
-            <div class="pixel-box bg-slate-900 p-4 flex gap-4 items-center">
-              <div class="w-20 h-20 border-4 border-yellow-400 overflow-hidden bg-black flex-shrink-0">
-                <img src="SirEric.jpg" onerror="this.src='https://placehold.co/150x150/000/fff?text=PRINCIPAL'" alt="Eric M. Villanueva" class="w-full h-full object-cover">
-              </div>
-              <div>
-                <h4 class="text-xs text-yellow-400">Eric M. Villanueva</h4>
-                <p class="text-[10px] text-gray-300 mt-1">School Principal III</p>
-                <span class="inline-block mt-2 bg-red-600 text-[8px] px-2 py-0.5 text-white">LEVEL 99 BOSS</span>
-              </div>
-            </div>
 
-            <!-- Adviser Card -->
-            <div class="pixel-box bg-slate-900 p-4 flex gap-4 items-center">
-              <div class="w-20 h-20 border-4 border-green-400 overflow-hidden bg-black flex-shrink-0">
-                <img src="MaamLina.jpg" onerror="this.src='https://placehold.co/150x150/000/fff?text=ADVISER'" alt="Lina G. Nolasco" class="w-full h-full object-cover">
+        <!-- SCHOOL LEADERSHIP -->
+
+        <div class="leadership-block reveal">
+
+          <div class="leadership-block-title">
+            School Leadership
+          </div>
+
+
+          <div class="featured-leaders">
+
+
+            <article class="leader-card">
+
+              <div class="leader-photo">
+
+                <img
+                  src="SirEric.jpg"
+                  alt="Pacac High School Principal"
+                >
+
               </div>
-              <div>
-                <h4 class="text-xs text-green-400">Lina G. Nolasco</h4>
-                <p class="text-[10px] text-gray-300 mt-1">YES-O Adviser</p>
-                <span class="inline-block mt-2 bg-green-600 text-[8px] px-2 py-0.5 text-white">GUILD MASTER</span>
+
+
+              <h3 class="leader-name">
+                Eric M. Villanueva
+              </h3>
+
+
+              <p class="leader-position">
+                School Principal III
+              </p>
+
+            </article>
+
+
+            <article class="leader-card">
+
+              <div class="leader-photo">
+
+                <img
+                  src="MaamLina.jpg"
+                  alt="Pacac High School YES-O Adviser"
+                >
+
               </div>
-            </div>
+
+
+              <h3 class="leader-name">
+                Lina G. Nolasco
+              </h3>
+
+
+              <p class="leader-position">
+                YES-O Adviser
+              </p>
+
+            </article>
+
 
           </div>
+
         </div>
 
-        <!-- Officers Grid -->
-        <div class="space-y-4">
-          <h3 class="text-sm text-yellow-300 border-b-4 border-yellow-400 pb-2">★ YES-O OFFICERS (2026-2027)</h3>
-          
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
 
-            <!-- Officer 1 -->
-            <div class="pixel-box bg-black/90 p-3 text-center space-y-2 hover:border-yellow-400 transition-colors">
-              <div class="w-16 h-16 mx-auto border-2 border-white overflow-hidden bg-red-950">
-                <img src="MataJomar.png" onerror="this.src='https://placehold.co/100/f00/fff?text=MATA'" class="w-full h-full object-cover">
-              </div>
-              <div class="text-[10px] text-yellow-300 font-bold">Jomar C. Mata</div>
-              <div class="text-[8px] text-red-400">PRESIDENT</div>
-            </div>
+        <!-- YES-O OFFICERS -->
 
-            <!-- Officer 2 -->
-            <div class="pixel-box bg-black/90 p-3 text-center space-y-2 hover:border-yellow-400 transition-colors">
-              <div class="w-16 h-16 mx-auto border-2 border-white overflow-hidden bg-blue-950">
-                <img src="BiagMeldred.png" onerror="this.src='https://placehold.co/100/00f/fff?text=BIAG'" class="w-full h-full object-cover">
-              </div>
-              <div class="text-[10px] text-yellow-300 font-bold">Meldred J. Biag</div>
-              <div class="text-[8px] text-blue-400">VICE PRESIDENT</div>
-            </div>
+        <div class="leadership-block reveal">
 
-            <!-- Officer 3 -->
-            <div class="pixel-box bg-black/90 p-3 text-center space-y-2 hover:border-yellow-400 transition-colors">
-              <div class="w-16 h-16 mx-auto border-2 border-white overflow-hidden bg-green-950">
-                <img src="ProlloMyan.png" onerror="this.src='https://placehold.co/100/0f0/fff?text=PROLLO'" class="w-full h-full object-cover">
-              </div>
-              <div class="text-[10px] text-yellow-300 font-bold">Myan Pearl N. Prollo</div>
-              <div class="text-[8px] text-green-400">SECRETARY</div>
-            </div>
+          <div class="leadership-block-title">
+            YES-O Officers
+          </div>
 
-            <!-- Officer 4 -->
-            <div class="pixel-box bg-black/90 p-3 text-center space-y-2 hover:border-yellow-400 transition-colors">
-              <div class="w-16 h-16 mx-auto border-2 border-white overflow-hidden bg-amber-950">
-                <img src="Ramiterre.png" onerror="this.src='https://placehold.co/100/f80/fff?text=RAMITERRE'" class="w-full h-full object-cover">
-              </div>
-              <div class="text-[10px] text-yellow-300 font-bold">John Alexis Ramiterre</div>
-              <div class="text-[8px] text-amber-400">TREASURER</div>
-            </div>
 
-            <!-- Officer 5 -->
-            <div class="pixel-box bg-black/90 p-3 text-center space-y-2 hover:border-yellow-400 transition-colors">
-              <div class="w-16 h-16 mx-auto border-2 border-white overflow-hidden bg-purple-950">
-                <img src="Agdipa.png" onerror="this.src='https://placehold.co/100/f0f/fff?text=AGDIPA'" class="w-full h-full object-cover">
-              </div>
-              <div class="text-[10px] text-yellow-300 font-bold">Alexa A. Agdipa</div>
-              <div class="text-[8px] text-purple-400">AUDITOR</div>
-            </div>
+          <div class="officer-grid">
 
-            <!-- Officer 6 -->
-            <div class="pixel-box bg-black/90 p-3 text-center space-y-2 hover:border-yellow-400 transition-colors">
-              <div class="w-16 h-16 mx-auto border-2 border-white overflow-hidden bg-pink-950">
-                <img src="Paringit.png" onerror="this.src='https://placehold.co/100/ff007f/fff?text=PARINGIT'" class="w-full h-full object-cover">
-              </div>
-              <div class="text-[10px] text-yellow-300 font-bold">Gabriel Y. Paringit</div>
-              <div class="text-[8px] text-pink-400">P.I.O.</div>
-            </div>
 
-            <!-- Officer 7 -->
-            <div class="pixel-box bg-black/90 p-3 text-center space-y-2 hover:border-yellow-400 transition-colors">
-              <div class="w-16 h-16 mx-auto border-2 border-white overflow-hidden bg-teal-950">
-                <img src="Tigolo.png" onerror="this.src='https://placehold.co/100/008080/fff?text=TIGOLO'" class="w-full h-full object-cover">
+            <article class="officer-card">
+
+              <div class="officer-photo">
+
+                <img
+                  src="MataJomar.png"
+                  alt="YES-O President"
+                >
+
               </div>
-              <div class="text-[10px] text-yellow-300 font-bold">Sofhia D. Tigolo</div>
-              <div class="text-[8px] text-teal-400">PEACE OFFICER</div>
-            </div>
+
+
+              <h3 class="officer-name">
+                Jomar C. Mata
+              </h3>
+
+
+              <p class="officer-position">
+                President
+              </p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <div class="officer-photo">
+
+                <img
+                  src="BiagMeldred.png"
+                  alt="YES-O Vice President"
+                >
+
+              </div>
+
+
+              <h3 class="officer-name">
+                Meldred J. Biag
+              </h3>
+
+
+              <p class="officer-position">
+                Vice President
+              </p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <div class="officer-photo">
+
+                <img
+                  src="ProlloMyan.png"
+                  alt="YES-O Secretary"
+                >
+
+              </div>
+
+
+              <h3 class="officer-name">
+                Myan Pearl N. Prollo
+              </h3>
+
+
+              <p class="officer-position">
+                Secretary
+              </p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <div class="officer-photo">
+
+                <img
+                  src="Ramiterre.png"
+                  alt="YES-O Treasurer"
+                >
+
+              </div>
+
+
+              <h3 class="officer-name">
+                John Alexis C. Ramiterre
+              </h3>
+
+
+              <p class="officer-position">
+                Treasurer
+              </p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <div class="officer-photo">
+
+                <img
+                  src="Agdipa.png"
+                  alt="YES-O Auditor"
+                >
+
+              </div>
+
+
+              <h3 class="officer-name">
+                Alexa A. Agdipa
+              </h3>
+
+
+              <p class="officer-position">
+                Auditor
+              </p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <div class="officer-photo">
+
+                <img
+                  src="Paringit.png"
+                  alt="YES-O Public Information Officer"
+                >
+
+              </div>
+
+
+              <h3 class="officer-name">
+                Gabriel Yuan M. Paringit
+              </h3>
+
+
+              <p class="officer-position">
+                Public Information Officer
+              </p>
+
+            </article>
+
+
+            <article class="officer-card">
+
+              <div class="officer-photo">
+
+                <img
+                  src="Tigolo.png"
+                  alt="YES-O Peace Officer"
+                >
+
+              </div>
+
+
+              <h3 class="officer-name">
+                Sofhia Denise G. Tigolo
+              </h3>
+
+
+              <p class="officer-position">
+                Peace Officer
+              </p>
+
+            </article>
+
 
           </div>
+
         </div>
+
 
       </div>
+
     </section>
 
-    <!-- GROUND FLOOR BARRIER -->
-    <div class="ground-floor"></div>
 
     <!-- =======================================================
-         ENVIRONMENTAL CIRCLES / MEMBERS
+         YES-O MEMBERS AND CIRCLES
          ======================================================= -->
-    <section id="members" class="bg-sky-900 py-16 px-4">
-      <div class="max-w-6xl mx-auto space-y-8">
-        
-        <div class="text-center">
-          <h2 class="text-2xl md:text-4xl text-yellow-300">STAGE 3: ENVIRONMENTAL CIRCLES</h2>
-          <p class="text-sky-200 text-xs mt-2">SQUADS OF ENVIRONMENTAL ADVOCATES</p>
+
+    <section
+      class="section members"
+      id="members"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading reveal">
+
+          <span class="section-label">
+            YES-O Members
+          </span>
+
+
+          <h2 class="section-title">
+            Environmental Circles
+          </h2>
+
+
+          <p class="section-description">
+            Each Circle is guided by one YES-O officer serving as
+            Advocate, supported by one Circle Leader and its members.
+          </p>
+
         </div>
 
-        <!-- Circles Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <!-- Circle Card Template -->
+        <div class="circle-grid">
+
+
           <!-- CIRCLE 1 -->
-          <div class="pixel-box bg-blue-950 p-4 space-y-3">
-            <div class="flex items-center justify-between border-b-2 border-yellow-400 pb-2">
-              <span class="text-xs text-yellow-400">WORLD 3-1</span>
-              <span class="text-xs text-green-400 font-bold">PANALIPDAN</span>
+
+          <article class="circle-card reveal">
+
+            <div class="circle-header">
+
+              <div class="circle-number">
+                01
+              </div>
+
+
+              <div>
+
+                <h3 class="circle-title">
+                  Panalipdan
+                </h3>
+
+
+                <p class="circle-subtitle">
+                  Group
+                </p>
+
+              </div>
+
             </div>
-            <div class="text-[10px] text-sky-200">Advocate: Jomar C. Mata</div>
-            <div class="text-[10px] text-sky-200">Leader: Princess Lyra Shane Tadeo</div>
-            <div class="bg-black/60 p-2 border border-white/20 text-[9px] h-32 overflow-y-auto space-y-1">
-              <div>✓ Allen Nicole Batore</div>
-              <div>✓ Danica Cabatin</div>
-              <div>✓ Joy Camille Cariaga</div>
-              <div>✓ Rain Ivan Mengullo</div>
-              <div>✓ Kyla Delos Santos</div>
-              <div>✓ Jake Geraldo</div>
-              <div>✓ Zaijian Perdible</div>
-              <div>✓ Mclean Jolorie Pascua</div>
+
+
+            <div class="circle-leadership">
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  A
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Advocate
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Jomar C. Mata
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  L
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Leader
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Princess Lyra Shane Tadeo
+                  </div>
+
+                </div>
+
+              </div>
+
+
             </div>
-          </div>
+
+
+            <div class="circle-members-title">
+              Members
+            </div>
+
+
+            <ul class="member-list">
+
+              <li>Allen Nicole Batore</li>
+              <li>Danica Cabatin</li>
+              <li>Joy Camille Cariaga</li>
+              <li>Rain Ivan Mengullo</li>
+              <li>Kyla Delos Santos</li>
+              <li>Jake Geraldo</li>
+              <li>Zaijian Perdible</li>
+              <li>Mclean Jolorie Pascua</li>
+              <li>Christine Dela Cruz</li>
+              <li>Rowela Mae Lachica</li>
+              <li>Zshamaine Pascua</li>
+              <li>Cymantha May Pascua</li>
+              <li>Roselyn Ramirez</li>
+              <li>Jenifer Agustin</li>
+              <li>Giezel Mae Toribio</li>
+              <li>Sofhia Matamis</li>
+              <li>Dyna Rashielle Salva</li>
+
+            </ul>
+
+          </article>
+
 
           <!-- CIRCLE 2 -->
-          <div class="pixel-box bg-blue-950 p-4 space-y-3">
-            <div class="flex items-center justify-between border-b-2 border-yellow-400 pb-2">
-              <span class="text-xs text-yellow-400">WORLD 3-2</span>
-              <span class="text-xs text-green-400 font-bold">YABONG</span>
+
+          <article class="circle-card reveal">
+
+            <div class="circle-header">
+
+              <div class="circle-number">
+                02
+              </div>
+
+
+              <div>
+
+                <h3 class="circle-title">
+                  Yabong
+                </h3>
+
+
+                <p class="circle-subtitle">
+                  Group
+                </p>
+
+              </div>
+
             </div>
-            <div class="text-[10px] text-sky-200">Advocate: Meldred J. Biag</div>
-            <div class="text-[10px] text-sky-200">Leader: Judy Ann Cabunot</div>
-            <div class="bg-black/60 p-2 border border-white/20 text-[9px] h-32 overflow-y-auto space-y-1">
-              <div>✓ Luis Bernabe</div>
-              <div>✓ Keisha Mae Balajadia</div>
-              <div>✓ Marie-Christ De Vera</div>
-              <div>✓ Israel Macabio</div>
-              <div>✓ Princess Rhiann Velasquez</div>
-              <div>✓ Sophia Bianca Javier</div>
-              <div>✓ Krizza Mae Mina</div>
+
+
+            <div class="circle-leadership">
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  A
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Advocate
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Meldred J. Biag
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  L
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Leader
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Judy Ann Cabunot
+                  </div>
+
+                </div>
+
+              </div>
+
+
             </div>
-          </div>
+
+
+            <div class="circle-members-title">
+              Members
+            </div>
+
+
+            <ul class="member-list">
+
+              <li>Luis Bernabe</li>
+              <li>Keisha Mae Balajadia</li>
+              <li>Marie-Christ De Vera</li>
+              <li>Israel Macabio</li>
+              <li>Princess Rhiann Velasquez</li>
+              <li>Sophia Bianca Javier</li>
+              <li>Krizza Mae Mina</li>
+              <li>Nicole Kate Sevilla</li>
+              <li>Jahara Jayka Areno</li>
+              <li>Jullie Anne Fronda</li>
+              <li>Prince Nel Villarama</li>
+              <li>Misha Brenna Centro</li>
+              <li>Maruh Jade Prollo</li>
+              <li>Julia Macuha</li>
+              <li>Christine Joy</li>
+              <li>Nhirvanna Dingle</li>
+              <li>Kobe Vince Caritativo</li>
+
+            </ul>
+
+          </article>
+
 
           <!-- CIRCLE 3 -->
-          <div class="pixel-box bg-blue-950 p-4 space-y-3">
-            <div class="flex items-center justify-between border-b-2 border-yellow-400 pb-2">
-              <span class="text-xs text-yellow-400">WORLD 3-3</span>
-              <span class="text-xs text-green-400 font-bold">AMMOYO</span>
+
+          <article class="circle-card reveal">
+
+            <div class="circle-header">
+
+              <div class="circle-number">
+                03
+              </div>
+
+
+              <div>
+
+                <h3 class="circle-title">
+                  Ammoyo
+                </h3>
+
+
+                <p class="circle-subtitle">
+                  Group
+                </p>
+
+              </div>
+
             </div>
-            <div class="text-[10px] text-sky-200">Advocate: Myan Pearl N. Prollo</div>
-            <div class="text-[10px] text-sky-200">Leader: Mark James Esteban</div>
-            <div class="bg-black/60 p-2 border border-white/20 text-[9px] h-32 overflow-y-auto space-y-1">
-              <div>✓ Christopher Joaquin</div>
-              <div>✓ John Rafael Espeña</div>
-              <div>✓ Janna May Delfin</div>
-              <div>✓ Christian Dela Cruz</div>
-              <div>✓ Jereca Salazar</div>
-              <div>✓ Juslie Pascual</div>
+
+
+            <div class="circle-leadership">
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  A
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Advocate
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Myan Pearl N. Prollo
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  L
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Leader
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Mark James Esteban
+                  </div>
+
+                </div>
+
+              </div>
+
+
             </div>
-          </div>
+
+
+            <div class="circle-members-title">
+              Members
+            </div>
+
+
+            <ul class="member-list">
+
+              <li>Christopher Joaquin</li>
+              <li>John Rafael Espeña</li>
+              <li>Janna May Delfin</li>
+              <li>Christian Dela Cruz</li>
+              <li>Jereca Salazar</li>
+              <li>Juslie Pascual</li>
+              <li>Yvon Caritativo</li>
+              <li>Christian Nigel Asuncion</li>
+              <li>Zairiz Perdible</li>
+              <li>John Michael Tua</li>
+              <li>Lyra Rose Matamis</li>
+              <li>Vanessa Mangawang</li>
+              <li>Gerald Butal</li>
+              <li>Michelle Javier</li>
+              <li>Ramona Dondoyano</li>
+              <li>Rodalyn Mae Pascua</li>
+              <li>Anthea Muncal</li>
+
+            </ul>
+
+          </article>
+
 
           <!-- CIRCLE 4 -->
-          <div class="pixel-box bg-blue-950 p-4 space-y-3">
-            <div class="flex items-center justify-between border-b-2 border-yellow-400 pb-2">
-              <span class="text-xs text-yellow-400">WORLD 3-4</span>
-              <span class="text-xs text-green-400 font-bold">LAMBO</span>
+
+          <article class="circle-card reveal">
+
+            <div class="circle-header">
+
+              <div class="circle-number">
+                04
+              </div>
+
+
+              <div>
+
+                <h3 class="circle-title">
+                  Lambo
+                </h3>
+
+
+                <p class="circle-subtitle">
+                  Group
+                </p>
+
+              </div>
+
             </div>
-            <div class="text-[10px] text-sky-200">Advocate: John Alexis Ramiterre</div>
-            <div class="text-[10px] text-sky-200">Leader: Princes Matamis</div>
-            <div class="bg-black/60 p-2 border border-white/20 text-[9px] h-32 overflow-y-auto space-y-1">
-              <div>✓ Franz Michael Mina</div>
-              <div>✓ Rolando Paat</div>
-              <div>✓ Dennis Linsangan</div>
-              <div>✓ Allan Jhay Rapisora</div>
-              <div>✓ Kyla Nicole Agustin</div>
+
+
+            <div class="circle-leadership">
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  A
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Advocate
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    John Alexis C. Ramiterre
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  L
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Leader
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Princes Matamis
+                  </div>
+
+                </div>
+
+              </div>
+
+
             </div>
-          </div>
+
+
+            <div class="circle-members-title">
+              Members
+            </div>
+
+
+            <ul class="member-list">
+
+              <li>Franz Michael Mina</li>
+              <li>Rolando Paat</li>
+              <li>Dennis Linsangan</li>
+              <li>Allan Jhay Rapisora</li>
+              <li>Kyla Nicole Agustin</li>
+              <li>Cris Han Agustin</li>
+              <li>Jennifer Serrano</li>
+              <li>Jennilyn Barrientos</li>
+              <li>Alzea May Alabas</li>
+              <li>Ella Pascua</li>
+              <li>John Niña Centro</li>
+              <li>Sophia Nicole Dumaya</li>
+              <li>April Abarquez</li>
+              <li>Geraldine Javier</li>
+              <li>Christian Jay Palma</li>
+              <li>Jules Kirby Esteban</li>
+              <li>Mayvelyn Pablo</li>
+
+            </ul>
+
+          </article>
+
 
           <!-- CIRCLE 5 -->
-          <div class="pixel-box bg-blue-950 p-4 space-y-3">
-            <div class="flex items-center justify-between border-b-2 border-yellow-400 pb-2">
-              <span class="text-xs text-yellow-400">WORLD 3-5</span>
-              <span class="text-xs text-green-400 font-bold">INAYAN</span>
+
+          <article class="circle-card reveal">
+
+            <div class="circle-header">
+
+              <div class="circle-number">
+                05
+              </div>
+
+
+              <div>
+
+                <h3 class="circle-title">
+                  Inayan
+                </h3>
+
+
+                <p class="circle-subtitle">
+                  Group
+                </p>
+
+              </div>
+
             </div>
-            <div class="text-[10px] text-sky-200">Advocate: Alexa A. Agdipa</div>
-            <div class="text-[10px] text-sky-200">Leader: Alyssa Ashley Juan</div>
-            <div class="bg-black/60 p-2 border border-white/20 text-[9px] h-32 overflow-y-auto space-y-1">
-              <div>✓ Arkiano Magos</div>
-              <div>✓ Lucila Joy Salagsag</div>
-              <div>✓ Pauline Grace Sison</div>
-              <div>✓ Julia Romero</div>
+
+
+            <div class="circle-leadership">
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  A
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Advocate
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Alexa A. Agdipa
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  L
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Leader
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Alyssa Ashley Juan
+                  </div>
+
+                </div>
+
+              </div>
+
+
             </div>
-          </div>
+
+
+            <div class="circle-members-title">
+              Members
+            </div>
+
+
+            <ul class="member-list">
+
+              <li>Arkiano Magos</li>
+              <li>Lucila Joy Salagsag</li>
+              <li>Pauline Grace Sison</li>
+              <li>Julia Romero</li>
+              <li>Dioni Andrei Tigulo</li>
+              <li>Chriza Agdipa</li>
+              <li>Klain Irish Capili</li>
+              <li>Leezil May Rosquita</li>
+              <li>Princess Angela Sanchez</li>
+              <li>Jillian Joy Gabuyo</li>
+              <li>Jewel Micah Lina</li>
+              <li>Rianna Marquez</li>
+              <li>Roselyn Deleon</li>
+              <li>Erica Agbuya</li>
+              <li>John Mark Batore</li>
+              <li>Kate Ingrid Mhae</li>
+              <li>Krizsa Mae Joy Delo</li>
+
+            </ul>
+
+          </article>
+
 
           <!-- CIRCLE 6 -->
-          <div class="pixel-box bg-blue-950 p-4 space-y-3">
-            <div class="flex items-center justify-between border-b-2 border-yellow-400 pb-2">
-              <span class="text-xs text-yellow-400">WORLD 3-6</span>
-              <span class="text-xs text-green-400 font-bold">DAYAW</span>
+
+          <article class="circle-card reveal">
+
+            <div class="circle-header">
+
+              <div class="circle-number">
+                06
+              </div>
+
+
+              <div>
+
+                <h3 class="circle-title">
+                 Dayaw
+                </h3>
+
+
+                <p class="circle-subtitle">
+                Group
+                </p>
+
+              </div>
+
             </div>
-            <div class="text-[10px] text-sky-200">Advocate: Gabriel Y. Paringit</div>
-            <div class="text-[10px] text-sky-200">Leader: Jessica Bernabe</div>
-            <div class="bg-black/60 p-2 border border-white/20 text-[9px] h-32 overflow-y-auto space-y-1">
-              <div>✓ Kysha Antonette Magbitang</div>
-              <div>✓ Mary Joyce Alabas</div>
-              <div>✓ Andrie Nicole Violata</div>
+
+
+            <div class="circle-leadership">
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  A
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Advocate
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Gabriel Yuan M. Paringit
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  L
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Leader
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Jessica Bernabe
+                  </div>
+
+                </div>
+
+              </div>
+
+
             </div>
-          </div>
+
+
+            <div class="circle-members-title">
+              Members
+            </div>
+
+
+            <ul class="member-list">
+
+              <li>Kysha Antonette Magbitang</li>
+              <li>Mary Joyce Alabas</li>
+              <li>Andrie Nicole Violata</li>
+              <li>Janiña Grace Garcia</li>
+              <li>Mary Joy Batore</li>
+              <li>Crisnel Queen Alpindo</li>
+              <li>Jusung Pascua</li>
+              <li>Shiela Marie Mina</li>
+              <li>Fhara Ellenor Rapisora</li>
+              <li>Jusmaine Love Aguilar</li>
+              <li>Rodalyn Mae Pascua</li>
+              <li>Irish Janelle Tigolo</li>
+              <li>Princess Nicole Daet</li>
+              <li>Aliyah Centro</li>
+              <li>Marvin V. Paraiso</li>
+              <li>Crizelyn Linsangan Borromeo</li>
+              <li>Ringo Gelacio</li>
+
+            </ul>
+
+          </article>
+
+
+          <!-- CIRCLE 7 -->
+
+          <article class="circle-card reveal">
+
+            <div class="circle-header">
+
+              <div class="circle-number">
+                07
+              </div>
+
+
+              <div>
+
+                <h3 class="circle-title">
+                  SIBOL
+                </h3>
+
+
+                <p class="circle-subtitle">
+                 Group
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="circle-leadership">
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  A
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Advocate
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Sofhia Denise G. Tigolo
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="circle-person">
+
+                <div class="circle-person-icon">
+                  L
+                </div>
+
+
+                <div>
+
+                  <div class="circle-person-label">
+                    Leader
+                  </div>
+
+
+                  <div class="circle-person-name">
+                    Jewel Mallare
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+            <div class="circle-members-title">
+              Members
+            </div>
+
+
+            <ul class="member-list">
+
+              <li>Micaella Jane Duque</li>
+              <li>Precious Jewel Romulo</li>
+              <li>Patricia Pablo</li>
+              <li>Zaireine Palma</li>
+              <li>Ineigo Antimano</li>
+              <li>Gillianne Abad</li>
+              <li>Rhea May Esteban</li>
+              <li>Jay-Ann May Pelariza</li>
+              <li>Dhanica Manangkil</li>
+              <li>Garlene Mae Centro</li>
+              <li>Mark Santiago</li>
+              <li>Trisha Camille Javier</li>
+              <li>Jhalyzza Mae Sonza</li>
+              <li>Alexis Santos</li>
+              <li>James Cabe</li>
+              <li>Nicole Alpindo</li>
+              <li>Aury Lhea Macabeo</li>
+
+            </ul>
+
+          </article>
+
 
         </div>
 
       </div>
+
     </section>
 
-    <!-- GROUND FLOOR BARRIER -->
-    <div class="ground-floor"></div>
 
     <!-- =======================================================
-         GALLERY / IN ACTION
+         GALLERY
          ======================================================= -->
-    <section id="gallery" class="bg-purple-950 py-16 px-4">
-      <div class="max-w-6xl mx-auto space-y-8">
+
+    <section
+      class="section gallery"
+      id="gallery"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading reveal">
+
+          <span class="section-label">
+            Gallery
+          </span>
+
+
+          <h2 class="section-title">
+            YES-O in Action
+          </h2>
+
+
+          <p class="section-description">
+            Official activities, programs, meetings, campaigns,
+            and environmental initiatives of Pacac High School YES-O.
+          </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+
+          <article
+            class="gallery-card reveal"
+            data-image="Meeting.jpg"
+            data-title="The YES-O officers successfully conducted their first officers’ meeting on July 10, 2026, marking the beginning of their collective efforts for S.Y. 2026–2027. During the meeting, the YES-O Adviser presented the organization’s mandated programs, while the Organization President introduced additional initiatives to strengthen environmental action and volunteerism. The meeting concluded with a shared commitment to work together in implementing meaningful environmental programs and building a cleaner, greener, and more responsible school community."
+            tabindex="0"
+            role="button"
+            aria-label="Open YES-O Meeting photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="Meeting.jpg"
+                alt="YES-O Meeting"
+              >
+
+            </div>
+
+
+            <h3 class="gallery-title">
+              First YES-O Meeting
+            </h3>
+
+          </article>
+
+
+          <article
+            class="gallery-card reveal"
+            data-image="Proposal.jpg"
+            data-title="The Youth for Environment in Schools-Organization (YES-O) formally presented the proposed Ecopedia Information Campaign to Sir Eric M. Villanueva, School Principal III, on July 22, 2026, as part of the organization’s environmental initiatives for S.Y. 2026–2027. The presentation highlighted the campaign’s goal of promoting environmental awareness through weekly educational content and interactive activities designed to engage PHSians. Sir Villanueva commended the proposal for its potential to strengthen learner engagement and make environmental education more interactive and meaningful across the school community."
+            tabindex="0"
+            role="button"
+            aria-label="Open ECOPEDIA proposal photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="Proposal.jpg"
+                alt="ECOPEDIA proposal"
+              >
+
+            </div>
+
+
+            <h3 class="gallery-title">
+              ECOPEDIA Proposal
+            </h3>
+
+          </article>
+
+
+          <article
+            class="gallery-card reveal"
+            data-image="1stOrientation.jpg"
+            data-title="The Youth for Environment in Schools-Organization (YES-O) conducted its first batch of Senior High School Member Orientation on August 12, 2026, introducing new members to the organization’s guidelines, duties, and responsibilities. The orientation emphasized discipline, active participation, personal responsibility, and the role of every member as an environmental role model. Members were encouraged to take part in environmental initiatives, promote proper waste management, and contribute to a cleaner and greener Pacac High School community. The activity marked the beginning of their commitment to serve, lead, and take action for the environment."
+            tabindex="0"
+            role="button"
+            aria-label="Open SHS Member Orientation photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="1stOrientation.jpg"
+                alt="SHS Member Orientation"
+              >
+
+            </div>
+
+
+            <h3 class="gallery-title">
+              SHS Member Orientation
+            </h3>
+
+          </article>
+
+
+          <article
+            class="gallery-card reveal"
+            data-image="2ndOrinetation2.jpg"
+            data-title="The Youth for Environment in Schools-Organization (YES-O) conducted its second batch of Member Orientation for Junior High School learners on August 13, 2026, introducing new members to the organization’s guidelines, duties, and responsibilities. The orientation emphasized discipline, active participation, environmental responsibility, and the role of members as environmental role models within Pacac High School. The session also highlighted the importance of supporting school-based environmental programs and practicing proper environmental responsibility in daily school life. With the orientation completed, the new JHS members are ready to take part in YES-O activities and contribute to the organization’s environmental initiatives."
+            tabindex="0"
+            role="button"
+            aria-label="Open JHS Member Orientation photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="2ndOrinetation1.jpg"
+                alt="JHS Member Orientation"
+              >
+
+            </div>
+
+
+            <h3 class="gallery-title">
+              JHS Member Orientation
+            </h3>
+
+          </article>
+
+
+          <article
+            class="gallery-card reveal"
+            data-image="1stEcopediaRaffle.jpg"
+            data-title="The Youth for Environment in Schools-Organization (YES-O) successfully concluded the first month of ECOPEDIA with its first-ever Information Campaign Raffle Draw on August 24, 2026. Congratulations to our Month 1 winners: Cristopher Joaquin, 11-Abueva; Geraldine Javier, 10-Becquerel; Mark James Esteban, 10-Becquerel; and Jillian Gabuyo, 8-Python. The winners were selected through a digital roulette draw to ensure a fair and transparent selection process. YES-O extends its appreciation to all learners who participated in the quiz, as well as to Sangguniang Kabataan ng Narvacan Uno and our anonymous sponsors for supporting the activity. ECOPEDIA continues with more environmental topics, quizzes, and opportunities for learner engagement in the coming months."
+            tabindex="0"
+            role="button"
+            aria-label="Open first ECOPEDIA raffle photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="1stEcopediaRaffle.jpg"
+                alt="First ECOPEDIA raffle"
+              >
+
+            </div>
+
+
+            <h3 class="gallery-title">
+              First ECOPEDIA Raffle
+            </h3>
+
+          </article>
+
+          <article
+            class="gallery-card reveal"
+            data-image="FRZ01.jpg"
+            data-title="Sa isang nakakapagod na Fun Run at Zumba, hindi pa rin nagpatinag ang ating mga YES-O officers at members. Kahit ramdam ang pagod, patuloy pa rin nilang ginagampanan ang kanilang tungkulin bilang environmental youth leaders sa ating paaralan.
+The mission of the Youth for Environment in Schools Organization (YES-O) continues as we strive to become more active and committed in promoting a cleaner, greener, and more organized school. Every effort, no matter how small, contributes to a better environment for everyone.
+Muli, maraming maraming salamat sa ating mga aktibong YES-O members. Kahit pagod, patuloy pa rin kayong nakikilahok, nagsisilbi, at kumikilos para sa kalikasan at sa ating paaralan."
+            tabindex="0"
+            role="button"
+            aria-label="Monitoring photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="FRZ02.jpg"
+                alt="Cleanliness"
+              >
+
+            </div>
+
+
+            <h3 class="gallery-title">
+              Fun Run and Zumba Cleanliness Monitoring
+            </h3>
+
+          </article>
+
+          <article
+            class="gallery-card reveal"
+            data-image="TPCD01.jpg"
+            data-title="Today September 08, 2026, the 𝐘𝐨𝐮𝐭𝐡 𝐟𝐨𝐫 𝐄𝐧𝐯𝐢𝐫𝐨𝐧𝐦𝐞𝐧𝐭 𝐢𝐧 𝐒𝐜𝐡𝐨𝐨𝐥𝐬 𝐎𝐫𝐠𝐚𝐧𝐢𝐳𝐚𝐭𝐢𝐨𝐧 (𝐘𝐄𝐒-𝐎) came together for a Tree Planting and Clean-Up Drive at Pacac High School, bringing together teamwork, service, and action for the environment.
+Our heartfelt thanks go to all 𝐘𝐄𝐒-𝐎 members who gave their time, effort, energy, and full cooperation throughout the activity. Your active participation and willingness to work together made the Tree Planting and Clean-Up Drive more meaningful and successful. Every contribution, whether big or small, helped make the activity a valuable step toward a cleaner and greener school environment.
+We also extend our sincere appreciation to the 𝐒𝐮𝐩𝐫𝐞𝐦𝐞 𝐒𝐞𝐜𝐨𝐧𝐝𝐚𝐫𝐲 𝐋𝐞𝐚𝐫𝐧𝐞𝐫 𝐆𝐨𝐯𝐞𝐫𝐧𝐦𝐞𝐧𝐭 (𝐒𝐒𝐋𝐆), 𝐁𝐚𝐫𝐤𝐚𝐝𝐚 𝐊𝐨𝐧𝐭𝐫𝐚 𝐁𝐢𝐬𝐲𝐨 (𝐁𝐊𝐁), and 𝐁𝐒𝐏 𝐍𝐄𝐂 𝐎𝐮𝐭𝐟𝐢𝐭 𝟐𝟎𝟎𝟗 for sharing your time, support, and active participation. Your presence and cooperation added to the success of the activity and showed the value of working together for our school, our environment, and our fellow learners.
+After the activity, 𝐘𝐄𝐒-𝐎 also welcomed its new members for School Year 2026–2027 through a Welcome Program, marking the beginning of another year of service, teamwork, and environmental action."
+            tabindex="0"
+            role="button"
+            aria-label="Monitoring photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="TPCD02.jpg"
+                alt="Cleanliness"
+              >
+
+            </div>
+
+
+            <h3 class="gallery-title">
+              Tree Planting and Clean-Up Drive
+            </h3>
+          </article>
+
+          <article
+            class="gallery-card reveal"
+            data-image="VMCD01.jpg"
+            data-title="September 08, Pacac High School welcomed Municipal Vice Mayor 𝐇𝐨𝐧. 𝐉𝐨𝐡𝐧 𝐂𝐚𝐫𝐥𝐨 𝐃𝐢𝐳𝐨𝐧, who took time to learn more about 𝐄𝐂𝐎𝐏𝐄𝐃𝐈𝐀, the year-round environmental information campaign of the 𝐘𝐨𝐮𝐭𝐡 𝐟𝐨𝐫 𝐄𝐧𝐯𝐢𝐫𝐨𝐧𝐦𝐞𝐧𝐭 𝐢𝐧 𝐒𝐜𝐡𝐨𝐨𝐥𝐬 𝐎𝐫𝐠𝐚𝐧𝐢𝐳𝐚𝐭𝐢𝐨𝐧 (𝐘𝐄𝐒-𝐎).
+During the visit, the YES-O briefly introduced the initiative, which runs throughout School Year 2026–2027 and features weekly 𝐞𝐧𝐯𝐢𝐫𝐨𝐧𝐦𝐞𝐧𝐭𝐚𝐥 𝐤𝐧𝐨𝐰𝐥𝐞𝐝𝐠𝐞 posts and 𝐢𝐧𝐭𝐞𝐫𝐚𝐜𝐭𝐢𝐯𝐞 𝐪𝐮𝐢𝐳𝐳𝐞𝐬 designed to make environmental learning more interesting and accessible to learners.
+Vice Mayor Dizon expressed appreciation for the initiative, recognizing the value of young leaders who take the initiative to create and implement 𝐦𝐞𝐚𝐧𝐢𝐧𝐠𝐟𝐮𝐥 𝐩𝐫𝐨𝐠𝐫𝐚𝐦𝐬 in their schools. His positive remarks also encouraged him to extend his support to 𝐄𝐂𝐎𝐏𝐄𝐃𝐈𝐀, an initiative that aims to strengthen learner knowledge while promoting greater awareness of the environment.
+For the YES-O, his support reflects the value of a project with two goals: 𝐡𝐞𝐥𝐩𝐢𝐧𝐠 𝐥𝐞𝐚𝐫𝐧𝐞𝐫𝐬 𝐠𝐚𝐢𝐧 𝐤𝐧𝐨𝐰𝐥𝐞𝐝𝐠𝐞 while strengthening awareness and care for the environment.
+The organization is also grateful for the 𝐩𝐨𝐬𝐢𝐭𝐢𝐯𝐞 𝐟𝐞𝐞𝐝𝐛𝐚𝐜𝐤 and encouraging comments from those who have seen and appreciated 𝐄𝐂𝐎𝐏𝐄𝐃𝐈𝐀. What began as an idea during the campaign is now being carried out as a 𝐲𝐞𝐚𝐫-𝐫𝐨𝐮𝐧𝐝 𝐢𝐧𝐢𝐭𝐢𝐚𝐭𝐢𝐯𝐞 through the continued effort of young environmental leaders.
+On behalf of Pacac High School, the YES-O sincerely thanks 𝐇𝐨𝐧. 𝐕𝐢𝐜𝐞 𝐌𝐚𝐲𝐨𝐫 𝐉𝐨𝐡𝐧 𝐂𝐚𝐫𝐥𝐨 𝐃𝐢𝐳𝐨𝐧 for taking the time to learn about ECOPEDIA and for extending his support to the initiative."
+            tabindex="0"
+            role="button"
+            aria-label="Monitoring photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="VMCD02.jpg"
+                alt="Cleanliness"
+              >
+
+            </div>
+
+
+            <h3 class="gallery-title">
+              Visitation of Hon. Vice Mayor Dizon
+            </h3>
+          </article>
+
+          <article
+            class="gallery-card reveal"
+            data-image="tcday2.jpg"
+            data-title="In celebration of Teachers’ Day, the SSLG, YES-O, and BKB joined forces to give our teachers a special moment of appreciation through the Educator’s Premiere. The celebration brought teachers together for a movie viewing, giving them time to relax, enjoy, and share a meaningful experience with the school community. Through this simple yet thoughtful celebration, the organizations honored the dedication, guidance, and commitment of our teachers in shaping every PHSian."
+            tabindex="0"
+            role="button"
+            aria-label="Monitoring photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="tcday1.jpg"
+                alt="Cleanliness"
+              >
+
+            </div>
+
+
+            <h3 class="gallery-title">
+              The Educator's Premiere
+            </h3>
+          </article>
         
-        <div class="text-center">
-          <h2 class="text-2xl md:text-4xl text-yellow-300">STAGE 4: GALLERY IN ACTION</h2>
-          <p class="text-purple-200 text-xs mt-2">PHOTO MEMORIES AND CAMPAIGNS</p>
-        </div>
+ <article
+            class="gallery-card reveal"
+            data-image="EICM2.jpg"
+            data-title="𝗘𝗖𝗢𝗣𝗘𝗗𝗜𝗔 𝗠𝗢𝗡𝗧𝗛 𝟮 | 𝗡𝗔𝗧𝗜𝗩𝗘 𝗙𝗟𝗢𝗥𝗔 𝗢𝗙 𝗧𝗛𝗘 𝗣𝗛𝗜𝗟𝗜𝗣𝗣𝗜𝗡𝗘𝗦 | 𝗥𝗔𝗙𝗙𝗟𝗘 𝗗𝗥𝗔𝗪 🌿🎟️
+ECOPEDIA has officially concluded its second month, featuring the rich and diverse 𝗡𝗮𝘁𝗶𝘃𝗲 𝗙𝗹𝗼𝗿𝗮 𝗼𝗳 𝘁𝗵𝗲 𝗣𝗵𝗶𝗹𝗶𝗽𝗽𝗶𝗻𝗲𝘀.
+Through this month’s Information Campaign, learners explored different native plant species, their characteristics, their importance to local ecosystems, and the role they play in protecting Philippine biodiversity.
+Congratulations to our 𝗠𝗼𝗻𝘁𝗵 𝟮 𝗥𝗮𝗳𝗳𝗹𝗲 𝗪𝗶𝗻𝗻𝗲𝗿𝘀:
+• Marvin Paraiso, 10-Becquerel 
+• Lyra Rose Matamis, 7-Cybernauts (SP-ICT)
+• John Michael Barrientos, 10-Becquerel
+• Mark James Esteban, 10-Becquerel
+• Rhiann Velasquez, 10-AI (SP-ICT)
+The winners were selected through a digital roulette draw, ensuring a fair and transparent selection process.
+To every learner who participated in our Native Flora quiz, thank you. Your participation continues to make ECOPEDIA more meaningful. Every correct answer represents another piece of environmental knowledge gained and another step toward becoming a more informed and responsible steward of our environment.
+Our sincere appreciation goes to our generous sponsors and partners for supporting ECOPEDIA Month 2 and helping us provide more opportunities for environmental learning and learner engagement."
+            tabindex="0"
+            role="button"
+            aria-label="Monitoring photo"
+          >
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="gallery-image">
 
-          <!-- Gallery Card Item -->
-          <div onclick="openLightbox('Meeting.jpg', 'First YES-O Officers Meeting S.Y. 2026-2027')" class="pixel-box bg-black p-3 cursor-pointer hover:border-yellow-400 transition-all">
-            <div class="aspect-video bg-gray-800 border-2 border-white overflow-hidden mb-2">
-              <img src="Meeting.jpg" onerror="this.src='https://placehold.co/600x400/222/fff?text=MEETING'" alt="Meeting" class="w-full h-full object-cover">
+              <img
+                src="EICM2.jpg"
+                alt="Cleanliness"
+              >
+
             </div>
-            <h3 class="text-xs text-yellow-300">FIRST YES-O MEETING</h3>
-            <p class="text-[9px] text-gray-400 mt-1">July 10, 2026</p>
-          </div>
 
-          <div onclick="openLightbox('Proposal.jpg', 'ECOPEDIA Proposal presented to School Principal')" class="pixel-box bg-black p-3 cursor-pointer hover:border-yellow-400 transition-all">
-            <div class="aspect-video bg-gray-800 border-2 border-white overflow-hidden mb-2">
-              <img src="Proposal.jpg" onerror="this.src='https://placehold.co/600x400/222/fff?text=PROPOSAL'" alt="Proposal" class="w-full h-full object-cover">
+
+            <h3 class="gallery-title">
+              ECOPEDIA Month 2 Raffle
+            </h3>
+           </article>
+
+          <article
+            class="gallery-card reveal"
+            data-image="BERT2.jpg"
+            data-title="LOOK | 𝗕𝗘𝗥𝗧 𝗖𝗔𝗠𝗣 𝟯.𝟬 | 𝗕𝗔𝗧𝗖𝗛 𝟮 
+Our 𝗬𝗘𝗦-𝗢 𝗣𝗿𝗲𝘀𝗶𝗱𝗲𝗻𝘁, 𝗝𝗼𝗺𝗮𝗿 𝗠𝗮𝘁𝗮, together with our 𝗬𝗘𝗦-𝗢 𝗩𝗶𝗰𝗲 𝗣𝗿𝗲𝘀𝗶𝗱𝗲𝗻𝘁, 𝗠𝗶𝗹𝗱𝗿𝗲𝗱 𝗕𝗶𝗮𝗴, joined 𝗕𝗘𝗥𝗧 𝗖𝗔𝗠𝗣 𝟯.𝟬, 𝗕𝗮𝘁𝗰𝗵 𝟮, held on October 8–10 at Dento Farm and IT Farm and Resort in Rizal, Nueva Ecija.
+𝗧𝗵𝗿𝗲𝗲 𝗱𝗮𝘆𝘀 𝗼𝗳 𝗹𝗲𝗮𝗿𝗻𝗶𝗻𝗴, 𝗰𝗼𝗻𝗻𝗲𝗰𝘁𝗶𝗼𝗻, 𝗮𝗻𝗱 𝗴𝗿𝗼𝘄𝘁𝗵! Sa loob ng tatlong araw, mas naunawaan namin ang kahalagahan ng kahandaan, pakikipagtulungan, at responsableng pamumuno. Bilang mga lider ng YES-O, dala namin ang paniniwalang ang paglilingkod ay hindi lamang tungkol sa posisyong hawak, kundi sa kakayahang makibahagi, makinig, at kumilos para sa kapakanan ng kabataan at kalikasan.
+Our heartfelt gratitude to 𝗠𝗮’𝗮𝗺 𝗠𝗮𝗹𝘂 𝗚𝗮𝗺𝗶𝗻𝗼 and all the facilitators for sharing their knowledge, experiences, and valuable life lessons with the youth. Maraming salamat po sa inyong dedikasyon sa paghubog ng mga kabataang may kakayahang mamuno at maglingkod.
+We also extend our sincere appreciation to the 𝗣𝗥𝗢𝗩𝗜𝗡𝗖𝗜𝗔𝗟 𝗚𝗢𝗩𝗘𝗥𝗡𝗠𝗘𝗡𝗧 𝗢𝗙 𝗡𝗨𝗘𝗩𝗔 𝗘𝗖𝗜𝗝𝗔, under the leadership of 𝗚𝗼𝘃𝗲𝗿𝗻𝗼𝗿 𝗢𝘆𝗶𝗲 𝗨𝗺𝗮𝗹𝗶, for supporting initiatives dedicated to youth development.
+To our 𝗦𝗰𝗵𝗼𝗼𝗹 𝗣𝗿𝗶𝗻𝗰𝗶𝗽𝗮𝗹 𝗜𝗜𝗜, 𝗦𝗶𝗿 𝗘𝗿𝗶𝗰 𝗠. 𝗩𝗶𝗹𝗹𝗮𝗻𝘂𝗲𝘃𝗮, and our 𝗕𝗘𝗥𝗧 𝗔𝗱𝘃𝗶𝘀𝗲𝗿, 𝗠𝗮’𝗮𝗺 𝗟𝗼𝘂𝗿𝗱𝗲𝘀 𝗩. 𝗕𝗮𝗹𝗴𝗼𝘀, maraming salamat po sa inyong tiwala, paggabay, at suporta. Thank you for giving us the opportunity to represent our school and participate in a meaningful program of the 𝗦𝗖𝗛𝗢𝗢𝗟𝗦 𝗗𝗜𝗩𝗜𝗦𝗜𝗢𝗡 𝗢𝗙 𝗡𝗨𝗘𝗩𝗔 𝗘𝗖𝗜𝗝𝗔. Your encouragement helped make this experience possible and memorable.
+As we return to Pacac High School, dala namin ang mga aral at inspirasyong magsisilbing gabay sa aming paglilingkod. Bilang mga YES-O officers, hangad naming maisabuhay ang mga natutuhan sa pamamagitan ng mas makabuluhang environmental initiatives, mas matibay na teamwork, at mas aktibong pakikilahok ng mga mag-aaral. Dahil ang tunay na lider ay hindi lamang nangunguna, kundi nagbibigay rin ng inspirasyon sa iba upang kumilos para sa iisang layunin.
+𝗣𝗔𝗥𝗔 𝗦𝗔 𝗞𝗔𝗕𝗔𝗧𝗔𝗔𝗡. 𝗣𝗔𝗥𝗔 𝗦𝗔 𝗞𝗔𝗟𝗜𝗞𝗔𝗦𝗔𝗡. 𝗣𝗔𝗥𝗔 𝗦𝗔 𝗕𝗔𝗬𝗔𝗡. 𝗟𝗔𝗚𝗜’𝗧 𝗟𝗔𝗚𝗜! "
+            tabindex="0"
+            role="button"
+            aria-label="Monitoring photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="BERTCover.jpg"
+                alt="Cleanliness"
+              >
+
             </div>
-            <h3 class="text-xs text-yellow-300">ECOPEDIA PROPOSAL</h3>
-            <p class="text-[9px] text-gray-400 mt-1">July 22, 2026</p>
-          </div>
 
-          <div onclick="openLightbox('1stOrientation.jpg', 'SHS Member Orientation')" class="pixel-box bg-black p-3 cursor-pointer hover:border-yellow-400 transition-all">
-            <div class="aspect-video bg-gray-800 border-2 border-white overflow-hidden mb-2">
-              <img src="1stOrientation.jpg" onerror="this.src='https://placehold.co/600x400/222/fff?text=ORIENTATION'" alt="SHS Orientation" class="w-full h-full object-cover">
+
+            <h3 class="gallery-title">
+              BERT Camp 3.0
+            </h3>
+           </article>
+
+          <article
+            class="gallery-card reveal"
+            data-image="VMTV2.jpg"
+            data-title="LOOK | MAKAKALIKASANG ARAW, PHSians!
+On behalf of the 𝗬𝗼𝘂𝘁𝗵 𝗳𝗼𝗿 𝗘𝗻𝘃𝗶𝗿𝗼𝗻𝗺𝗲𝗻𝘁 𝗶𝗻 𝗦𝗰𝗵𝗼𝗼𝗹𝘀 𝗢𝗿𝗴𝗮𝗻𝗶𝘇𝗮𝘁𝗶𝗼𝗻 (𝗬𝗘𝗦-𝗢) and the 𝗣𝗮𝗰𝗮𝗰 𝗛𝗶𝗴𝗵 𝗦𝗰𝗵𝗼𝗼𝗹 𝗔𝗱𝗺𝗶𝗻𝗶𝘀𝘁𝗿𝗮𝘁𝗶𝗼𝗻, we extend our sincerest gratitude to our supportive Municipal Vice Mayor, 𝗛𝗼𝗻. 𝗖𝗮𝗿𝗹𝗼 𝗗𝗶𝘇𝗼𝗻, for generously granting our request for a television for our 𝗘𝗖𝗢𝗣𝗘𝗗𝗜𝗔 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝗖𝗮𝗺𝗽𝗮𝗶𝗴𝗻 and personally delivering the television to our school today. 
+Maraming-maraming salamat po sa inyong agarang pagtugon, malasakit, at suporta sa aming adhikain na palawakin ang kaalaman at kamalayang pangkalikasan ng bawat PHSian. 
+Your generosity will help us present environmental information, interactive quizzes, and educational materials in a more engaging way throughout School Year 2026–2027. 
+To our active and dedicated YES-O officers, maraming salamat din sa inyong pagsisikap, pagkakaisa, at patuloy na suporta. This achievement reflects what we are able to accomplish when we work together for a shared purpose. Your support will always be a meaningful part of our journey in educating the youth and protecting our environment. 💚🍃
+𝗣𝗮𝗿𝗮 𝘀𝗮 𝗞𝗮𝗯𝗮𝘁𝗮𝗮𝗻, 𝗣𝗮𝗿𝗮 𝘀𝗮 𝗞𝗮𝗹𝗶𝗸𝗮𝘀𝗮𝗻, 𝗣𝗮𝗿𝗮 𝘀𝗮 𝗕𝗮𝘆𝗮𝗻, 𝗟𝗮𝗴𝗶’𝘁 𝗟𝗮𝗴𝗶! ☝🏻🌿"
+            tabindex="0"
+            role="button"
+            aria-label="Monitoring photo"
+          >
+
+            <div class="gallery-image">
+
+              <img
+                src="VMTV1.jpg"
+                alt="Cleanliness"
+              >
+
             </div>
-            <h3 class="text-xs text-yellow-300">SHS ORIENTATION</h3>
-            <p class="text-[9px] text-gray-400 mt-1">August 12, 2026</p>
-          </div>
 
-          <div onclick="openLightbox('TPCD02.jpg', 'Tree Planting and Clean-Up Drive')" class="pixel-box bg-black p-3 cursor-pointer hover:border-yellow-400 transition-all">
-            <div class="aspect-video bg-gray-800 border-2 border-white overflow-hidden mb-2">
-              <img src="TPCD02.jpg" onerror="this.src='https://placehold.co/600x400/222/fff?text=TREE+PLANTING'" alt="Tree Planting" class="w-full h-full object-cover">
-            </div>
-            <h3 class="text-xs text-yellow-300">TREE PLANTING DRIVE</h3>
-            <p class="text-[9px] text-gray-400 mt-1">September 8, 2026</p>
-          </div>
 
-          <div onclick="openLightbox('BERTCover.jpg', 'BERT Camp 3.0')" class="pixel-box bg-black p-3 cursor-pointer hover:border-yellow-400 transition-all">
-            <div class="aspect-video bg-gray-800 border-2 border-white overflow-hidden mb-2">
-              <img src="BERTCover.jpg" onerror="this.src='https://placehold.co/600x400/222/fff?text=BERT+CAMP'" alt="BERT Camp" class="w-full h-full object-cover">
-            </div>
-            <h3 class="text-xs text-yellow-300">BERT CAMP 3.0</h3>
-            <p class="text-[9px] text-gray-400 mt-1">October 8-10, 2026</p>
-          </div>
-
-          <div onclick="openLightbox('VMTV1.jpg', 'Vice Mayor TV Donation')" class="pixel-box bg-black p-3 cursor-pointer hover:border-yellow-400 transition-all">
-            <div class="aspect-video bg-gray-800 border-2 border-white overflow-hidden mb-2">
-              <img src="VMTV1.jpg" onerror="this.src='https://placehold.co/600x400/222/fff?text=TV+DONATION'" alt="TV Donation" class="w-full h-full object-cover">
-            </div>
-            <h3 class="text-xs text-yellow-300">VICE MAYOR TV DONATION</h3>
-            <p class="text-[9px] text-gray-400 mt-1">Support for ECOPEDIA</p>
-          </div>
-
-        </div>
-
+            <h3 class="gallery-title">
+              Vice Mayor John Carlo Dizon’s TV Donation to YES-O
+            </h3>
+           </article>
+   
       </div>
+
     </section>
 
-    <!-- GROUND FLOOR BARRIER -->
-    <div class="ground-floor"></div>
 
     <!-- =======================================================
-         MONTHLY WINNERS & FUNDS
+         MONTHLY WINNERS
          ======================================================= -->
-    <section id="winners" class="bg-red-950 py-16 px-4">
-      <div class="max-w-5xl mx-auto space-y-10">
-        
-        <div class="text-center">
-          <h2 class="text-2xl md:text-4xl text-yellow-300">STAGE 5: WINNERS & TRANSPARENCY</h2>
-          <p class="text-red-200 text-xs mt-2">ECOPEDIA RAFFLE WINNERS & TRANSPARENT FUNDS</p>
+
+    <section
+      class="section winners"
+      id="winners"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading reveal">
+
+          <span class="section-label">
+            ECOPEDIA
+          </span>
+
+
+          <h2 class="section-title">
+            Monthly Winners
+          </h2>
+
+
+          <p class="section-description">
+            Select a month to view the ECOPEDIA quiz raffle winners.
+          </p>
+
         </div>
 
-        <!-- Winners Display Box -->
-        <div class="pixel-box bg-black p-6 space-y-4">
-          <h3 class="text-sm text-yellow-400 border-b-2 border-white pb-2">🏆 ECOPEDIA MONTHLY WINNERS</h3>
-          
-          <div class="grid md:grid-cols-2 gap-4 text-xs">
-            
-            <div class="bg-red-900/40 p-3 border border-red-500">
-              <div class="text-yellow-300 font-bold mb-2">MONTH 1 WINNERS (AUG 2026)</div>
-              <ul class="space-y-1 text-[10px] text-white">
-                <li>🥇 Cristopher Joaquin (11-Abueva)</li>
-                <li>🥈 Geraldine Javier (10-Becquerel)</li>
-                <li>🥉 Mark James Esteban (10-Becquerel)</li>
-                <li>🏅 Jillian Gabuyo (8-Python)</li>
-              </ul>
-            </div>
 
-            <div class="bg-red-900/40 p-3 border border-red-500">
-              <div class="text-yellow-300 font-bold mb-2">MONTH 2 WINNERS (SEP 2026)</div>
-              <ul class="space-y-1 text-[10px] text-white">
-                <li>🥇 Marvin Paraiso (10-Becquerel)</li>
-                <li>🥈 Lyra Rose Matamis (7-Cybernauts)</li>
-                <li>🥉 John Michael Barrientos (10-Becquerel)</li>
-                <li>🏅 Rhiann Velasquez (10-AI)</li>
-              </ul>
-            </div>
+        <div
+          class="winner-month-grid"
+          id="winnerMonthGrid"
+        ></div>
 
-          </div>
+
+        <div
+          class="winner-display reveal"
+          id="winnerDisplay"
+        ></div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         SPONSORS
+         ======================================================= -->
+
+    <section
+      class="section sponsors"
+      id="sponsors"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading reveal">
+
+          <span class="section-label">
+            Supporters
+          </span>
+
+
+          <h2 class="section-title">
+            Sponsors
+          </h2>
+
+
+          <p class="section-description">
+            We recognize the individuals, groups, and organizations
+            supporting the environmental programs and activities of
+            Pacac High School YES-O.
+          </p>
+
         </div>
 
-        <!-- Transparency Funds Table Section -->
-        <div id="funds" class="pixel-box bg-slate-900 p-6 space-y-4">
-          <h3 class="text-sm text-green-400 border-b-2 border-white pb-2">💰 TRANSPARENCY FUNDS RECORD</h3>
-          
-          <div class="grid grid-cols-3 gap-2 text-center text-[10px]">
-            <div class="bg-black p-2 border border-green-500">
-              <div class="text-gray-400">TOTAL FUNDS</div>
-              <div class="text-green-400 text-xs mt-1">₱1,500.00</div>
-            </div>
-            <div class="bg-black p-2 border border-red-500">
-              <div class="text-gray-400">EXPENSES</div>
-              <div class="text-red-400 text-xs mt-1">₱800.00</div>
-            </div>
-            <div class="bg-black p-2 border border-yellow-500">
-              <div class="text-gray-400">BALANCE</div>
-              <div class="text-yellow-400 text-xs mt-1">₱700.00</div>
-            </div>
+
+        <div class="sponsor-grid">
+
+
+          <div class="sponsor-card reveal">
+            Sangguniang Kabataan ng Narvacan 1
           </div>
+
+
+          <div class="sponsor-card reveal">
+            Anonymous from Bgry. Narvacan I
+          </div>
+
+
+          <div class="sponsor-card reveal">
+            Anonymous from PHS Alumnus
+          </div>
+
+          <div class="sponsor-card reveal">
+            Anonymous from Talavera, Nueva Ecija
+          </div>
+
+          <div class="sponsor-card reveal">
+            Sir Alejandro Muncal
+          </div>
+
+           <div class="sponsor-card reveal">
+            Tita Edith Snack Haus
+          </div>
+
+          <div class="sponsor-card reveal">
+            Anonymous from Bacayao
+          </div>
+
+          <div class="sponsor-card reveal">
+            SK Chairperson Emmanuel Sanggalang of Bacayao
+          </div>
+
 
         </div>
 
       </div>
+
     </section>
+
+
+  <!-- =======================================================
+     FUNDS
+     ======================================================= -->
+
+<section
+  class="section funds"
+  id="funds"
+>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <span class="section-label">
+        Transparency
+      </span>
+
+      <h2 class="section-title">
+        Funds
+      </h2>
+
+      <p class="section-description">
+        Financial records for ECOPEDIA activities, including
+        sponsor funds, prize expenses, and remaining balances.
+        Totals are calculated automatically from the monthly records.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         FINANCIAL SUMMARY
+         ===================================================== -->
+
+    <div class="financial-summary">
+
+      <div class="finance-card reveal">
+
+        <div class="finance-label">
+          Total Funds
+        </div>
+
+        <div
+          class="finance-value"
+          id="totalFund"
+        >
+          ₱0.00
+        </div>
+
+      </div>
+
+
+      <div class="finance-card reveal">
+
+        <div class="finance-label">
+          Total Expenses
+        </div>
+
+        <div
+          class="finance-value"
+          id="totalExpenses"
+        >
+          ₱0.00
+        </div>
+
+      </div>
+
+
+      <div class="finance-card reveal">
+
+        <div class="finance-label">
+          Remaining Balance
+        </div>
+
+        <div
+          class="finance-value"
+          id="remainingFunds"
+        >
+          ₱0.00
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FUNDS TABLE
+         ===================================================== -->
+
+    <div class="budget-table-wrap reveal">
+
+      <table class="budget-table">
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Month
+            </th>
+
+            <th>
+              Funds
+            </th>
+
+            <th>
+              Expenses
+            </th>
+
+            <th>
+              Remaining Balance
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="budgetBody"></tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
 
   </main>
 
-  <!-- =========================================================
-       PIXEL LIGHTBOX MODAL
-       ========================================================= -->
-  <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
-    <div class="pixel-box bg-gray-900 max-w-2xl w-full p-4 relative space-y-4">
-      <button onclick="closeLightbox()" class="absolute top-2 right-2 pixel-btn bg-red-600 text-white text-xs py-1 px-2">
-        X
-      </button>
-      <div class="border-2 border-white bg-black max-h-[60vh] overflow-hidden flex items-center justify-center">
-        <img id="lightboxImg" src="" class="max-h-full object-contain">
-      </div>
-      <p id="lightboxCaption" class="text-xs text-yellow-300 text-center"></p>
-    </div>
-  </div>
 
   <!-- =========================================================
        FOOTER
        ========================================================= -->
-  <footer class="bg-black text-white border-t-8 border-yellow-400 py-8 px-4 text-center text-[10px] space-y-4">
-    <div class="flex justify-center items-center gap-2">
-      <span class="pixel-coin"></span>
-      <span class="text-yellow-400">THANK YOU FOR PLAYING & PROTECTING OUR NATURE!</span>
-      <span class="pixel-coin"></span>
+
+  <footer>
+
+    <div class="container footer-inner">
+
+
+      <div>
+
+        <div class="footer-brand">
+
+          <img
+            class="footer-logo"
+            src="ylogo.png"
+            alt="Pacac High School YES-O official logo"
+          >
+
+
+          <div>
+
+            <div class="footer-title">
+              Youth for Environment in Schools Organization
+            </div>
+
+
+            <div class="footer-subtitle">
+              Pacac High School School Year 2026-2027
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <p class="footer-statement">
+          Para sa Kabataan. Para sa Kalikasan. Para sa Bayan. Lagi't Lagi
+        </p>
+
+      </div>
+
+
+      <div class="footer-bottom">
+        © 2026 Pacac High School YES-O. School Year 2026-2027.
+      </div>
+
+
     </div>
-    <p class="text-gray-400">
-      © 2026 PACAC HIGH SCHOOL YES-O. SUPER MARIO PIXEL EDITION.
-    </p>
+
   </footer>
 
+
   <!-- =========================================================
-       INTERACTIVE MARIO SCRIPT & LOGIC
+       GALLERY LIGHTBOX
        ========================================================= -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Gallery image viewer"
+  >
+
+    <div class="lightbox-content">
+
+
+      <button
+        class="lightbox-close"
+        id="lightboxClose"
+        type="button"
+        aria-label="Close image viewer"
+      >
+        x
+      </button>
+
+
+      <div class="lightbox-image">
+
+        <img
+          id="lightboxImg"
+          src=""
+          alt=""
+        >
+
+      </div>
+
+
+      <div
+        class="lightbox-caption"
+        id="lightboxCaption"
+      ></div>
+
+
+    </div>
+
+  </div>
+
+
   <script>
-    let coins = 0;
-    let score = 0;
 
-    function hitBlock(e) {
-      coins += 1;
-      score += 100;
-      
-      document.getElementById('coinCount').innerText = String(coins).padStart(2, '0');
-      document.getElementById('gameScore').innerText = String(score).padStart(6, '0');
-      
-      playRetroSound('coin');
-      spawnScore(e, "100");
+    /* =========================================================
+       MOBILE NAVIGATION
+       ========================================================= */
+
+    const navToggle = document.getElementById("navToggle");
+
+    const navMenu = document.getElementById("navMenu");
+
+    const navLinks = document.querySelectorAll(".nav-link");
+
+
+    function closeMenu() {
+
+      navMenu.classList.remove("open");
+
+      navToggle.classList.remove("active");
+
+      navToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      navToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+
+      document.body.classList.remove("menu-open");
     }
 
-    // Lightbox Controls
-    function openLightbox(imgSrc, caption) {
-      playRetroSound('powerup');
-      document.getElementById('lightboxImg').src = imgSrc;
-      document.getElementById('lightboxCaption').innerText = caption;
-      document.getElementById('lightbox').classList.remove('hidden');
-      document.getElementById('lightbox').classList.add('flex');
+
+    navToggle.addEventListener(
+      "click",
+      () => {
+
+        const isOpen =
+          navMenu.classList.toggle("open");
+
+
+        navToggle.classList.toggle(
+          "active",
+          isOpen
+        );
+
+
+        navToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+
+        navToggle.setAttribute(
+          "aria-label",
+          isOpen
+            ? "Close navigation menu"
+            : "Open navigation menu"
+        );
+
+
+        document.body.classList.toggle(
+          "menu-open",
+          isOpen
+        );
+
+      }
+    );
+
+
+    navLinks.forEach(
+      link => {
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+      }
+    );
+
+
+    /* =========================================================
+       ACTIVE NAVIGATION
+       ========================================================= */
+
+    const sections =
+      document.querySelectorAll(
+        "main section[id]"
+      );
+
+
+    const sectionObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+
+              navLinks.forEach(
+                link => {
+
+                  link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") ===
+                    "#" + entry.target.id
+                  );
+
+                }
+              );
+
+            }
+          );
+
+        },
+        {
+          rootMargin:
+            "-30% 0px -60% 0px",
+
+          threshold: 0
+        }
+      );
+
+
+    sections.forEach(
+      section => {
+        sectionObserver.observe(section);
+      }
+    );
+
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+
+    const revealObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (entry.isIntersecting) {
+
+                entry.target.classList.add(
+                  "visible"
+                );
+
+                revealObserver.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: 0.08
+        }
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(
+        element => {
+          revealObserver.observe(element);
+        }
+      );
+
+
+    /* =========================================================
+       MONTHLY WINNERS DATA
+       EDIT WINNERS HERE
+       ========================================================= */
+
+    const winnersData = {
+
+      "August 2026": [
+        {
+          name: "Cristopher Joaquin",
+          section: "11-Abueva"
+        },
+        {
+          name: "Geraldine Javier",
+          section: "10-Becquerel"
+        },
+        {
+          name: "Mark James Esteban",
+          section: "10-Becquerel"
+        },
+        {
+          name: "Jillian Gabuyo",
+          section: "8-Python"
+        }
+      ],
+
+
+      "September 2026": [
+    {
+          name: "Marvin Paraiso",
+          section: "10-Becquerel"
+        },
+        {
+          name: "Lyra Rose Matamis",
+          section: "7-Cybernauts"
+        },
+        {
+          name: "John Michael Barrientos",
+          section: "10-Becquerel"
+        },
+        {
+          name: "Rhiann Velasquez",
+          section: "10-AI"
+        },
+        {
+          name: "Mark James Esteban",
+          section: "10-Becquerel"
     }
+      ],
+      
+
+      "October 2026": [],
+
+
+      "November 2026": [],
+
+
+      "December 2026": [],
+
+
+      "January 2027": [],
+
+
+      "February 2027": [],
+
+
+      "March 2027": []
+
+    };
+
+
+    const winnerMonthGrid =
+      document.getElementById(
+        "winnerMonthGrid"
+      );
+
+
+    const winnerDisplay =
+      document.getElementById(
+        "winnerDisplay"
+      );
+
+
+    let activeWinnerMonth =
+      Object.keys(winnersData)[0];
+
+
+    function renderWinnerMonths() {
+
+      winnerMonthGrid.innerHTML = "";
+
+
+      Object.keys(winnersData).forEach(
+        (month, index) => {
+
+          const button =
+            document.createElement("button");
+
+
+          button.type = "button";
+
+          button.className =
+            "winner-month";
+
+
+          if (month === activeWinnerMonth) {
+
+            button.classList.add(
+              "active"
+            );
+
+          }
+
+
+          const winners =
+            winnersData[month];
+
+
+          button.innerHTML = `
+
+            <span class="winner-month-number">
+              Month ${index + 1}
+            </span>
+
+            <span class="winner-month-name">
+              ${month}
+            </span>
+
+            <span class="winner-month-count">
+              ${winners.length}
+              ${winners.length === 1
+                ? "winner"
+                : "winners"}
+              listed
+            </span>
+
+          `;
+
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              activeWinnerMonth =
+                month;
+
+              renderWinnerMonths();
+
+              renderWinnerDisplay();
+
+            }
+          );
+
+
+          winnerMonthGrid.appendChild(
+            button
+          );
+
+        }
+      );
+
+    }
+
+
+    function renderWinnerDisplay() {
+
+      const winners =
+        winnersData[
+          activeWinnerMonth
+        ] || [];
+
+
+      if (winners.length === 0) {
+
+        winnerDisplay.innerHTML = `
+
+          <div class="winner-display-header">
+
+            <div>
+
+              <div class="winner-display-title">
+                ${activeWinnerMonth}
+              </div>
+
+              <div class="winner-display-subtitle">
+                ECOPEDIA Monthly Raffle
+              </div>
+
+            </div>
+
+            <span class="winner-badge">
+              Pending
+            </span>
+
+          </div>
+
+
+          <ul class="winner-list">
+
+            <li class="winner-item">
+
+              <div class="winner-rank">
+                —
+              </div>
+
+              <div>
+
+                <div class="winner-name">
+                  Winners will be announced soon.
+                </div>
+
+                <div class="winner-section">
+                  ECOPEDIA raffle records
+                </div>
+
+              </div>
+
+            </li>
+
+          </ul>
+
+        `;
+
+        return;
+      }
+
+
+      winnerDisplay.innerHTML = `
+
+        <div class="winner-display-header">
+
+          <div>
+
+            <div class="winner-display-title">
+              ${activeWinnerMonth}
+            </div>
+
+            <div class="winner-display-subtitle">
+              ECOPEDIA Monthly Raffle Winners
+            </div>
+
+          </div>
+
+
+          <span class="winner-badge">
+            ${winners.length}
+            ${winners.length === 1
+              ? "Winner"
+              : "Winners"}
+          </span>
+
+        </div>
+
+
+        <ul class="winner-list">
+
+          ${winners
+            .map(
+              (winner, index) => `
+
+                <li class="winner-item">
+
+                  <div class="winner-rank">
+                    ${index + 1}
+                  </div>
+
+                  <div>
+
+                    <div class="winner-name">
+                      ${winner.name}
+                    </div>
+
+                    <div class="winner-section">
+                      ${winner.section}
+                    </div>
+
+                  </div>
+
+                </li>
+
+              `
+            )
+            .join("")}
+
+        </ul>
+
+      `;
+
+    }
+
+
+    renderWinnerMonths();
+
+    renderWinnerDisplay();
+
+
+    /* =========================================================
+       ECOPEDIA DATA
+       EDIT TOPICS HERE
+       ========================================================= */
+
+    const ecopediaData = {
+
+      "August 2026": {
+
+        theme: "Philippine Wildlife",
+
+        topics: [
+
+          {
+            title: "Tamaraw",
+
+            image: "EW1.png",
+
+            description:
+              "The tamaraw is a small wild buffalo found only in the Philippines. Protecting its habitat helps preserve one of the country's native mammals."
+          },
+
+
+          {
+            title:
+              "Giant Golden-Crowned Flying Fox",
+
+            image: "EW2.png",
+
+            description:
+              "The giant golden-crowned flying fox is an important seed disperser. Forest protection supports both the species and the plants connected to its habitat."
+          },
+
+
+          {
+            title:
+              "Philippine Tarsier",
+
+            image: "EW3.png",
+
+            description:
+              "The Philippine tarsier is a small primate native to the Philippines. Forest conservation helps protect the natural habitat it needs."
+          },
+
+
+          {
+            title:
+              "Philippine Pangolin",
+
+            image: "EW4.png",
+
+            description:
+              "The Philippine pangolin is a threatened native mammal. Protecting forests and stopping wildlife exploitation are important conservation actions."
+          }
+
+        ]
+
+      },
+
+
+      "September 2026": {
+
+        theme:
+          "Native Flora of the Philippines",
+
+        topics: [
+
+          {
+            title: "Kamagong",
+
+            image: "EW5.png",
+
+            description:
+              "Kamagong is a native Philippine tree known for its strong wood. Protecting native trees supports biodiversity and healthy ecosystems."
+          }
+
+        ]
+
+      }
+
+    };
+
+
+    /* =========================================================
+       ECOPEDIA RENDERING
+       ========================================================= */
+
+    const monthSelector =
+      document.getElementById(
+        "monthSelector"
+      );
+
+
+    const ecopediaContent =
+      document.getElementById(
+        "ecopediaContent"
+      );
+
+
+    let activeMonth =
+      Object.keys(
+        ecopediaData
+      )[0];
+
+
+    function renderMonthButtons() {
+
+      if (!monthSelector) return;
+
+      monthSelector.innerHTML = "";
+
+
+      Object.keys(
+        ecopediaData
+      ).forEach(
+        month => {
+
+          const button =
+            document.createElement(
+              "button"
+            );
+
+
+          button.type = "button";
+
+          button.className =
+            "month-btn";
+
+
+          button.textContent =
+            month
+              .replace(" 2026", "")
+              .replace(" 2027", "");
+
+
+          button.setAttribute(
+            "role",
+            "tab"
+          );
+
+
+          button.setAttribute(
+            "aria-selected",
+            String(
+              month === activeMonth
+            )
+          );
+
+
+          if (
+            month === activeMonth
+          ) {
+
+            button.classList.add(
+              "active"
+            );
+
+          }
+
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              activeMonth =
+                month;
+
+              renderMonthButtons();
+
+              renderEcopedia();
+
+            }
+          );
+
+
+          monthSelector.appendChild(
+            button
+          );
+
+        }
+      );
+
+    }
+
+
+    function renderEcopedia() {
+
+      if (!ecopediaContent) return;
+
+      const month =
+        ecopediaData[
+          activeMonth
+        ];
+
+
+      if (!month) {
+        return;
+      }
+
+
+      ecopediaContent.innerHTML = `
+
+        <div class="month-header">
+
+          <div>
+
+            <div class="month-name">
+              ${activeMonth}
+            </div>
+
+          </div>
+
+
+          <div class="month-theme">
+            ${month.theme}
+          </div>
+
+        </div>
+
+
+        <div class="ecopedia-grid">
+
+          ${month.topics
+            .map(
+              (topic, index) => `
+
+                <article
+                  class="eco-card"
+                  style="
+                    animation-delay:
+                    ${index * 45}ms
+                  "
+                >
+
+                  <div class="eco-image">
+
+                    <img
+                      src="${topic.image}"
+                      alt="${topic.title}"
+                      loading="lazy"
+                    >
+
+                  </div>
+
+
+                  <div class="eco-content">
+
+                    <h3>
+                      ${topic.title}
+                    </h3>
+
+
+                    <p>
+                      ${topic.description}
+                    </p>
+
+                  </div>
+
+                </article>
+
+              `
+            )
+            .join("")}
+
+        </div>
+
+      `;
+
+    }
+
+
+    renderMonthButtons();
+
+    renderEcopedia();
+
+
+ /* =========================================================
+   FUNDS DATA
+   =========================================================
+   
+   funds:
+   Bagong sponsor money na natanggap sa buwan.
+
+   expenses:
+   Gastos sa buwan.
+
+   SYSTEM:
+   Overall Funds = lahat ng sponsor funds
+
+   Remaining Balance =
+   Overall Funds - lahat ng expenses hanggang sa kasalukuyan
+   ========================================================= */
+
+const fundsData = [
+
+  {
+    month: "August 2026",
+    funds: 2600,
+    expenses: 493
+  },
+
+  {
+    month: "September 2026",
+    funds: 0,
+    expenses: 0
+  },
+
+  {
+    month: "October 2026",
+    funds: 0,
+    expenses: 515
+  },
+
+  {
+    month: "November 2026",
+    funds: 0,
+    expenses: 0
+  },
+
+  {
+    month: "December 2026",
+    funds: 0,
+    expenses: 0
+  },
+
+  {
+    month: "January 2027",
+    funds: 0,
+    expenses: 0
+  },
+
+  {
+    month: "February 2027",
+    funds: 0,
+    expenses: 0
+  },
+
+  {
+    month: "March 2027",
+    funds: 0,
+    expenses: 0
+  }
+
+];
+
+
+/* =========================================================
+   PESO FORMATTER
+   ========================================================= */
+
+const pesoFormatter = new Intl.NumberFormat(
+  "en-PH",
+  {
+    style: "currency",
+    currency: "PHP",
+    minimumFractionDigits: 2
+  }
+);
+
+
+/* =========================================================
+   CALCULATE FUNDS
+   ========================================================= */
+
+function calculateFunds() {
+
+  const budgetBody =
+    document.getElementById("budgetBody");
+
+  const totalFundElement =
+    document.getElementById("totalFund");
+
+  const totalExpensesElement =
+    document.getElementById("totalExpenses");
+
+  const remainingFundsElement =
+    document.getElementById("remainingFunds");
+
+
+  if (
+    !budgetBody ||
+    !totalFundElement ||
+    !totalExpensesElement ||
+    !remainingFundsElement
+  ) {
+    return;
+  }
+
+
+  /* Clear old table */
+
+  budgetBody.innerHTML = "";
+
+
+  /* =======================================================
+     VARIABLES
+     ======================================================= */
+
+  let overallFunds = 0;
+
+  let totalExpenses = 0;
+
+  let remainingBalance = 0;
+
+
+  /* =======================================================
+     PROCESS EACH MONTH
+     ======================================================= */
+
+  fundsData.forEach(row => {
+
+    const newFunds =
+      Number(row.funds) || 0;
+
+    const monthlyExpenses =
+      Number(row.expenses) || 0;
+
+
+    /* -------------------------------------------------------
+       ADD NEW SPONSOR FUNDS
+       ------------------------------------------------------- */
+
+    overallFunds += newFunds;
+
+
+    /* -------------------------------------------------------
+       ADD MONTHLY EXPENSES
+       ------------------------------------------------------- */
+
+    totalExpenses += monthlyExpenses;
+
+
+    /* -------------------------------------------------------
+       CALCULATE REMAINING BALANCE
+       
+       Overall Funds
+       minus
+       ALL expenses so far
+       ------------------------------------------------------- */
+
+    remainingBalance =
+      overallFunds -
+      totalExpenses;
+
+
+    /* -------------------------------------------------------
+       FUNDS AVAILABLE FOR THIS MONTH
+       
+       This shows the current amount available after
+       previous expenses.
+       ------------------------------------------------------- */
+
+    const fundsAvailable =
+      remainingBalance +
+      monthlyExpenses;
+
+
+    /* -------------------------------------------------------
+       CREATE TABLE ROW
+       ------------------------------------------------------- */
+
+    const tableRow =
+      document.createElement("tr");
+
+
+    tableRow.innerHTML = `
+
+      <td>
+        ${row.month}
+      </td>
+
+      <td>
+        ${pesoFormatter.format(
+          fundsAvailable
+        )}
+      </td>
+
+      <td>
+        ${pesoFormatter.format(
+          monthlyExpenses
+        )}
+      </td>
+
+      <td>
+        ${pesoFormatter.format(
+          remainingBalance
+        )}
+      </td>
+
+    `;
+
+
+    budgetBody.appendChild(tableRow);
+
+  });
+
+
+  /* =======================================================
+     UPDATE SUMMARY CARDS
+     ======================================================= */
+
+  totalFundElement.textContent =
+    pesoFormatter.format(
+      overallFunds
+    );
+
+
+  totalExpensesElement.textContent =
+    pesoFormatter.format(
+      totalExpenses
+    );
+
+
+  remainingFundsElement.textContent =
+    pesoFormatter.format(
+      remainingBalance
+    );
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+calculateFunds();
+
+    /* =========================================================
+       GALLERY LIGHTBOX
+       ========================================================= */
+
+    const lightbox =
+      document.getElementById(
+        "lightbox"
+      );
+
+
+    const lightboxImg =
+      document.getElementById(
+        "lightboxImg"
+      );
+
+
+    const lightboxCaption =
+      document.getElementById(
+        "lightboxCaption"
+      );
+
+
+    const lightboxClose =
+      document.getElementById(
+        "lightboxClose"
+      );
+
+
+    let lastFocusedGalleryItem =
+      null;
+
+
+    function openLightbox(card) {
+
+      const image =
+        card.dataset.image;
+
+
+      const title =
+        card.dataset.title;
+
+
+      if (!image) {
+        return;
+      }
+
+
+      lastFocusedGalleryItem =
+        card;
+
+
+      lightboxImg.src =
+        image;
+
+
+      lightboxImg.alt =
+        title;
+
+
+      lightboxCaption.textContent =
+        title;
+
+
+      lightbox.classList.add(
+        "open"
+      );
+
+
+      document.body.classList.add(
+        "menu-open"
+      );
+
+
+      lightboxClose.focus();
+
+    }
+
 
     function closeLightbox() {
-      playRetroSound('jump');
-      document.getElementById('lightbox').classList.add('hidden');
-      document.getElementById('lightbox').classList.remove('flex');
+
+      lightbox.classList.remove(
+        "open"
+      );
+
+
+      document.body.classList.remove(
+        "menu-open"
+      );
+
+
+      lightboxImg.src = "";
+
+      lightboxImg.alt = "";
+
+
+      if (
+        lastFocusedGalleryItem
+      ) {
+
+        lastFocusedGalleryItem.focus();
+
+      }
+
     }
 
-    // Mobile Menu Toggle
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
 
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('hidden');
-      navMenu.classList.toggle('flex');
-    });
+    document
+      .querySelectorAll(
+        ".gallery-card"
+      )
+      .forEach(
+        card => {
+
+          card.addEventListener(
+            "click",
+            () => {
+              openLightbox(card);
+            }
+          );
+
+
+          card.addEventListener(
+            "keydown",
+            event => {
+
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+
+                event.preventDefault();
+
+                openLightbox(card);
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+    lightboxClose.addEventListener(
+      "click",
+      closeLightbox
+    );
+
+
+    lightbox.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === lightbox
+        ) {
+
+          closeLightbox();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          if (
+            lightbox.classList.contains(
+              "open"
+            )
+          ) {
+
+            closeLightbox();
+
+          }
+
+          else if (
+            navMenu.classList.contains(
+              "open"
+            )
+          ) {
+
+            closeMenu();
+
+          }
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       CLOSE MOBILE MENU ON DESKTOP
+       ========================================================= */
+
+    window.addEventListener(
+      "resize",
+      () => {
+
+        if (
+          window.innerWidth >= 800
+        ) {
+
+          closeMenu();
+
+        }
+
+      }
+    );
+
   </script>
 
 </body>
